@@ -110,7 +110,7 @@ export default function Categories() {
   };
 
   const renderCategoryIcon = (category: Category) => {
-    if (category.iconSvg) {
+    if (category?.iconSvg) {
       return (
         <div 
           className="w-8 h-8"
@@ -119,7 +119,7 @@ export default function Categories() {
       );
     }
     
-    const DefaultIcon = getIconForCategory(category.value);
+    const DefaultIcon = getIconForCategory(category?.value || 'other');
     return <DefaultIcon className="w-8 h-8" />;
   };
 
@@ -165,7 +165,7 @@ export default function Categories() {
           <div className="space-y-4">
             <h2 className="text-lg font-semibold">Existing Categories</h2>
             
-            {categories.map((category) => (
+            {categories.filter(category => category && category.value).map((category) => (
               <Card key={category.id || category.value}>
                 <CardContent className="p-4">
                   {editingCategory?.id === category.id ? (
