@@ -145,13 +145,6 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-8">
-      {/* Case Header */}
-      <div className="text-center">
-        <div className="text-sm text-gray-500">
-          {layout.description}
-        </div>
-      </div>
-
       {/* Top Layer */}
       {renderLayer(topCompartments, "Top Layer")}
 
