@@ -70,8 +70,16 @@ export default function Dashboard() {
       const componentsResponse = await fetch('/api/components');
       const allComponents = await componentsResponse.json();
       
+      // Get all cases with their compartments for proper import mapping
+      const casesWithCompartments = [];
+      for (const case_ of allCases) {
+        const caseResponse = await fetch(`/api/cases/${case_.id}`);
+        const caseWithCompartments = await caseResponse.json();
+        casesWithCompartments.push(caseWithCompartments);
+      }
+      
       const exportData = {
-        cases: allCases,
+        cases: casesWithCompartments,
         components: allComponents,
         exportDate: new Date().toISOString(),
         version: "1.0"
@@ -180,16 +188,20 @@ export default function Dashboard() {
               const compartmentsResponse = await fetch(`/api/cases/${newCase.id}`);
               const caseWithCompartments = await compartmentsResponse.json();
               
-              // Map old compartment IDs to new ones based on position
-              caseWithCompartments.compartments.forEach(newComp => {
-                const originalCompartment = data.compartments?.find(oldComp => 
-                  oldComp.caseId === caseData.id && 
-                  oldComp.position === newComp.position &&
-                  oldComp.layer === newComp.layer
+              // Map old compartment IDs to new ones based on position and layer
+              console.log(`Processing case ${caseData.name} (old ID: ${caseData.id}, new ID: ${newCase.id})`);
+              console.log(`- Old compartments: ${caseData.compartments?.length || 0}`);
+              console.log(`- New compartments: ${caseWithCompartments.compartments.length}`);
+              
+              caseWithCompartments.compartments.forEach((newComp: any) => {
+                // Find the matching old compartment by position and layer
+                const oldCompartment = caseData.compartments?.find((oldComp: any) => 
+                  oldComp.position === newComp.position && oldComp.layer === newComp.layer
                 );
                 
-                if (originalCompartment) {
-                  compartmentIdMapping.set(originalCompartment.id, newComp.id);
+                if (oldCompartment) {
+                  compartmentIdMapping.set(oldCompartment.id, newComp.id);
+                  console.log(`Mapped: ${oldCompartment.id} -> ${newComp.id} (${newComp.position}/${newComp.layer})`);
                 }
               });
             }
@@ -214,14 +226,13 @@ export default function Dashboard() {
               const caseWithCompartments = await compartmentsResponse.json();
               
               caseWithCompartments.compartments.forEach((newComp: any) => {
-                const originalCompartment = data.compartments?.find((oldComp: any) => 
-                  oldComp.caseId === caseData.id && 
-                  oldComp.position === newComp.position &&
-                  oldComp.layer === newComp.layer
+                // Find the matching old compartment by position and layer
+                const oldCompartment = caseData.compartments?.find((oldComp: any) => 
+                  oldComp.position === newComp.position && oldComp.layer === newComp.layer
                 );
                 
-                if (originalCompartment) {
-                  compartmentIdMapping.set(originalCompartment.id, newComp.id);
+                if (oldCompartment) {
+                  compartmentIdMapping.set(oldCompartment.id, newComp.id);
                 }
               });
             }
