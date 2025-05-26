@@ -9,7 +9,7 @@ import type { Component, CaseWithCompartments } from "@shared/schema";
 
 export default function SearchResults() {
   const [location] = useLocation();
-  const searchParams = new URLSearchParams(location.split('?')[1] || '');
+  const searchParams = new URLSearchParams(window.location.search);
   const query = searchParams.get('q') || '';
   const [viewMode, setViewMode] = useState<'thumbnail' | 'list'>('thumbnail');
 
