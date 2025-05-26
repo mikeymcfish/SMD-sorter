@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -7,10 +7,10 @@ import Sidebar from "@/components/sidebar";
 import CaseGrid from "@/components/case-grid";
 import EditComponentDialog from "@/components/edit-component-dialog";
 import AddCaseDialog from "@/components/add-case-dialog";
-import type { CaseWithCompartments, Component, Compartment } from "@shared/schema";
+import type { CaseWithCompartments, Component, Compartment, Case } from "@shared/schema";
 
 export default function Dashboard() {
-  const [selectedCaseId, setSelectedCaseId] = useState<number>(1);
+  const [selectedCaseId, setSelectedCaseId] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [editingComponent, setEditingComponent] = useState<{
     component?: Component;
@@ -19,9 +19,16 @@ export default function Dashboard() {
   const [showAddCase, setShowAddCase] = useState(false);
 
   // Fetch all cases
-  const { data: cases = [] } = useQuery({
+  const { data: cases = [] } = useQuery<Case[]>({
     queryKey: ["/api/cases"],
   });
+
+  // Auto-select first case if none selected
+  useEffect(() => {
+    if (cases.length > 0 && selectedCaseId === null) {
+      setSelectedCaseId(cases[0].id);
+    }
+  }, [cases, selectedCaseId]);
 
   // Fetch selected case with compartments
   const { data: selectedCase, isLoading } = useQuery<CaseWithCompartments>({
