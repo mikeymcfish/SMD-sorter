@@ -134,6 +134,8 @@ export class MemStorage implements IStorage {
   }
 
   private createCompartmentsForCase(case_: Case) {
+    console.log(`Starting compartment creation for case: ${case_.name} with model: ${case_.model}`);
+    
     const layouts: Record<string, { rows: number; cols: number }> = {
       "BOX-ALL-144": { rows: 6, cols: 12 },
       "BOX-ALL-96": { rows: 6, cols: 12 },
@@ -181,7 +183,6 @@ export class MemStorage implements IStorage {
     }
     
     console.log(`Created ${Array.from(this.compartments.values()).filter(c => c.caseId === case_.id).length} compartments for case ${case_.name}`);
-    }
   }
 
   async updateCase(id: number, updates: Partial<InsertCase>): Promise<Case | undefined> {

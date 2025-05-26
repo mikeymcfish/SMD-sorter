@@ -185,7 +185,10 @@ export default function Dashboard() {
           }
         }
         
-        // Import components
+        // Import components - but need to wait to get the new case IDs first
+        // Wait a moment for cases to be created, then get fresh case list
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         for (const componentData of data.components) {
           await fetch('/api/components', {
             method: 'POST',
