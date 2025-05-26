@@ -3,7 +3,21 @@ import express from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertCaseSchema, insertComponentSchema } from "@shared/schema";
-import { COMPONENT_CATEGORIES } from "../client/src/lib/constants";
+// Import constants directly since we can't import from client
+const COMPONENT_CATEGORIES = [
+  { value: "resistor", label: "Resistor", color: "#FF6B6B" },
+  { value: "capacitor", label: "Capacitor", color: "#4ECDC4" },
+  { value: "inductor", label: "Inductor", color: "#45B7D1" },
+  { value: "transistor", label: "Transistor", color: "#96CEB4" },
+  { value: "diode", label: "Diode", color: "#FFEAA7" },
+  { value: "ic", label: "IC", color: "#DDA0DD" },
+  { value: "crystal", label: "Crystal", color: "#98D8C8" },
+  { value: "connector", label: "Connector", color: "#A8E6CF" },
+  { value: "switch", label: "Switch", color: "#FFB3BA" },
+  { value: "led", label: "LED", color: "#FFDFBA" },
+  { value: "sensor", label: "Sensor", color: "#BAFFC9" },
+  { value: "other", label: "Other", color: "#D3D3D3" }
+];
 import multer from "multer";
 import path from "path";
 import fs from "fs";

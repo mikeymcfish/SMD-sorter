@@ -175,8 +175,8 @@ export default function Categories() {
                           <Label htmlFor="edit-value">Value</Label>
                           <Input
                             id="edit-value"
-                            value={editingCategory.value}
-                            onChange={(e) => setEditingCategory({
+                            value={editingCategory?.value || ''}
+                            onChange={(e) => editingCategory && setEditingCategory({
                               ...editingCategory,
                               value: e.target.value
                             })}
@@ -186,8 +186,8 @@ export default function Categories() {
                           <Label htmlFor="edit-label">Label</Label>
                           <Input
                             id="edit-label"
-                            value={editingCategory.label}
-                            onChange={(e) => setEditingCategory({
+                            value={editingCategory?.label || ''}
+                            onChange={(e) => editingCategory && setEditingCategory({
                               ...editingCategory,
                               label: e.target.value
                             })}
@@ -201,8 +201,8 @@ export default function Categories() {
                           <Input
                             id="edit-color"
                             type="color"
-                            value={editingCategory.color}
-                            onChange={(e) => setEditingCategory({
+                            value={editingCategory?.color || '#6B7280'}
+                            onChange={(e) => editingCategory && setEditingCategory({
                               ...editingCategory,
                               color: e.target.value
                             })}
