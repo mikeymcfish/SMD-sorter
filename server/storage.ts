@@ -63,19 +63,21 @@ export class MemStorage implements IStorage {
     };
     this.cases.set(defaultCase.id, defaultCase);
 
-    // Create compartments for BOX-ALL-144 (6 rows × 12 columns)
-    for (let row = 1; row <= 6; row++) {
-      for (let col = 1; col <= 12; col++) {
-        const position = String.fromCharCode(64 + row) + col; // A1, A2, B1, etc.
-        const compartment: Compartment = {
-          id: this.compartmentIdCounter++,
-          caseId: defaultCase.id,
-          position,
-          row,
-          col,
-          layer: "top",
-        };
-        this.compartments.set(compartment.id, compartment);
+    // Create compartments for default case (4 rows × 6 columns, both layers)
+    for (const layer of ["top", "bottom"]) {
+      for (let row = 1; row <= 4; row++) {
+        for (let col = 1; col <= 6; col++) {
+          const position = String.fromCharCode(64 + row) + col; // A1, A2, B1, etc.
+          const compartment: Compartment = {
+            id: this.compartmentIdCounter++,
+            caseId: defaultCase.id,
+            position,
+            row,
+            col,
+            layer,
+          };
+          this.compartments.set(compartment.id, compartment);
+        }
       }
     }
   }
@@ -135,18 +137,22 @@ export class MemStorage implements IStorage {
   }
 
   private createCompartmentsForCase(case_: Case) {
-    const layouts: Record<string, { rows: number; cols: number }> = {
-      "BOX-ALL-144": { rows: 6, cols: 12 },
-      "BOX-ALL-96": { rows: 6, cols: 12 }, // Mixed layout but same grid
-      "BOX-ALL-48": { rows: 4, cols: 6 },
-      "BOX-ALL-24": { rows: 2, cols: 6 },
+    // Determine dimensions based on layout types
+    const getLayoutDimensions = (layoutType: string) => {
+      switch (layoutType) {
+        case "large": return { rows: 6, cols: 12 };
+        case "uniform":
+        case "mixed":
+        default: return { rows: 4, cols: 6 };
+      }
     };
 
-    const layout = layouts[case_.model];
-    if (!layout) return;
+    const topDims = getLayoutDimensions(case_.topLayoutType);
+    const bottomDims = getLayoutDimensions(case_.bottomLayoutType);
 
-    for (let row = 1; row <= layout.rows; row++) {
-      for (let col = 1; col <= layout.cols; col++) {
+    // Create top layer compartments
+    for (let row = 1; row <= topDims.rows; row++) {
+      for (let col = 1; col <= topDims.cols; col++) {
         const position = String.fromCharCode(64 + row) + col;
         const compartment: Compartment = {
           id: this.compartmentIdCounter++,
@@ -155,6 +161,22 @@ export class MemStorage implements IStorage {
           row,
           col,
           layer: "top",
+        };
+        this.compartments.set(compartment.id, compartment);
+      }
+    }
+
+    // Create bottom layer compartments
+    for (let row = 1; row <= bottomDims.rows; row++) {
+      for (let col = 1; col <= bottomDims.cols; col++) {
+        const position = String.fromCharCode(64 + row) + col;
+        const compartment: Compartment = {
+          id: this.compartmentIdCounter++,
+          caseId: case_.id,
+          position,
+          row,
+          col,
+          layer: "bottom",
         };
         this.compartments.set(compartment.id, compartment);
       }

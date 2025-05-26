@@ -37,10 +37,17 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
   const topCompartments = case_.compartments.filter(comp => comp.layer === "top");
   const bottomCompartments = case_.compartments.filter(comp => comp.layer === "bottom");
   
-  const rows = 4;
-  const cols = 6;
+  const getLayoutDimensions = (layoutType: string) => {
+    switch (layoutType) {
+      case "large": return { rows: 6, cols: 12 };
+      case "uniform":
+      case "mixed":
+      default: return { rows: 4, cols: 6 };
+    }
+  };
 
   const renderLayer = (compartments: any[], layerName: string, layoutType: string) => {
+    const { rows, cols } = getLayoutDimensions(layoutType);
     // Filter compartments based on search query
     const searchFilteredCompartments = searchQuery
       ? compartments.filter(comp => {
