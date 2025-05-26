@@ -46,7 +46,7 @@ export default function Dashboard() {
   // Search components
   const { data: searchResults = [] } = useQuery<Component[]>({
     queryKey: ["/api/components/search", { q: searchQuery }],
-    enabled: searchQuery.length > 0,
+    enabled: searchQuery.length > 2,
   });
 
   const handleCompartmentClick = (compartment: Compartment, component?: Component) => {
@@ -58,6 +58,33 @@ export default function Dashboard() {
     console.log('Current selectedCase:', selectedCase);
     console.log('IsLoading:', isLoading);
     setSelectedCaseId(caseId);
+  };
+
+  const exportData = async () => {
+    try {
+      const response = await fetch('/api/cases');
+      const allCases = await response.json();
+      
+      const componentsResponse = await fetch('/api/components');
+      const allComponents = await response.json();
+      
+      const exportData = {
+        cases: allCases,
+        components: allComponents,
+        exportDate: new Date().toISOString(),
+        version: "1.0"
+      };
+      
+      const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `smd-components-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Export failed:', error);
+    }
   };
 
   const getStockStatus = (quantity: number, minQuantity: number = 5) => {
@@ -145,7 +172,7 @@ export default function Dashboard() {
               <Button variant="ghost" size="sm">
                 <Filter className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" onClick={exportData}>
                 <Download className="h-4 w-4" />
               </Button>
             </div>

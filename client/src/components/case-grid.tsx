@@ -13,26 +13,30 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
   const [activeLayer, setActiveLayer] = useState<"top" | "bottom">("top");
 
   const getCaseLayout = (model: string) => {
-    const layouts: Record<string, { rows: number; cols: number; description: string }> = {
+    const layouts: Record<string, { rows: number; cols: number; description: string; totalCompartments: number }> = {
       "BOX-ALL-144": { 
         rows: 6, 
         cols: 12, 
-        description: "8.7\" × 5.7\" × 1.5\" | 144 Compartments | 12×6 Grid (Top & Bottom)"
+        description: "8.7\" × 5.7\" × 1.5\" | 144 Compartments | 6×12 Grid",
+        totalCompartments: 72 // per layer
       },
       "BOX-ALL-96": { 
         rows: 6, 
         cols: 12, 
-        description: "8.7\" × 5.7\" × 1.5\" | 96 Compartments | Mixed layout"
+        description: "8.7\" × 5.7\" × 1.5\" | 96 Compartments | Mixed layout",
+        totalCompartments: 72 // simplified to same grid
       },
       "BOX-ALL-48": { 
         rows: 4, 
         cols: 6, 
-        description: "8.7\" × 5.7\" × 1.5\" | 48 Compartments | 6×4 Grid"
+        description: "8.7\" × 5.7\" × 1.5\" | 48 Compartments | 4×6 Grid",
+        totalCompartments: 24 // per layer
       },
       "BOX-ALL-24": { 
         rows: 2, 
         cols: 6, 
-        description: "9\" × 6\" × 2.5\" | 24 Compartments | Mixed sizes"
+        description: "9\" × 6\" × 2.5\" | 24 Compartments | 2×6 Grid",
+        totalCompartments: 12 // per layer
       },
     };
     return layouts[model] || layouts["BOX-ALL-144"];
