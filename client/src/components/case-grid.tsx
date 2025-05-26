@@ -44,7 +44,16 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
   const topCompartments = case_.compartments.filter(comp => comp.layer === "top");
   const bottomCompartments = case_.compartments.filter(comp => comp.layer === "bottom");
 
-  const renderLayer = (compartments: any[], layerName: string, aspectRatio: string = "square") => {
+  const renderLayer = (compartments: any[], layerName: string) => {
+    // Determine grid dimensions based on layout and layer
+    let gridRows = layout.rows;
+    let gridCols = layout.cols;
+    
+    if (layout.isMixed && layerName === "Bottom Layer") {
+      // For mixed layout, bottom layer is 12x6
+      gridRows = 6;
+      gridCols = 12;
+    }
     // Filter compartments based on search query
     const searchFilteredCompartments = searchQuery
       ? compartments.filter(comp => {
@@ -75,11 +84,11 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
         <div 
           className={`grid gap-1 max-w-4xl mx-auto`}
           style={{ 
-            gridTemplateColumns: `repeat(${layout.cols}, minmax(0, 1fr))` 
+            gridTemplateColumns: `repeat(${gridCols}, minmax(0, 1fr))` 
           }}
         >
-          {Array.from({ length: layout.rows }, (_, rowIndex) =>
-            Array.from({ length: layout.cols }, (_, colIndex) => {
+          {Array.from({ length: gridRows }, (_, rowIndex) =>
+            Array.from({ length: gridCols }, (_, colIndex) => {
               const position = String.fromCharCode(65 + rowIndex) + (colIndex + 1);
               const compartment = searchQuery 
                 ? searchFilteredCompartments.find(c => c.position === position)
@@ -95,14 +104,15 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
               } else if (layout.isMixed) {
                 // 6x4 Top + 12x6 Bottom - mixed based on layer
                 if (layerName === "Top Layer") {
-                  // Top layer: first 2 rows long, last 2 rows tall
+                  // Top layer (6x4): first 2 rows long, last 2 rows tall
                   if (rowIndex < 2) {
                     cellClass = "aspect-[2/1]"; // Long rectangles for first 2 rows
                   } else {
                     cellClass = "aspect-[1/2]"; // Tall rectangles for last 2 rows
                   }
                 } else {
-                  cellClass = "aspect-square"; // Squares for bottom layer
+                  // Bottom layer (12x6): all squares
+                  cellClass = "aspect-square";
                 }
               } else {
                 // 12x6 Both Layers - all squares
