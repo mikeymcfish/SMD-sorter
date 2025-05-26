@@ -107,17 +107,24 @@ export default function Dashboard() {
         
         // Import cases and components
         for (const caseData of data.cases) {
-          if (!caseData.id) { // Only import new cases
-            await fetch('/api/cases', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                name: caseData.name,
-                model: caseData.model,
-                description: caseData.description
-              })
-            });
-          }
+          const response = await fetch('/api/cases', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              name: `${caseData.name} (imported)`,
+              model: caseData.model,
+              description: caseData.description
+            })
+          });
+        }
+        
+        // Import components
+        for (const componentData of data.components) {
+          await fetch('/api/components', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(componentData)
+          });
         }
         
         alert('Import completed successfully!');
