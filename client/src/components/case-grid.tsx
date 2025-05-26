@@ -54,6 +54,8 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
       gridRows = 6;
       gridCols = 12;
     }
+    
+    console.log(`Rendering ${layerName} with ${compartments.length} compartments for case ${case_.name}`);
     // Filter compartments based on search query
     const searchFilteredCompartments = searchQuery
       ? compartments.filter(comp => {

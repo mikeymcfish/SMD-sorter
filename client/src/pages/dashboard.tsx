@@ -143,9 +143,20 @@ export default function Dashboard() {
         );
         
         if (shouldOverwrite) {
-          // Clear existing data (keeping the default case if it exists)
-          const response = await fetch('/api/cases');
-          const existingCases = await response.json();
+          // Clear existing data first
+          const componentsResponse = await fetch('/api/components');
+          const existingComponents = await componentsResponse.json();
+          for (const component of existingComponents) {
+            await fetch(`/api/components/${component.id}`, { method: 'DELETE' });
+          }
+          
+          const casesResponse = await fetch('/api/cases');
+          const existingCases = await casesResponse.json();
+          for (const case_ of existingCases) {
+            if (case_.id !== 1) { // Keep the default case
+              await fetch(`/api/cases/${case_.id}`, { method: 'DELETE' });
+            }
+          }
           
           // Import cases with original names
           for (const caseData of data.cases) {
