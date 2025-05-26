@@ -80,8 +80,9 @@ export default function CompartmentCell({
             {component.packageSize && (
               <div className="text-[8px] text-gray-500">{component.packageSize}</div>
             )}
+            {/* Quantity shown only on hover */}
             <div 
-              className={`text-[8px] font-medium ${
+              className={`text-[8px] font-medium opacity-0 group-hover:opacity-100 transition-opacity ${
                 stockStatus === "critical" ? "text-red-600" :
                 stockStatus === "low" ? "text-orange-600" : 
                 "text-green-600"
