@@ -21,6 +21,7 @@ export default function Dashboard() {
   } | null>(null);
   const [showAddCase, setShowAddCase] = useState(false);
   const [showImportGuide, setShowImportGuide] = useState(false);
+  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [, setLocation] = useLocation();
 
   // Fetch all cases
@@ -362,9 +363,10 @@ export default function Dashboard() {
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               </div>
-              <Button variant="ghost" size="sm">
-                <Filter className="h-4 w-4" />
-              </Button>
+              <FilterDropdown
+                selectedCategories={selectedCategories}
+                onCategoriesChange={setSelectedCategories}
+              />
               <Button variant="ghost" size="sm" onClick={importData} title="Import Data">
                 <Plus className="h-4 w-4" />
               </Button>
