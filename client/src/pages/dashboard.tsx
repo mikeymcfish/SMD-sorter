@@ -87,6 +87,49 @@ export default function Dashboard() {
     }
   };
 
+  const importData = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = async (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (!file) return;
+      
+      try {
+        const text = await file.text();
+        const data = JSON.parse(text);
+        
+        // Validate data structure
+        if (!data.cases || !data.components) {
+          alert('Invalid file format. Please select a valid export file.');
+          return;
+        }
+        
+        // Import cases and components
+        for (const caseData of data.cases) {
+          if (!caseData.id) { // Only import new cases
+            await fetch('/api/cases', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: caseData.name,
+                model: caseData.model,
+                description: caseData.description
+              })
+            });
+          }
+        }
+        
+        alert('Import completed successfully!');
+        window.location.reload(); // Refresh to show imported data
+      } catch (error) {
+        console.error('Import failed:', error);
+        alert('Import failed. Please check the file format.');
+      }
+    };
+    input.click();
+  };
+
   const getStockStatus = (quantity: number, minQuantity: number = 5) => {
     if (quantity === 0) return "empty";
     if (quantity <= minQuantity / 2) return "critical";
@@ -172,7 +215,10 @@ export default function Dashboard() {
               <Button variant="ghost" size="sm">
                 <Filter className="h-4 w-4" />
               </Button>
-              <Button variant="ghost" size="sm" onClick={exportData}>
+              <Button variant="ghost" size="sm" onClick={importData} title="Import Data">
+                <Plus className="h-4 w-4" />
+              </Button>
+              <Button variant="ghost" size="sm" onClick={exportData} title="Export Data">
                 <Download className="h-4 w-4" />
               </Button>
             </div>

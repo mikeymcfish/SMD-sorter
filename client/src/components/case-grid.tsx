@@ -81,10 +81,10 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
               // Determine aspect ratio for mixed layout
               let cellClass = "";
               if (layout.isMixed) {
-                if (layerName === "Top Layer" && rowIndex < 2) {
-                  cellClass = "aspect-[2/1]"; // Long rectangles for top 2 rows
-                } else if (layerName === "Bottom Layer" && rowIndex >= 2) {
-                  cellClass = "aspect-[1/2]"; // Tall rectangles for bottom 2 rows
+                if (layerName === "Top Layer") {
+                  cellClass = "aspect-[2/1]"; // Long rectangles (1x2 aspect) for all top layer
+                } else if (layerName === "Bottom Layer") {
+                  cellClass = "aspect-[1/2]"; // Tall rectangles (2x1 aspect) for all bottom layer
                 } else {
                   cellClass = "aspect-square";
                 }

@@ -39,13 +39,25 @@ export default function CompartmentCell({
   };
 
   const stockStatus = component ? getStockStatus(component.quantity, component.minQuantity) : "empty";
-  const colorClass = getStockColor(stockStatus);
   const opacity = isHighlighted ? "opacity-100" : "opacity-30";
+  
+  // Use category color as background if component exists
+  const backgroundColor = component ? getCategoryColor(component.category) : undefined;
+  const borderColor = component 
+    ? stockStatus === "critical" ? "#DC2626" : 
+      stockStatus === "low" ? "#D97706" : "#059669"
+    : "#D1D5DB";
 
   return (
     <div
-      className={`aspect-square border-2 rounded-md hover:border-blue-400 cursor-pointer relative group transition-all duration-200 hover:shadow-md ${colorClass} ${opacity}`}
+      className={`aspect-square border-2 rounded-md hover:border-blue-400 cursor-pointer relative group transition-all duration-200 hover:shadow-md ${opacity}`}
+      style={{ 
+        backgroundColor: backgroundColor ? `${backgroundColor}20` : "#F9FAFB",
+        borderColor: borderColor,
+        borderStyle: component ? "solid" : "dashed"
+      }}
       onClick={onClick}
+      title={component ? `${component.category} | ${component.packageSize || 'No package'} | ${component.notes || 'No notes'}` : 'Empty compartment'}
     >
       <div className="absolute inset-1 flex flex-col justify-between text-xs">
         <div className="font-mono text-[10px] text-gray-500">{position}</div>
