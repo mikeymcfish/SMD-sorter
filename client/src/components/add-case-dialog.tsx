@@ -40,6 +40,7 @@ type CaseFormData = z.infer<typeof caseSchema>;
 
 const LAYOUT_OPTIONS = [
   { value: "uniform", label: "Uniform (6×4 squares)" },
+  { value: "large", label: "Large (12×6 squares)" },
   { value: "mixed", label: "Mixed (rows 1-2 long, rows 3-4 tall)" },
 ];
 

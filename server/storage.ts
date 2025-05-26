@@ -52,11 +52,12 @@ export class MemStorage implements IStorage {
   }
 
   private initializeDefaultData() {
-    // Create a default case with BOX-ALL-144 layout
+    // Create a default case with dual-layout structure
     const defaultCase: Case = {
       id: this.caseIdCounter++,
       name: "Main Resistors",
-      model: "BOX-ALL-144",
+      topLayoutType: "uniform",
+      bottomLayoutType: "uniform", 
       description: "Primary resistor storage case",
       isActive: true,
     };
