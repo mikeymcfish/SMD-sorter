@@ -127,9 +127,13 @@ export default function Dashboard() {
         const text = await file.text();
         const data = JSON.parse(text);
         
-        // Validate data structure
-        if (!data.cases || !data.components) {
-          alert('Invalid file format. Please select a valid export file.');
+        console.log('Import data received:', data);
+        console.log('Cases in data:', data.cases?.length || 0);
+        console.log('Components in data:', data.components?.length || 0);
+        
+        // Validate data structure - cases are required, components are optional
+        if (!data.cases) {
+          alert('Invalid file format. No cases found in export file.');
           return;
         }
         
