@@ -70,10 +70,10 @@ export default function CompartmentCell({
         </div>
       )}
       
-      <div className="absolute inset-1 flex flex-col justify-center text-xs relative z-10">
+      <div className="absolute inset-1 flex flex-col justify-center items-center text-xs relative z-10">
         
         {component ? (
-          <div className="text-center">
+          <div className="flex flex-col items-center">
             <div className="font-medium text-[10px] text-gray-700 truncate">
               {component.name}
             </div>
@@ -92,7 +92,7 @@ export default function CompartmentCell({
             </div>
           </div>
         ) : (
-          <div className="text-center">
+          <div className="flex items-center justify-center">
             <div className="text-[10px] text-gray-400">Empty</div>
           </div>
         )}
