@@ -140,6 +140,9 @@ export default function Dashboard() {
           'Cancel = Add as new (imported) items'
         );
         
+        // Create compartment ID mapping that will be used in both branches
+        const compartmentIdMapping = new Map();
+        
         if (shouldOverwrite) {
           // Clear existing data first
           const componentsResponse = await fetch('/api/components');
@@ -154,9 +157,10 @@ export default function Dashboard() {
             await fetch(`/api/cases/${case_.id}`, { method: 'DELETE' });
           }
           
-          // Import cases with original names
+          // Import cases and create mapping of old to new compartment IDs
+          
           for (const caseData of data.cases) {
-            await fetch('/api/cases', {
+            const caseResponse = await fetch('/api/cases', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -165,11 +169,32 @@ export default function Dashboard() {
                 description: caseData.description
               })
             });
+            
+            if (caseResponse.ok) {
+              const newCase = await caseResponse.json();
+              // Get the new compartments for this case
+              const compartmentsResponse = await fetch(`/api/cases/${newCase.id}`);
+              const caseWithCompartments = await compartmentsResponse.json();
+              
+              // Map old compartment IDs to new ones based on position
+              caseWithCompartments.compartments.forEach(newComp => {
+                const originalCompartment = data.compartments?.find(oldComp => 
+                  oldComp.caseId === caseData.id && 
+                  oldComp.position === newComp.position &&
+                  oldComp.layer === newComp.layer
+                );
+                
+                if (originalCompartment) {
+                  compartmentIdMapping.set(originalCompartment.id, newComp.id);
+                }
+              });
+            }
           }
         } else {
           // Import as new items
+          
           for (const caseData of data.cases) {
-            await fetch('/api/cases', {
+            const caseResponse = await fetch('/api/cases', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -178,19 +203,40 @@ export default function Dashboard() {
                 description: caseData.description
               })
             });
+            
+            if (caseResponse.ok) {
+              const newCase = await caseResponse.json();
+              const compartmentsResponse = await fetch(`/api/cases/${newCase.id}`);
+              const caseWithCompartments = await compartmentsResponse.json();
+              
+              caseWithCompartments.compartments.forEach((newComp: any) => {
+                const originalCompartment = data.compartments?.find((oldComp: any) => 
+                  oldComp.caseId === caseData.id && 
+                  oldComp.position === newComp.position &&
+                  oldComp.layer === newComp.layer
+                );
+                
+                if (originalCompartment) {
+                  compartmentIdMapping.set(originalCompartment.id, newComp.id);
+                }
+              });
+            }
           }
         }
         
-        // Import components - but need to wait to get the new case IDs first
-        // Wait a moment for cases to be created, then get fresh case list
-        await new Promise(resolve => setTimeout(resolve, 100));
-        
+        // Import components using the new compartment IDs
         for (const componentData of data.components) {
-          await fetch('/api/components', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(componentData)
-          });
+          const newCompartmentId = compartmentIdMapping.get(componentData.compartmentId);
+          if (newCompartmentId) {
+            await fetch('/api/components', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                ...componentData,
+                compartmentId: newCompartmentId
+              })
+            });
+          }
         }
         
         alert('Import completed successfully!');
