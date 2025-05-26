@@ -66,14 +66,15 @@ export default function CompartmentCell({
       {/* Background Electronic Icon */}
       {IconComponent && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <IconComponent className="w-8 h-8 text-gray-400 opacity-70" />
+          <IconComponent className="w-8 h-8 text-gray-300 opacity-30" />
         </div>
       )}
       
       <div className="absolute inset-1 flex flex-col justify-between text-xs relative z-10">
+        <div className="font-mono text-[10px] text-gray-500">{position}</div>
         
         {component ? (
-          <div className="text-center flex flex-col justify-center h-full">
+          <div className="text-center">
             <div className="font-medium text-[10px] text-gray-700 truncate">
               {component.name}
             </div>
@@ -91,7 +92,7 @@ export default function CompartmentCell({
             </div>
           </div>
         ) : (
-          <div className="text-center flex flex-col justify-center h-full">
+          <div className="text-center">
             <div className="text-[10px] text-gray-400">Empty</div>
           </div>
         )}

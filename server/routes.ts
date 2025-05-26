@@ -3,21 +3,6 @@ import express from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertCaseSchema, insertComponentSchema } from "@shared/schema";
-// Import constants directly since we can't import from client
-const COMPONENT_CATEGORIES = [
-  { value: "resistor", label: "Resistor", color: "#FF6B6B" },
-  { value: "capacitor", label: "Capacitor", color: "#4ECDC4" },
-  { value: "inductor", label: "Inductor", color: "#45B7D1" },
-  { value: "transistor", label: "Transistor", color: "#96CEB4" },
-  { value: "diode", label: "Diode", color: "#FFEAA7" },
-  { value: "ic", label: "IC", color: "#DDA0DD" },
-  { value: "crystal", label: "Crystal", color: "#98D8C8" },
-  { value: "connector", label: "Connector", color: "#A8E6CF" },
-  { value: "switch", label: "Switch", color: "#FFB3BA" },
-  { value: "led", label: "LED", color: "#FFDFBA" },
-  { value: "sensor", label: "Sensor", color: "#BAFFC9" },
-  { value: "other", label: "Other", color: "#D3D3D3" }
-];
 import multer from "multer";
 import path from "path";
 import fs from "fs";
@@ -200,43 +185,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({ url: fileUrl });
     } catch (error) {
       res.status(500).json({ message: "Failed to upload file" });
-    }
-  });
-
-  // Categories endpoints
-  app.get("/api/categories", async (req, res) => {
-    try {
-      // Return the existing categories from constants
-      res.json(COMPONENT_CATEGORIES);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch categories" });
-    }
-  });
-
-  app.post("/api/categories", async (req, res) => {
-    try {
-      // For now, just return success - in a real app this would save to database
-      res.status(201).json(req.body);
-    } catch (error) {
-      res.status(400).json({ message: "Failed to create category" });
-    }
-  });
-
-  app.patch("/api/categories/:id", async (req, res) => {
-    try {
-      // For now, just return success - in a real app this would update database
-      res.json(req.body);
-    } catch (error) {
-      res.status(400).json({ message: "Failed to update category" });
-    }
-  });
-
-  app.delete("/api/categories/:id", async (req, res) => {
-    try {
-      // For now, just return success - in a real app this would delete from database
-      res.json({ message: "Category deleted successfully" });
-    } catch (error) {
-      res.status(400).json({ message: "Failed to delete category" });
     }
   });
 
