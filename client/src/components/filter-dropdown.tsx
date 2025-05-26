@@ -8,7 +8,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Filter, Check } from "lucide-react";
+import { Filter } from "lucide-react";
 import { COMPONENT_CATEGORIES } from "@/lib/constants";
 
 interface FilterDropdownProps {
