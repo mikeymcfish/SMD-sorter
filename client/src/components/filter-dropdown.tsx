@@ -8,7 +8,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Filter } from "lucide-react";
+import { Filter, Settings } from "lucide-react";
+import { Link } from "wouter";
 import { COMPONENT_CATEGORIES } from "@/lib/constants";
 
 interface FilterDropdownProps {
@@ -93,6 +94,17 @@ export default function FilterDropdown({ selectedCategories, onCategoriesChange 
                 </label>
               </div>
             ))}
+          </div>
+          
+          <DropdownMenuSeparator />
+          
+          <div className="p-2">
+            <Link href="/categories">
+              <Button variant="outline" size="sm" className="w-full" onClick={() => setIsOpen(false)}>
+                <Settings className="h-4 w-4 mr-2" />
+                Manage Categories
+              </Button>
+            </Link>
           </div>
         </div>
       </DropdownMenuContent>
