@@ -209,8 +209,8 @@ export default function Categories() {
                             className="w-16 h-10"
                           />
                           <Input
-                            value={editingCategory.color}
-                            onChange={(e) => setEditingCategory({
+                            value={editingCategory?.color || '#6B7280'}
+                            onChange={(e) => editingCategory && setEditingCategory({
                               ...editingCategory,
                               color: e.target.value
                             })}
