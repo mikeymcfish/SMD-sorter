@@ -12,26 +12,32 @@ interface CaseGridProps {
 export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }: CaseGridProps) {
 
   const getCaseLayout = (model: string) => {
-    const layouts: Record<string, { rows: number; cols: number; description: string; isMixed?: boolean }> = {
-      "LAYOUT-SQUARES": { 
-        rows: 6, 
-        cols: 12, 
-        description: "12×6 All Squares - Uniform compartments",
-        isMixed: false
-      },
-      "LAYOUT-MIXED": { 
+    const layouts: Record<string, { rows: number; cols: number; description: string; isMixed?: boolean; isTall?: boolean }> = {
+      "LAYOUT-12x6-BOTH": { 
         rows: 4, 
         cols: 6, 
-        description: "Mixed Layout - Long top rows, tall bottom rows",
+        description: "12×6 Both Layers (uniform squares)"
+      },
+      "LAYOUT-6x4-TOP": { 
+        rows: 4, 
+        cols: 6, 
+        description: "6×4 Top + 12×6 Bottom (mixed)", 
         isMixed: true
       },
+      "LAYOUT-6x4-BOTH": { 
+        rows: 4, 
+        cols: 6, 
+        description: "6×4 Both Layers (tall rectangles)", 
+        isTall: true
+      },
       // Legacy support
-      "BOX-ALL-144": { rows: 6, cols: 12, description: "Legacy BOX-ALL-144", isMixed: false },
-      "BOX-ALL-96": { rows: 6, cols: 12, description: "Legacy BOX-ALL-96", isMixed: false },
-      "BOX-ALL-48": { rows: 4, cols: 6, description: "Legacy BOX-ALL-48", isMixed: false },
-      "BOX-ALL-24": { rows: 2, cols: 6, description: "Legacy BOX-ALL-24", isMixed: false },
+      "BOX-ALL-144": { rows: 6, cols: 12, description: "Legacy BOX-ALL-144" },
+      "BOX-ALL-96": { rows: 6, cols: 12, description: "Legacy BOX-ALL-96" },
+      "BOX-ALL-48": { rows: 4, cols: 6, description: "Legacy BOX-ALL-48" },
+      "BOX-ALL-24": { rows: 2, cols: 6, description: "Legacy BOX-ALL-24" },
+      "LAYOUT-MIXED": { rows: 4, cols: 6, description: "Mixed Layout", isMixed: true }
     };
-    return layouts[model] || layouts["LAYOUT-SQUARES"];
+    return layouts[model] || layouts["LAYOUT-12x6-BOTH"];
   };
 
   const layout = getCaseLayout(case_.model);

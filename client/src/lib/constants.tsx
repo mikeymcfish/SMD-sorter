@@ -80,5 +80,25 @@ export const CASE_LAYOUTS = {
     totalCompartments: 24, 
     dimensions: "9\" × 6\" × 2.5\"",
     description: "Three sizes: small, medium, large"
+  },
+  "LAYOUT-12x6-BOTH": {
+    rows: 4,
+    cols: 6,
+    totalCompartments: 48,
+    description: "12×6 Both Layers (uniform squares)"
+  },
+  "LAYOUT-6x4-TOP": {
+    rows: 4,
+    cols: 6,
+    totalCompartments: 48,
+    description: "6×4 Top + 12×6 Bottom (mixed)",
+    isMixed: true
+  },
+  "LAYOUT-6x4-BOTH": {
+    rows: 4,
+    cols: 6,
+    totalCompartments: 48,
+    description: "6×4 Both Layers (tall rectangles)",
+    isTall: true
   }
 };
