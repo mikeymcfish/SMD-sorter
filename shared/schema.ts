@@ -11,8 +11,7 @@ export const users = pgTable("users", {
 export const cases = pgTable("cases", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  topLayoutType: text("top_layout_type").notNull(), // "uniform" or "mixed"
-  bottomLayoutType: text("bottom_layout_type").notNull(), // "uniform" or "mixed"
+  model: text("model").notNull(), // BOX-ALL-144, BOX-ALL-96, etc.
   description: text("description"),
   isActive: boolean("is_active").default(true),
 });

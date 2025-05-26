@@ -34,20 +34,11 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
     return layouts[model] || layouts["LAYOUT-SQUARES"];
   };
 
+  const layout = getCaseLayout(case_.model);
   const topCompartments = case_.compartments.filter(comp => comp.layer === "top");
   const bottomCompartments = case_.compartments.filter(comp => comp.layer === "bottom");
-  
-  const getLayoutDimensions = (layoutType: string) => {
-    switch (layoutType) {
-      case "large": return { rows: 6, cols: 12 };
-      case "uniform":
-      case "mixed":
-      default: return { rows: 4, cols: 6 };
-    }
-  };
 
-  const renderLayer = (compartments: any[], layerName: string, layoutType: string) => {
-    const { rows, cols } = getLayoutDimensions(layoutType);
+  const renderLayer = (compartments: any[], layerName: string, aspectRatio: string = "square") => {
     // Filter compartments based on search query
     const searchFilteredCompartments = searchQuery
       ? compartments.filter(comp => {
@@ -65,18 +56,18 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-gray-700 flex items-center">
           {layerName}
-          {layoutType === "mixed" && (
+          {layout.isMixed && (
             <span className="ml-2 text-sm text-gray-500">(Rows 1-2: Long, Rows 3-4: Tall)</span>
           )}
         </h3>
         <div 
           className={`grid gap-1 max-w-4xl mx-auto`}
           style={{ 
-            gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))` 
+            gridTemplateColumns: `repeat(${layout.cols}, minmax(0, 1fr))` 
           }}
         >
-          {Array.from({ length: rows }, (_, rowIndex) =>
-            Array.from({ length: cols }, (_, colIndex) => {
+          {Array.from({ length: layout.rows }, (_, rowIndex) =>
+            Array.from({ length: layout.cols }, (_, colIndex) => {
               const position = String.fromCharCode(65 + rowIndex) + (colIndex + 1);
               const compartment = searchQuery 
                 ? searchFilteredCompartments.find(c => c.position === position)
@@ -86,7 +77,7 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
               
               // Determine aspect ratio for mixed layout
               let cellClass = "";
-              if (layoutType === "mixed") {
+              if (layout.isMixed) {
                 if (rowIndex < 2) {
                   cellClass = "aspect-[2/1]"; // Long rectangles (2x1 aspect) for first 2 rows
                 } else {
@@ -118,12 +109,12 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
       {/* Case Header */}
       <div className="text-center">
         <div className="text-sm text-gray-500">
-          {case_.name} - Custom Layout Case
+          {layout.description}
         </div>
       </div>
 
       {/* Top Layer */}
-      {renderLayer(topCompartments, "Top Layer", case_.topLayoutType || "uniform")}
+      {renderLayer(topCompartments, "Top Layer")}
 
       {/* Visual Divider */}
       <div className="relative">
@@ -136,7 +127,7 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
       </div>
 
       {/* Bottom Layer */}
-      {renderLayer(bottomCompartments, "Bottom Layer", case_.bottomLayoutType || "uniform")}
+      {renderLayer(bottomCompartments, "Bottom Layer")}
 
       {/* Legend */}
       <div className="mt-6 flex items-center justify-center space-x-6 text-sm">
