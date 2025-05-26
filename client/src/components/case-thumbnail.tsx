@@ -77,15 +77,22 @@ export default function CaseThumbnail({ case_, matchingComponents, onClick }: Ca
                 <div
                   key={`${rowIndex}-${colIndex}`}
                   className={`
-                    w-3 h-3 border rounded-sm relative
-                    ${isMatching ? 'bg-yellow-400 border-yellow-600 shadow-lg ring-2 ring-yellow-300 ring-opacity-50' : 
+                    w-3 h-3 border rounded-sm relative transition-all duration-300
+                    ${isMatching ? 'bg-yellow-300 border-yellow-700 shadow-xl ring-4 ring-yellow-400 ring-opacity-75 scale-110 z-10' : 
                       hasComponent ? 'bg-blue-200 border-blue-300' : 
                       'bg-gray-50 border-gray-200'}
                   `}
+                  style={{
+                    boxShadow: isMatching ? '0 0 12px rgba(255, 193, 7, 0.8), inset 0 0 6px rgba(255, 193, 7, 0.6)' : undefined
+                  }}
                   title={compartment ? `${compartment.position}${hasComponent ? ` - ${compartment.component?.name}` : ''}` : ''}
                 >
                   {isMatching && (
-                    <div className="absolute inset-0 bg-yellow-400 animate-pulse rounded-sm opacity-60"></div>
+                    <>
+                      <div className="absolute inset-0 bg-yellow-200 animate-pulse rounded-sm opacity-80"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-sm opacity-90"></div>
+                      <div className="absolute -inset-1 bg-yellow-300 rounded-md opacity-30 animate-ping"></div>
+                    </>
                   )}
                 </div>
               );

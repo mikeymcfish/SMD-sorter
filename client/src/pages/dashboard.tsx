@@ -3,11 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, Filter, Download, Plus } from "lucide-react";
+import { Search, Filter, Download, Plus, HelpCircle } from "lucide-react";
 import Sidebar from "@/components/sidebar";
 import CaseGrid from "@/components/case-grid";
 import EditComponentDialog from "@/components/edit-component-dialog";
 import AddCaseDialog from "@/components/add-case-dialog";
+import ImportGuideDialog from "@/components/import-guide-dialog";
 import type { CaseWithCompartments, Component, Compartment, Case } from "@shared/schema";
 
 export default function Dashboard() {
@@ -18,6 +19,7 @@ export default function Dashboard() {
     compartment: Compartment;
   } | null>(null);
   const [showAddCase, setShowAddCase] = useState(false);
+  const [showImportGuide, setShowImportGuide] = useState(false);
   const [, setLocation] = useLocation();
 
   // Fetch all cases
@@ -365,6 +367,9 @@ export default function Dashboard() {
               <Button variant="ghost" size="sm" onClick={importData} title="Import Data">
                 <Plus className="h-4 w-4" />
               </Button>
+              <Button variant="ghost" size="sm" onClick={() => setShowImportGuide(true)} title="Import Guide">
+                <HelpCircle className="h-4 w-4" />
+              </Button>
               <Button variant="ghost" size="sm" onClick={exportData} title="Export Data">
                 <Download className="h-4 w-4" />
               </Button>
@@ -462,6 +467,11 @@ export default function Dashboard() {
         isOpen={showAddCase}
         onClose={() => setShowAddCase(false)}
         onSuccess={() => setShowAddCase(false)}
+      />
+
+      <ImportGuideDialog
+        isOpen={showImportGuide}
+        onClose={() => setShowImportGuide(false)}
       />
     </div>
   );
