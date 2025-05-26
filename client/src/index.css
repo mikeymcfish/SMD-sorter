@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 220 13% 97%; /* #F8FAFC */
+  --foreground: 220 9% 20%; /* #334155 */
+  --muted: 220 13% 95%; /* #F1F5F9 */
+  --muted-foreground: 220 9% 46%; /* #64748B */
+  --popover: 0 0% 100%; /* #FFFFFF */
+  --popover-foreground: 220 9% 20%; /* #334155 */
+  --card: 0 0% 100%; /* #FFFFFF */
+  --card-foreground: 220 9% 20%; /* #334155 */
+  --border: 220 13% 91%; /* #E2E8F0 */
+  --input: 220 13% 91%; /* #E2E8F0 */
+  --primary: 221 83% 53%; /* #3B82F6 */
+  --primary-foreground: 210 40% 98%; /* #F8FAFC */
+  --secondary: 220 13% 95%; /* #F1F5F9 */
+  --secondary-foreground: 220 9% 15%; /* #1E293B */
+  --accent: 220 13% 95%; /* #F1F5F9 */
+  --accent-foreground: 220 9% 15%; /* #1E293B */
+  --destructive: 0 84% 60%; /* #EF4444 */
+  --destructive-foreground: 0 0% 98%; /* #FEFEFE */
+  --ring: 221 83% 53%; /* #3B82F6 */
+  --radius: 0.5rem;
+  
+  /* Component category colors */
+  --component-resistor: 340 82% 52%; /* #E91E63 */
+  --component-capacitor: 291 64% 42%; /* #9C27B0 */
+  --component-ic: 231 48% 48%; /* #3F51B5 */
+  --component-diode: 14 100% 57%; /* #FF5722 */
+  --component-inductor: 16 25% 38%; /* #795548 */
+  --component-crystal: 200 18% 46%; /* #607D8B */
+  --component-connector: 174 100% 29%; /* #009688 */
+  --component-transistor: 36 100% 50%; /* #FF9800 */
+}
+
+.dark {
+  --background: 222 84% 5%; /* #0F172A */
+  --foreground: 210 40% 98%; /* #F8FAFC */
+  --muted: 217 33% 17%; /* #1E293B */
+  --muted-foreground: 215 20% 65%; /* #94A3B8 */
+  --popover: 222 84% 5%; /* #0F172A */
+  --popover-foreground: 210 40% 98%; /* #F8FAFC */
+  --card: 222 84% 5%; /* #0F172A */
+  --card-foreground: 210 40% 98%; /* #F8FAFC */
+  --border: 217 33% 17%; /* #1E293B */
+  --input: 217 33% 17%; /* #1E293B */
+  --primary: 217 91% 60%; /* #3B82F6 */
+  --primary-foreground: 222 84% 5%; /* #0F172A */
+  --secondary: 217 33% 17%; /* #1E293B */
+  --secondary-foreground: 210 40% 98%; /* #F8FAFC */
+  --accent: 217 33% 17%; /* #1E293B */
+  --accent-foreground: 210 40% 98%; /* #F8FAFC */
+  --destructive: 0 63% 31%; /* #7F1D1D */
+  --destructive-foreground: 210 40% 98%; /* #F8FAFC */
+  --ring: 217 91% 60%; /* #3B82F6 */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .component-grid {
+    display: grid;
+    gap: 0.25rem;
+  }
+  
+  .compartment-cell {
+    @apply aspect-square border-2 rounded-md hover:border-blue-400 cursor-pointer relative transition-all duration-200 hover:shadow-md;
+  }
+  
+  .compartment-cell.stock-good {
+    @apply bg-green-50 border-green-300;
+  }
+  
+  .compartment-cell.stock-low {
+    @apply bg-yellow-50 border-yellow-300;
+  }
+  
+  .compartment-cell.stock-critical {
+    @apply bg-red-50 border-red-300;
+  }
+  
+  .compartment-cell.stock-empty {
+    @apply bg-gray-50 border-dashed border-gray-300;
+  }
+  
+  .edit-overlay {
+    @apply absolute inset-0 bg-blue-600 bg-opacity-90 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500;
+}
+
+/* File upload drag and drop styles */
+.file-drop-zone {
+  @apply border-2 border-dashed border-gray-300 rounded-md p-3 text-center hover:border-blue-400 cursor-pointer transition-colors duration-200;
+}
+
+.file-drop-zone.drag-over {
+  @apply border-blue-400 bg-blue-50;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
