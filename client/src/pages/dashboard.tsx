@@ -225,10 +225,15 @@ export default function Dashboard() {
         }
         
         // Import components using the new compartment IDs
-        for (const componentData of data.components) {
+        console.log('Starting component import. Total components:', data.components?.length || 0);
+        console.log('Compartment ID mapping size:', compartmentIdMapping.size);
+        
+        for (const componentData of data.components || []) {
           const newCompartmentId = compartmentIdMapping.get(componentData.compartmentId);
+          console.log(`Component ${componentData.name}: old compartmentId ${componentData.compartmentId} -> new compartmentId ${newCompartmentId}`);
+          
           if (newCompartmentId) {
-            await fetch('/api/components', {
+            const response = await fetch('/api/components', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -236,6 +241,9 @@ export default function Dashboard() {
                 compartmentId: newCompartmentId
               })
             });
+            console.log(`Component ${componentData.name} import result:`, response.ok);
+          } else {
+            console.log(`No mapping found for compartment ID ${componentData.compartmentId}`);
           }
         }
         
