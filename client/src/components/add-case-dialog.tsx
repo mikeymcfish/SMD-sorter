@@ -31,15 +31,16 @@ import { apiRequest } from "@/lib/queryClient";
 
 const caseSchema = z.object({
   name: z.string().min(1, "Case name is required"),
-  model: z.string().min(1, "Model is required"),
+  topLayoutType: z.string().min(1, "Top layout is required"),
+  bottomLayoutType: z.string().min(1, "Bottom layout is required"),
   description: z.string().optional(),
 });
 
 type CaseFormData = z.infer<typeof caseSchema>;
 
-const CASE_MODELS = [
-  { value: "LAYOUT-SQUARES", label: "12×6 All Squares (uniform compartments)" },
-  { value: "LAYOUT-MIXED", label: "Mixed Layout (long top rows, tall bottom rows)" },
+const LAYOUT_OPTIONS = [
+  { value: "uniform", label: "Uniform (6×4 squares)" },
+  { value: "mixed", label: "Mixed (rows 1-2 long, rows 3-4 tall)" },
 ];
 
 interface AddCaseDialogProps {
@@ -56,7 +57,8 @@ export default function AddCaseDialog({ isOpen, onClose, onSuccess }: AddCaseDia
     resolver: zodResolver(caseSchema),
     defaultValues: {
       name: "",
-      model: "",
+      topLayoutType: "",
+      bottomLayoutType: "",
       description: "",
     },
   });
@@ -106,20 +108,45 @@ export default function AddCaseDialog({ isOpen, onClose, onSuccess }: AddCaseDia
 
             <FormField
               control={form.control}
-              name="model"
+              name="topLayoutType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Case Model</FormLabel>
+                  <FormLabel>Top Layer Layout</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                       <SelectTrigger>
-                        <SelectValue placeholder="Select case model" />
+                        <SelectValue placeholder="Select top layer layout" />
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {CASE_MODELS.map((model) => (
-                        <SelectItem key={model.value} value={model.value}>
-                          {model.label}
+                      {LAYOUT_OPTIONS.map((layout) => (
+                        <SelectItem key={layout.value} value={layout.value}>
+                          {layout.label}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="bottomLayoutType"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Bottom Layer Layout</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select bottom layer layout" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      {LAYOUT_OPTIONS.map((layout) => (
+                        <SelectItem key={layout.value} value={layout.value}>
+                          {layout.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
