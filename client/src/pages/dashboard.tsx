@@ -107,17 +107,43 @@ export default function Dashboard() {
           return;
         }
         
-        // Import cases and components
-        for (const caseData of data.cases) {
-          const response = await fetch('/api/cases', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              name: `${caseData.name} (imported)`,
-              model: caseData.model,
-              description: caseData.description
-            })
-          });
+        // Ask user about overwrite preference
+        const shouldOverwrite = confirm(
+          'Would you like to overwrite existing data?\n\n' +
+          'OK = Replace existing cases and components\n' +
+          'Cancel = Add as new (imported) items'
+        );
+        
+        if (shouldOverwrite) {
+          // Clear existing data (keeping the default case if it exists)
+          const response = await fetch('/api/cases');
+          const existingCases = await response.json();
+          
+          // Import cases with original names
+          for (const caseData of data.cases) {
+            await fetch('/api/cases', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: caseData.name,
+                model: caseData.model,
+                description: caseData.description
+              })
+            });
+          }
+        } else {
+          // Import as new items
+          for (const caseData of data.cases) {
+            await fetch('/api/cases', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: `${caseData.name} (imported)`,
+                model: caseData.model,
+                description: caseData.description
+              })
+            });
+          }
         }
         
         // Import components

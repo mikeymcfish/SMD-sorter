@@ -136,26 +136,42 @@ export class MemStorage implements IStorage {
   private createCompartmentsForCase(case_: Case) {
     const layouts: Record<string, { rows: number; cols: number }> = {
       "BOX-ALL-144": { rows: 6, cols: 12 },
-      "BOX-ALL-96": { rows: 6, cols: 12 }, // Mixed layout but same grid
+      "BOX-ALL-96": { rows: 6, cols: 12 },
       "BOX-ALL-48": { rows: 4, cols: 6 },
       "BOX-ALL-24": { rows: 2, cols: 6 },
+      "LAYOUT-12x6-BOTH": { rows: 6, cols: 12 },
+      "LAYOUT-6x4-TOP": { rows: 4, cols: 6 },
+      "LAYOUT-6x4-BOTH": { rows: 4, cols: 6 },
+      "LAYOUT-MIXED": { rows: 4, cols: 6 },
     };
 
     const layout = layouts[case_.model];
     if (!layout) return;
 
-    for (let row = 1; row <= layout.rows; row++) {
-      for (let col = 1; col <= layout.cols; col++) {
-        const position = String.fromCharCode(64 + row) + col;
-        const compartment: Compartment = {
-          id: this.compartmentIdCounter++,
-          caseId: case_.id,
-          position,
-          row,
-          col,
-          layer: "top",
-        };
-        this.compartments.set(compartment.id, compartment);
+    // Create compartments for both top and bottom layers
+    for (const layer of ["top", "bottom"]) {
+      let gridRows = layout.rows;
+      let gridCols = layout.cols;
+      
+      // For mixed layout, bottom layer is 12x6
+      if (case_.model === "LAYOUT-6x4-TOP" && layer === "bottom") {
+        gridRows = 6;
+        gridCols = 12;
+      }
+      
+      for (let row = 1; row <= gridRows; row++) {
+        for (let col = 1; col <= gridCols; col++) {
+          const position = String.fromCharCode(64 + row) + col;
+          const compartment: Compartment = {
+            id: this.compartmentIdCounter++,
+            caseId: case_.id,
+            position,
+            row,
+            col,
+            layer,
+          };
+          this.compartments.set(compartment.id, compartment);
+        }
       }
     }
   }
