@@ -27,28 +27,8 @@ export default function Sidebar({ cases, selectedCaseId, onCaseSelect, onAddCase
         </div>
       </div>
 
-      {/* Navigation */}
+      {/* Cases List */}
       <nav className="flex-1 p-4">
-        <div className="space-y-2">
-          <button className="w-full flex items-center space-x-3 px-3 py-2 bg-blue-50 text-blue-700 rounded-lg font-medium">
-            <Grid3X3 className="h-4 w-4" />
-            <span>Cases</span>
-          </button>
-          <button className="w-full flex items-center space-x-3 px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">
-            <Search className="h-4 w-4" />
-            <span>Search Components</span>
-          </button>
-          <button className="w-full flex items-center space-x-3 px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">
-            <Tags className="h-4 w-4" />
-            <span>Categories</span>
-          </button>
-          <button className="w-full flex items-center space-x-3 px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-lg">
-            <BarChart3 className="h-4 w-4" />
-            <span>Inventory Report</span>
-          </button>
-        </div>
-
-        {/* Cases List */}
         <div className="mt-8">
           <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-3">My Cases</h3>
           <div className="space-y-1">
