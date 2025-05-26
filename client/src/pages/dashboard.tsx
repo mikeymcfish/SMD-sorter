@@ -56,7 +56,7 @@ export default function Dashboard() {
   };
 
   const calculateStats = () => {
-    if (!selectedCase) return { totalComponents: 0, totalQuantity: 0, lowStock: 0, emptySlots: 0 };
+    if (!selectedCase || !selectedCase.compartments) return { totalComponents: 0, totalQuantity: 0, lowStock: 0, emptySlots: 0 };
 
     const components = selectedCase.compartments
       .map(c => c.component)
@@ -104,7 +104,7 @@ export default function Dashboard() {
                   </span>
                   <span className="px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full flex items-center">
                     <span className="w-2 h-2 bg-green-500 rounded-full mr-1"></span>
-                    {Math.round(((selectedCase.compartments.length - stats.emptySlots) / selectedCase.compartments.length) * 100)}% Full
+                    {selectedCase.compartments ? Math.round(((selectedCase.compartments.length - stats.emptySlots) / selectedCase.compartments.length) * 100) : 0}% Full
                   </span>
                 </>
               )}
@@ -133,7 +133,7 @@ export default function Dashboard() {
 
         {/* Main Content */}
         <main className="flex-1 p-6 overflow-auto">
-          {selectedCase ? (
+          {selectedCase && selectedCase.compartments ? (
             <>
               <CaseGrid
                 case_={selectedCase}
