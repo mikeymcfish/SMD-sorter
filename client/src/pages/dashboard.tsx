@@ -33,6 +33,12 @@ export default function Dashboard() {
   // Fetch selected case with compartments
   const { data: selectedCase, isLoading } = useQuery<CaseWithCompartments>({
     queryKey: ["/api/cases", selectedCaseId],
+    queryFn: async () => {
+      if (!selectedCaseId) return null;
+      const response = await fetch(`/api/cases/${selectedCaseId}`);
+      if (!response.ok) throw new Error('Failed to fetch case');
+      return response.json();
+    },
     enabled: !!selectedCaseId,
     retry: 3,
   });
