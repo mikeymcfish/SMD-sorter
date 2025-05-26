@@ -56,11 +56,8 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-gray-700 flex items-center">
           {layerName}
-          {layerName === "Top Layer" && layout.isMixed && (
-            <span className="ml-2 text-sm text-gray-500">(Long compartments)</span>
-          )}
-          {layerName === "Bottom Layer" && layout.isMixed && (
-            <span className="ml-2 text-sm text-gray-500">(Tall compartments)</span>
+          {layout.isMixed && (
+            <span className="ml-2 text-sm text-gray-500">(Rows 1-2: Long, Rows 3-4: Tall)</span>
           )}
         </h3>
         <div 
@@ -81,12 +78,10 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
               // Determine aspect ratio for mixed layout
               let cellClass = "";
               if (layout.isMixed) {
-                if (layerName === "Top Layer") {
-                  cellClass = "aspect-[2/1]"; // Long rectangles (1x2 aspect) for all top layer
-                } else if (layerName === "Bottom Layer") {
-                  cellClass = "aspect-[1/2]"; // Tall rectangles (2x1 aspect) for all bottom layer
+                if (rowIndex < 2) {
+                  cellClass = "aspect-[2/1]"; // Long rectangles (2x1 aspect) for first 2 rows
                 } else {
-                  cellClass = "aspect-square";
+                  cellClass = "aspect-[1/2]"; // Tall rectangles (1x2 aspect) for last 2 rows
                 }
               } else {
                 cellClass = "aspect-square";

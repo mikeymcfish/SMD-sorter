@@ -64,10 +64,6 @@ export default function CompartmentCell({
         
         {component ? (
           <div className="text-center">
-            <div 
-              className="w-2 h-2 rounded-full mx-auto mb-1"
-              style={{ backgroundColor: getCategoryColor(component.category) }}
-            />
             <div className="font-medium text-[10px] text-gray-700 truncate">
               {component.name}
             </div>
