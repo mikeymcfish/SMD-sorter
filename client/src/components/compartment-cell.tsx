@@ -50,7 +50,7 @@ export default function CompartmentCell({
 
   return (
     <div
-      className={`aspect-square border-2 rounded-md hover:border-blue-400 cursor-pointer relative group transition-all duration-200 hover:shadow-md ${opacity}`}
+      className={`w-full h-full border-2 rounded-md hover:border-blue-400 cursor-pointer relative group transition-all duration-200 hover:shadow-md ${opacity}`}
       style={{ 
         backgroundColor: backgroundColor ? `${backgroundColor}20` : "#F9FAFB",
         borderColor: borderColor,

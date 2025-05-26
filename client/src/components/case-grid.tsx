@@ -62,8 +62,14 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
       <div className="space-y-4">
         <h3 className="text-lg font-semibold text-gray-700 flex items-center">
           {layerName}
-          {layout.isMixed && (
-            <span className="ml-2 text-sm text-gray-500">(Rows 1-2: Long, Rows 3-4: Tall)</span>
+          {layout.isTall && (
+            <span className="ml-2 text-sm text-gray-500">(Tall rectangles)</span>
+          )}
+          {layout.isMixed && layerName === "Top Layer" && (
+            <span className="ml-2 text-sm text-gray-500">(Tall rectangles)</span>
+          )}
+          {layout.isMixed && layerName === "Bottom Layer" && (
+            <span className="ml-2 text-sm text-gray-500">(Square compartments)</span>
           )}
         </h3>
         <div 
@@ -81,15 +87,20 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
               
               const isHighlighted = !searchQuery || (compartment && searchFilteredCompartments.includes(compartment));
               
-              // Determine aspect ratio for mixed layout
+              // Determine aspect ratio based on layout type
               let cellClass = "";
-              if (layout.isMixed) {
-                if (rowIndex < 2) {
-                  cellClass = "aspect-[2/1]"; // Long rectangles (2x1 aspect) for first 2 rows
+              if (layout.isTall) {
+                // 6x4 Both Layers - all tall rectangles
+                cellClass = "aspect-[1/2]";
+              } else if (layout.isMixed) {
+                // 6x4 Top + 12x6 Bottom - mixed based on layer
+                if (layerName === "Top Layer") {
+                  cellClass = "aspect-[1/2]"; // Tall rectangles for top layer
                 } else {
-                  cellClass = "aspect-[1/2]"; // Tall rectangles (1x2 aspect) for last 2 rows
+                  cellClass = "aspect-square"; // Squares for bottom layer
                 }
               } else {
+                // 12x6 Both Layers - all squares
                 cellClass = "aspect-square";
               }
               
