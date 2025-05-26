@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useLocation } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, Filter, Download, Plus } from "lucide-react";
@@ -17,6 +18,7 @@ export default function Dashboard() {
     compartment: Compartment;
   } | null>(null);
   const [showAddCase, setShowAddCase] = useState(false);
+  const [, setLocation] = useLocation();
 
   // Fetch all cases
   const { data: cases = [] } = useQuery<Case[]>({
@@ -215,6 +217,11 @@ export default function Dashboard() {
                   placeholder="Search components..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter' && searchQuery.trim()) {
+                      setLocation(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+                    }
+                  }}
                   className="w-80 pl-10"
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
@@ -304,18 +311,7 @@ export default function Dashboard() {
         </main>
       </div>
 
-      {/* Floating Action Buttons */}
-      <div className="fixed bottom-6 right-6 flex flex-col space-y-3">
-        <Button className="w-12 h-12 rounded-full shadow-lg bg-gray-600 hover:bg-gray-700">
-          <Download className="h-4 w-4" />
-        </Button>
-        <Button className="w-12 h-12 rounded-full shadow-lg">
-          <Search className="h-4 w-4" />
-        </Button>
-        <Button className="w-14 h-14 rounded-full shadow-lg bg-green-600 hover:bg-green-700">
-          <Plus className="h-5 w-5" />
-        </Button>
-      </div>
+
 
       {/* Dialogs */}
       <EditComponentDialog
