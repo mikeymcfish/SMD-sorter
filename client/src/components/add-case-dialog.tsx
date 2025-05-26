@@ -38,8 +38,9 @@ const caseSchema = z.object({
 type CaseFormData = z.infer<typeof caseSchema>;
 
 const CASE_MODELS = [
-  { value: "LAYOUT-SQUARES", label: "12×6 All Squares (uniform compartments)" },
-  { value: "LAYOUT-MIXED", label: "Mixed Layout (long top rows, tall bottom rows)" },
+  { value: "LAYOUT-12x6-BOTH", label: "12×6 Both Layers (uniform squares)" },
+  { value: "LAYOUT-6x4-TOP", label: "6×4 Top + 12×6 Bottom (mixed)" },
+  { value: "LAYOUT-6x4-BOTH", label: "6×4 Both Layers (tall rectangles)" },
 ];
 
 interface AddCaseDialogProps {
