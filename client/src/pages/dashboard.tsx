@@ -99,13 +99,11 @@ export default function Dashboard() {
           await fetch(`/api/components/${component.id}`, { method: 'DELETE' });
         }
         
-        // Delete all cases except the default one
+        // Delete all cases including the default one
         const casesResponse = await fetch('/api/cases');
         const allCases = await casesResponse.json();
         for (const case_ of allCases) {
-          if (case_.id !== 1) { // Keep the default case
-            await fetch(`/api/cases/${case_.id}`, { method: 'DELETE' });
-          }
+          await fetch(`/api/cases/${case_.id}`, { method: 'DELETE' });
         }
         
         alert('All data cleared successfully!');
@@ -153,9 +151,7 @@ export default function Dashboard() {
           const casesResponse = await fetch('/api/cases');
           const existingCases = await casesResponse.json();
           for (const case_ of existingCases) {
-            if (case_.id !== 1) { // Keep the default case
-              await fetch(`/api/cases/${case_.id}`, { method: 'DELETE' });
-            }
+            await fetch(`/api/cases/${case_.id}`, { method: 'DELETE' });
           }
           
           // Import cases with original names
