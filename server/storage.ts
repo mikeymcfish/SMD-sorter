@@ -146,7 +146,12 @@ export class MemStorage implements IStorage {
     };
 
     const layout = layouts[case_.model];
-    if (!layout) return;
+    if (!layout) {
+      console.log(`No layout found for model: ${case_.model}`);
+      return;
+    }
+    
+    console.log(`Creating compartments for case ${case_.name} with model ${case_.model}: ${layout.rows}x${layout.cols}`);
 
     // Create compartments for both top and bottom layers
     for (const layer of ["top", "bottom"]) {
@@ -173,6 +178,9 @@ export class MemStorage implements IStorage {
           this.compartments.set(compartment.id, compartment);
         }
       }
+    }
+    
+    console.log(`Created ${Array.from(this.compartments.values()).filter(c => c.caseId === case_.id).length} compartments for case ${case_.name}`);
     }
   }
 
