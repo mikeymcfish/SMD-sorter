@@ -89,6 +89,34 @@ export default function Dashboard() {
     }
   };
 
+  const clearAllData = async () => {
+    if (confirm('Are you sure you want to delete ALL cases and components? This cannot be undone.')) {
+      try {
+        // Delete all components first
+        const componentsResponse = await fetch('/api/components');
+        const allComponents = await componentsResponse.json();
+        for (const component of allComponents) {
+          await fetch(`/api/components/${component.id}`, { method: 'DELETE' });
+        }
+        
+        // Delete all cases except the default one
+        const casesResponse = await fetch('/api/cases');
+        const allCases = await casesResponse.json();
+        for (const case_ of allCases) {
+          if (case_.id !== 1) { // Keep the default case
+            await fetch(`/api/cases/${case_.id}`, { method: 'DELETE' });
+          }
+        }
+        
+        alert('All data cleared successfully!');
+        window.location.reload();
+      } catch (error) {
+        console.error('Clear failed:', error);
+        alert('Failed to clear data.');
+      }
+    }
+  };
+
   const importData = () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -260,6 +288,9 @@ export default function Dashboard() {
               </Button>
               <Button variant="ghost" size="sm" onClick={exportData} title="Export Data">
                 <Download className="h-4 w-4" />
+              </Button>
+              <Button variant="destructive" size="sm" onClick={clearAllData} title="Clear All Data (DEBUG)">
+                Clear All
               </Button>
             </div>
           </div>

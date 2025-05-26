@@ -124,7 +124,12 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
                   <CompartmentCell
                     compartment={compartment}
                     position={position}
-                    onClick={() => compartment && onCompartmentClick(compartment, compartment.component)}
+                    onClick={() => {
+                      console.log('Compartment clicked:', compartment);
+                      if (compartment) {
+                        onCompartmentClick(compartment, compartment.component);
+                      }
+                    }}
                     isHighlighted={isHighlighted}
                   />
                 </div>
