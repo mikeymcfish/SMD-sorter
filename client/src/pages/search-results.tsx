@@ -1,37 +1,61 @@
 import { useQuery } from "@tanstack/react-query";
 import { useLocation, Link } from "wouter";
-import { ArrowLeft, MapPin } from "lucide-react";
+import { ArrowLeft, MapPin, Grid3X3, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { Component, Case } from "@shared/schema";
+import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
+import CaseThumbnail from "@/components/case-thumbnail";
+import type { Component, CaseWithCompartments } from "@shared/schema";
 
 export default function SearchResults() {
   const [location] = useLocation();
   const searchParams = new URLSearchParams(location.split('?')[1] || '');
   const query = searchParams.get('q') || '';
+  const [viewMode, setViewMode] = useState<'thumbnail' | 'list'>('thumbnail');
 
-  const { data: components, isLoading: componentsLoading } = useQuery({
+  const { data: components = [], isLoading: componentsLoading } = useQuery({
     queryKey: ["/api/components/search", query],
     queryFn: () => fetch(`/api/components/search?q=${encodeURIComponent(query)}`).then(res => res.json()),
     enabled: !!query
   });
 
-  const { data: cases } = useQuery({
+  const { data: casesData = [] } = useQuery({
     queryKey: ["/api/cases"],
   });
 
-  const getComponentCase = (compartmentId: number) => {
-    if (!cases) return null;
-    for (const case_ of cases) {
-      if (case_.compartments?.some((comp: any) => comp.id === compartmentId)) {
-        return case_;
-      }
+  // Fetch detailed case data with compartments
+  const { data: casesWithCompartments = [] } = useQuery<CaseWithCompartments[]>({
+    queryKey: ["/api/cases/detailed", casesData.map((c: any) => c.id)],
+    queryFn: async () => {
+      if (!casesData.length) return [];
+      const promises = casesData.map((case_: any) => 
+        fetch(`/api/cases/${case_.id}`).then(res => res.json())
+      );
+      return Promise.all(promises);
+    },
+    enabled: casesData.length > 0
+  });
+
+  // Group components by case
+  const componentsByCase = components.reduce((acc: Record<number, Component[]>, component: Component) => {
+    const case_ = casesWithCompartments.find(c => 
+      c.compartments.some(comp => comp.id === component.compartmentId)
+    );
+    if (case_) {
+      if (!acc[case_.id]) acc[case_.id] = [];
+      acc[case_.id].push(component);
     }
-    return null;
+    return acc;
+  }, {});
+
+  const getComponentCase = (compartmentId: number) => {
+    return casesWithCompartments.find(case_ => 
+      case_.compartments?.some((comp: any) => comp.id === compartmentId)
+    ) || null;
   };
 
   const getCompartmentPosition = (compartmentId: number) => {
-    if (!cases) return null;
-    for (const case_ of cases) {
+    for (const case_ of casesWithCompartments) {
       const compartment = case_.compartments?.find((comp: any) => comp.id === compartmentId);
       if (compartment) {
         return { position: compartment.position, layer: compartment.layer };
@@ -60,25 +84,64 @@ export default function SearchResults() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center space-x-4 mb-6">
-          <Link href="/">
-            <Button variant="ghost" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Dashboard
-            </Button>
-          </Link>
-          <h1 className="text-2xl font-bold">
-            Search Results for "{query}"
-          </h1>
-          <span className="text-gray-500">
-            ({components?.length || 0} found)
-          </span>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center space-x-4">
+            <Link href="/">
+              <Button variant="ghost" size="sm">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Dashboard
+              </Button>
+            </Link>
+            <div>
+              <h1 className="text-2xl font-bold">Search Results for "{query}"</h1>
+              <p className="text-gray-600">
+                Found {components.length} components in {Object.keys(componentsByCase).length} cases
+              </p>
+            </div>
+          </div>
+          
+          {components.length > 0 && (
+            <div className="flex items-center space-x-2">
+              <Button
+                variant={viewMode === 'thumbnail' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setViewMode('thumbnail')}
+              >
+                <Grid3X3 className="h-4 w-4 mr-2" />
+                Thumbnail
+              </Button>
+              <Button
+                variant={viewMode === 'list' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setViewMode('list')}
+              >
+                <List className="h-4 w-4 mr-2" />
+                List
+              </Button>
+            </div>
+          )}
         </div>
 
-        {!components || components.length === 0 ? (
+        {components.length === 0 ? (
           <div className="bg-white rounded-lg border border-gray-200 p-8 text-center">
             <p className="text-gray-500">No components found matching your search.</p>
+          </div>
+        ) : viewMode === 'thumbnail' ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Object.entries(componentsByCase).map(([caseId, caseComponents]) => {
+              const case_ = casesWithCompartments.find(c => c.id === parseInt(caseId));
+              if (!case_) return null;
+              
+              return (
+                <CaseThumbnail
+                  key={caseId}
+                  case_={case_}
+                  matchingComponents={caseComponents}
+                  onClick={() => window.location.href = `/?case=${caseId}&search=${encodeURIComponent(query)}`}
+                />
+              );
+            })}
           </div>
         ) : (
           <div className="grid gap-4">
@@ -94,9 +157,7 @@ export default function SearchResults() {
                         <h3 className="text-lg font-semibold text-gray-900">
                           {component.name}
                         </h3>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                          {component.category}
-                        </span>
+                        <Badge variant="secondary">{component.category}</Badge>
                       </div>
                       
                       <div className="mt-2 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
