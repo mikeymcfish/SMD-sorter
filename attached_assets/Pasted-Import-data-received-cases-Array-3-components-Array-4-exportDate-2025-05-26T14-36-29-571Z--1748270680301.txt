@@ -1,0 +1,44 @@
+Import data received: {cases: Array(3), components: Array(4), exportDate: '2025-05-26T14:36:29.571Z', version: '1.0'}
+dashboard.tsx:139 Cases in data: 3
+dashboard.tsx:140 Components in data: 4
+dashboard.tsx:192 Processing case test (old ID: 13, new ID: 14)
+dashboard.tsx:193 - Old compartments: 0
+dashboard.tsx:194 - New compartments: 96
+dashboard.tsx:192 Processing case ggg (old ID: 14, new ID: 15)
+dashboard.tsx:193 - Old compartments: 0
+dashboard.tsx:194 - New compartments: 144
+dashboard.tsx:192 Processing case dsfsdf (old ID: 15, new ID: 16)
+dashboard.tsx:193 - Old compartments: 0
+dashboard.tsx:194 - New compartments: 96
+dashboard.tsx:243 Starting component import. Total components: 4
+dashboard.tsx:244 Compartment ID mapping size: 0
+dashboard.tsx:248 Component sdfsd: old compartmentId 1611 -> new compartmentId undefined
+dashboard.tsx:261 No mapping found for compartment ID 1611
+dashboard.tsx:248 Component sdfsd: old compartmentId 1624 -> new compartmentId undefined
+dashboard.tsx:261 No mapping found for compartment ID 1624
+dashboard.tsx:248 Component sdfsd: old compartmentId 1495 -> new compartmentId undefined
+dashboard.tsx:261 No mapping found for compartment ID 1495
+dashboard.tsx:248 Component sdfsd: old compartmentId 1473 -> new compartmentId undefined
+dashboard.tsx:261 No mapping found for compartment ID 1473
+Navigated to https://e8e823f4-28c9-4132-ac89-e64bf5e02c7d-00-32q9epl38djcu.worf.replit.dev/
+
+                
+          
+          
+          
+         Chrome is moving towards a new experience that allows users to choose to browse without third-party cookies.Understand this warning
+client:495 [vite] connecting...
+client:618 [vite] connected.
+case-grid.tsx:58 Rendering Top Layer with 24 compartments for case test
+case-grid.tsx:58 Rendering Bottom Layer with 72 compartments for case test
+chunk-WERSD76P.js?v=a5a7a5c1:18625 [Violation] 'setTimeout' handler took 73ms
+dashboard.tsx:59 Case selected: 15
+dashboard.tsx:60 Current selectedCase: {name: 'test', model: 'LAYOUT-6x4-TOP', description: null, id: 14, isActive: true, …}
+dashboard.tsx:61 IsLoading: false
+case-grid.tsx:58 Rendering Top Layer with 72 compartments for case ggg
+case-grid.tsx:58 Rendering Bottom Layer with 72 compartments for case ggg
+dashboard.tsx:59 Case selected: 16
+dashboard.tsx:60 Current selectedCase: {name: 'ggg', model: 'LAYOUT-12x6-BOTH', description: null, id: 15, isActive: true, …}
+dashboard.tsx:61 IsLoading: false
+case-grid.tsx:58 Rendering Top Layer with 24 compartments for case dsfsdf
+case-grid.tsx:58 Rendering Bottom Layer with 72 compartments for case dsfsdf
