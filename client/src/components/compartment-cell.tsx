@@ -1,5 +1,6 @@
 import { Edit, Plus } from "lucide-react";
 import { COMPONENT_CATEGORIES } from "@/lib/constants";
+import { getIconForCategory } from "./electronic-icons";
 import type { Compartment, Component } from "@shared/schema";
 
 interface CompartmentCellProps {
@@ -48,6 +49,9 @@ export default function CompartmentCell({
       stockStatus === "low" ? "#D97706" : "#059669"
     : "#D1D5DB";
 
+  // Get the electronic icon for the component category
+  const IconComponent = component ? getIconForCategory(component.category) : null;
+
   return (
     <div
       className={`w-full h-full border-2 rounded-md hover:border-blue-400 cursor-pointer relative group transition-all duration-200 hover:shadow-md ${opacity}`}
@@ -59,7 +63,14 @@ export default function CompartmentCell({
       onClick={onClick}
       title={component ? `${component.category} | ${component.packageSize || 'No package'} | ${component.notes || 'No notes'}` : 'Empty compartment'}
     >
-      <div className="absolute inset-1 flex flex-col justify-between text-xs">
+      {/* Background Electronic Icon */}
+      {IconComponent && (
+        <div className="absolute inset-0 flex items-center justify-center">
+          <IconComponent className="w-8 h-8 text-gray-300 opacity-30" />
+        </div>
+      )}
+      
+      <div className="absolute inset-1 flex flex-col justify-between text-xs relative z-10">
         <div className="font-mono text-[10px] text-gray-500">{position}</div>
         
         {component ? (

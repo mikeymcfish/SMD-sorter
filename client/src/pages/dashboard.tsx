@@ -3,12 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Search, Filter, Download, Plus, HelpCircle } from "lucide-react";
+import { Search, Download, Plus, HelpCircle } from "lucide-react";
 import Sidebar from "@/components/sidebar";
 import CaseGrid from "@/components/case-grid";
 import EditComponentDialog from "@/components/edit-component-dialog";
 import AddCaseDialog from "@/components/add-case-dialog";
 import ImportGuideDialog from "@/components/import-guide-dialog";
+import FilterDropdown from "@/components/filter-dropdown";
 import type { CaseWithCompartments, Component, Compartment, Case } from "@shared/schema";
 
 export default function Dashboard() {
