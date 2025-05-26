@@ -74,7 +74,7 @@ export default function CompartmentCell({
         
         {component ? (
           <div className="flex flex-col items-center">
-            <div className="font-medium text-[10px] text-gray-700 truncate">
+            <div className="font-medium text-[10px] text-gray-700 whitespace-normal break-words">
               {component.name}
             </div>
             {component.packageSize && (
