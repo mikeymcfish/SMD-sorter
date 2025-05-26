@@ -1,0 +1,25 @@
+Here is a detailed table summarizing the specifications of various AideTek BOX-ALL storage containers, highlighting the differences in compartment sizes between the top and bottom sections:
+
+| Model           | External Dimensions (L×W×H) | Total Compartments | Top Section Layout                                                                                           | Bottom Section Layout                                                                                  |                                      |
+| --------------- | --------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------ |
+| **BOX-ALL-144** | 8.7" × 5.7" × 1.5"          | 144                | 6 rows × 12 compartments (each 0.72" H × 0.657" W × 0.4" D)                                                  | 6 rows × 12 compartments (each 0.72" H × 0.657" W × 0.4" D)                                            |                                      |
+| **BOX-ALL-96**  | 8.7" × 5.7" × 1.5"          | 96                 | 2 rows × 12 compartments: 12 large (1.65" L × 1.37" W × 0.78" D) and 12 medium (0.78" L × 1.37" W × 0.78" D) | 6 rows × 12 compartments (each 0.72" H × 0.657" W × 0.4" D)                                            |                                      |
+| **BOX-ALL-48**  | 8.7" × 5.7" × 1.5"          | 48                 | 4 rows × 6 compartments (each 0.78" L × 1.37" W × 0.78" D)                                                   | 4 rows × 6 compartments (each 1.65" L × 1.37" W × 0.78" D)                                             |                                      |
+| **BOX-ALL-24**  | 9" × 6" × 2.5"              | 24                 | 2 rows × 6 compartments: 8 small (0.79" L × 2" W), 8 medium (1.77" L × 2" W), 8 large (2.36" L × 2" W)       | 2 rows × 6 compartments: 8 small (0.79" L × 2" W), 8 medium (1.77" L × 2" W), 8 large (2.36" L × 2" W) | ([aidetek.com][1], [aidetek.com][2]) |
+
+**Notes:**
+
+* The **BOX-ALL-144** features uniform compartments on both top and bottom sections, each measuring 0.72" in height, 0.657" in width, and 0.4" in depth.
+
+* The **BOX-ALL-96** has a top section with 12 large and 12 medium compartments, and a bottom section with 72 small compartments, each measuring 0.72" in height, 0.657" in width, and 0.4" in depth.([eBay][3])
+
+* The **BOX-ALL-48** includes 24 small compartments on the top and 24 large compartments on the bottom.([aidetek.com][4])
+
+* The **BOX-ALL-24** contains three sizes of compartments (small, medium, large), with 8 of each size on both the top and bottom sections.
+
+These storage containers are designed to accommodate various sizes and quantities of components, catering to different organizational needs.
+
+[1]: https://aidetek.com/?utm_source=chatgpt.com "Price: $19.99"
+[2]: https://aidetek.com/mm5/merchant.mvc?Category_Code=Encl&Product_Code=BOXALL96&Screen=PROD&Store_Code=A&utm_source=chatgpt.com "AideTek BOXALL96 96 Compartments Enclosure SMD SMT Parts ..."
+[3]: https://www.ebay.com/itm/382307499301?_ul=IL&utm_source=chatgpt.com "Aidetek BOXALL96 96 lids enclosure SMD SMT parts Organizer ..."
+[4]: https://aidetek.com/mm5/merchant.mvc?Category_Code=11&Product_Code=BOXALL48&Screen=PROD&Session_ID=5e0f1d4797fc12dcb2fd30964b0b277c&Store_Code=A&utm_source=chatgpt.com "Aidetek BOXALL48 Compartments Enclosure box SMD SMT 0805 ..."
