@@ -50,10 +50,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Create new case
   app.post("/api/cases", async (req, res) => {
     try {
-      const validatedData = insertCaseSchema.parse(req.body);
+      // Create a schema that accepts the new dual-layout format
+      const newCaseSchema = z.object({
+        name: z.string().min(1),
+        topLayoutType: z.string().min(1),
+        bottomLayoutType: z.string().min(1),
+        description: z.string().optional(),
+      });
+      
+      const validatedData = newCaseSchema.parse(req.body);
       const case_ = await storage.createCase(validatedData);
       res.status(201).json(case_);
     } catch (error) {
+      console.error('Case creation error:', error);
       res.status(400).json({ message: "Invalid case data" });
     }
   });
