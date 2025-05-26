@@ -34,6 +34,7 @@ export default function Dashboard() {
   const { data: selectedCase, isLoading } = useQuery<CaseWithCompartments>({
     queryKey: ["/api/cases", selectedCaseId],
     enabled: !!selectedCaseId,
+    retry: 3,
   });
 
   // Search components
@@ -48,6 +49,8 @@ export default function Dashboard() {
 
   const handleCaseSelect = (caseId: number) => {
     console.log('Case selected:', caseId);
+    console.log('Current selectedCase:', selectedCase);
+    console.log('IsLoading:', isLoading);
     setSelectedCaseId(caseId);
   };
 
