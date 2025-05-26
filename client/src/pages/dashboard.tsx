@@ -62,11 +62,11 @@ export default function Dashboard() {
 
   const exportData = async () => {
     try {
-      const response = await fetch('/api/cases');
-      const allCases = await response.json();
+      const casesResponse = await fetch('/api/cases');
+      const allCases = await casesResponse.json();
       
       const componentsResponse = await fetch('/api/components');
-      const allComponents = await response.json();
+      const allComponents = await componentsResponse.json();
       
       const exportData = {
         cases: allCases,

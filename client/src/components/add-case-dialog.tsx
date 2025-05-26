@@ -38,10 +38,8 @@ const caseSchema = z.object({
 type CaseFormData = z.infer<typeof caseSchema>;
 
 const CASE_MODELS = [
-  { value: "BOX-ALL-144", label: "BOX-ALL-144 (144 compartments, 6×12 grid)" },
-  { value: "BOX-ALL-96", label: "BOX-ALL-96 (96 compartments, mixed layout)" },
-  { value: "BOX-ALL-48", label: "BOX-ALL-48 (48 compartments, 4×6 grid)" },
-  { value: "BOX-ALL-24", label: "BOX-ALL-24 (24 compartments, mixed sizes)" },
+  { value: "LAYOUT-SQUARES", label: "12×6 All Squares (uniform compartments)" },
+  { value: "LAYOUT-MIXED", label: "Mixed Layout (long top rows, tall bottom rows)" },
 ];
 
 interface AddCaseDialogProps {

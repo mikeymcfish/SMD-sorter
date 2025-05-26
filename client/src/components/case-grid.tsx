@@ -10,108 +10,129 @@ interface CaseGridProps {
 }
 
 export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }: CaseGridProps) {
-  const [activeLayer, setActiveLayer] = useState<"top" | "bottom">("top");
 
   const getCaseLayout = (model: string) => {
-    const layouts: Record<string, { rows: number; cols: number; description: string; totalCompartments: number }> = {
-      "BOX-ALL-144": { 
+    const layouts: Record<string, { rows: number; cols: number; description: string; isMixed?: boolean }> = {
+      "LAYOUT-SQUARES": { 
         rows: 6, 
         cols: 12, 
-        description: "8.7\" × 5.7\" × 1.5\" | 144 Compartments | 6×12 Grid",
-        totalCompartments: 72 // per layer
+        description: "12×6 All Squares - Uniform compartments",
+        isMixed: false
       },
-      "BOX-ALL-96": { 
-        rows: 6, 
-        cols: 12, 
-        description: "8.7\" × 5.7\" × 1.5\" | 96 Compartments | Mixed layout",
-        totalCompartments: 72 // simplified to same grid
-      },
-      "BOX-ALL-48": { 
+      "LAYOUT-MIXED": { 
         rows: 4, 
         cols: 6, 
-        description: "8.7\" × 5.7\" × 1.5\" | 48 Compartments | 4×6 Grid",
-        totalCompartments: 24 // per layer
+        description: "Mixed Layout - Long top rows, tall bottom rows",
+        isMixed: true
       },
-      "BOX-ALL-24": { 
-        rows: 2, 
-        cols: 6, 
-        description: "9\" × 6\" × 2.5\" | 24 Compartments | 2×6 Grid",
-        totalCompartments: 12 // per layer
-      },
+      // Legacy support
+      "BOX-ALL-144": { rows: 6, cols: 12, description: "Legacy BOX-ALL-144", isMixed: false },
+      "BOX-ALL-96": { rows: 6, cols: 12, description: "Legacy BOX-ALL-96", isMixed: false },
+      "BOX-ALL-48": { rows: 4, cols: 6, description: "Legacy BOX-ALL-48", isMixed: false },
+      "BOX-ALL-24": { rows: 2, cols: 6, description: "Legacy BOX-ALL-24", isMixed: false },
     };
-    return layouts[model] || layouts["BOX-ALL-144"];
+    return layouts[model] || layouts["LAYOUT-SQUARES"];
   };
 
   const layout = getCaseLayout(case_.model);
-  const filteredCompartments = case_.compartments.filter(comp => comp.layer === activeLayer);
+  const topCompartments = case_.compartments.filter(comp => comp.layer === "top");
+  const bottomCompartments = case_.compartments.filter(comp => comp.layer === "bottom");
 
-  // Filter compartments based on search query
-  const searchFilteredCompartments = searchQuery
-    ? filteredCompartments.filter(comp => {
-        if (!comp.component) return false;
-        const component = comp.component;
-        return (
-          component.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          component.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          (component.packageSize && component.packageSize.toLowerCase().includes(searchQuery.toLowerCase()))
-        );
-      })
-    : filteredCompartments;
+  const renderLayer = (compartments: any[], layerName: string, aspectRatio: string = "square") => {
+    // Filter compartments based on search query
+    const searchFilteredCompartments = searchQuery
+      ? compartments.filter(comp => {
+          if (!comp.component) return false;
+          const component = comp.component;
+          return (
+            component.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            component.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (component.packageSize && component.packageSize.toLowerCase().includes(searchQuery.toLowerCase()))
+          );
+        })
+      : compartments;
+
+    return (
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-700 flex items-center">
+          {layerName}
+          {layerName === "Top Layer" && layout.isMixed && (
+            <span className="ml-2 text-sm text-gray-500">(Long compartments)</span>
+          )}
+          {layerName === "Bottom Layer" && layout.isMixed && (
+            <span className="ml-2 text-sm text-gray-500">(Tall compartments)</span>
+          )}
+        </h3>
+        <div 
+          className={`grid gap-1 max-w-4xl mx-auto`}
+          style={{ 
+            gridTemplateColumns: `repeat(${layout.cols}, minmax(0, 1fr))` 
+          }}
+        >
+          {Array.from({ length: layout.rows }, (_, rowIndex) =>
+            Array.from({ length: layout.cols }, (_, colIndex) => {
+              const position = String.fromCharCode(65 + rowIndex) + (colIndex + 1);
+              const compartment = searchQuery 
+                ? searchFilteredCompartments.find(c => c.position === position)
+                : compartments.find(c => c.position === position);
+              
+              const isHighlighted = !searchQuery || (compartment && searchFilteredCompartments.includes(compartment));
+              
+              // Determine aspect ratio for mixed layout
+              let cellClass = "";
+              if (layout.isMixed) {
+                if (layerName === "Top Layer" && rowIndex < 2) {
+                  cellClass = "aspect-[2/1]"; // Long rectangles for top 2 rows
+                } else if (layerName === "Bottom Layer" && rowIndex >= 2) {
+                  cellClass = "aspect-[1/2]"; // Tall rectangles for bottom 2 rows
+                } else {
+                  cellClass = "aspect-square";
+                }
+              } else {
+                cellClass = "aspect-square";
+              }
+              
+              return (
+                <div key={`${layerName}-${position}`} className={cellClass}>
+                  <CompartmentCell
+                    compartment={compartment}
+                    position={position}
+                    onClick={() => compartment && onCompartmentClick(compartment, compartment.component)}
+                    isHighlighted={isHighlighted}
+                  />
+                </div>
+              );
+            })
+          )}
+        </div>
+      </div>
+    );
+  };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 space-y-8">
       {/* Case Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="text-center">
         <div className="text-sm text-gray-500">
           {layout.description}
         </div>
-        <div className="flex items-center space-x-2">
-          <Button
-            variant={activeLayer === "top" ? "default" : "ghost"}
-            size="sm"
-            onClick={() => setActiveLayer("top")}
-          >
-            Top Layer
-          </Button>
-          <Button
-            variant={activeLayer === "bottom" ? "default" : "ghost"}
-            size="sm"
-            onClick={() => setActiveLayer("bottom")}
-          >
-            Bottom Layer
-          </Button>
+      </div>
+
+      {/* Top Layer */}
+      {renderLayer(topCompartments, "Top Layer")}
+
+      {/* Visual Divider */}
+      <div className="relative">
+        <div className="absolute inset-0 flex items-center">
+          <div className="w-full border-t border-gray-300"></div>
+        </div>
+        <div className="relative flex justify-center text-sm">
+          <span className="px-3 bg-white text-gray-500">Case Separator</span>
         </div>
       </div>
 
-      {/* Grid */}
-      <div 
-        className={`grid gap-1 max-w-4xl mx-auto`}
-        style={{ 
-          gridTemplateColumns: `repeat(${layout.cols}, minmax(0, 1fr))` 
-        }}
-      >
-        {Array.from({ length: layout.rows }, (_, rowIndex) =>
-          Array.from({ length: layout.cols }, (_, colIndex) => {
-            const position = String.fromCharCode(65 + rowIndex) + (colIndex + 1); // A1, A2, B1, etc.
-            const compartment = searchQuery 
-              ? searchFilteredCompartments.find(c => c.position === position)
-              : filteredCompartments.find(c => c.position === position);
-            
-            // If searching and compartment doesn't match, show dimmed version
-            const isHighlighted = !searchQuery || (compartment && searchFilteredCompartments.includes(compartment));
-            
-            return (
-              <CompartmentCell
-                key={`${activeLayer}-${position}`}
-                compartment={compartment}
-                position={position}
-                onClick={() => compartment && onCompartmentClick(compartment, compartment.component)}
-                isHighlighted={isHighlighted}
-              />
-            );
-          })
-        )}
-      </div>
+      {/* Bottom Layer */}
+      {renderLayer(bottomCompartments, "Bottom Layer")}
 
       {/* Legend */}
       <div className="mt-6 flex items-center justify-center space-x-6 text-sm">
