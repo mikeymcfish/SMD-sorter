@@ -46,6 +46,11 @@ export default function Dashboard() {
     setEditingComponent({ compartment, component });
   };
 
+  const handleCaseSelect = (caseId: number) => {
+    console.log('Case selected:', caseId);
+    setSelectedCaseId(caseId);
+  };
+
   const getStockStatus = (quantity: number, minQuantity: number = 5) => {
     if (quantity === 0) return "empty";
     if (quantity <= minQuantity / 2) return "critical";
@@ -92,7 +97,7 @@ export default function Dashboard() {
       <Sidebar
         cases={cases}
         selectedCaseId={selectedCaseId}
-        onCaseSelect={setSelectedCaseId}
+        onCaseSelect={handleCaseSelect}
         onAddCase={() => setShowAddCase(true)}
       />
 
