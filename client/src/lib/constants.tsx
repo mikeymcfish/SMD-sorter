@@ -82,9 +82,9 @@ export const CASE_LAYOUTS = {
     description: "Three sizes: small, medium, large"
   },
   "LAYOUT-12x6-BOTH": {
-    rows: 4,
-    cols: 6,
-    totalCompartments: 48,
+    rows: 6,
+    cols: 12,
+    totalCompartments: 144,
     description: "12×6 Both Layers (uniform squares)"
   },
   "LAYOUT-6x4-TOP": {

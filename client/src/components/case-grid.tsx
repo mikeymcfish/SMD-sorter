@@ -14,8 +14,8 @@ export default function CaseGrid({ case_, onCompartmentClick, searchQuery = "" }
   const getCaseLayout = (model: string) => {
     const layouts: Record<string, { rows: number; cols: number; description: string; isMixed?: boolean; isTall?: boolean }> = {
       "LAYOUT-12x6-BOTH": { 
-        rows: 4, 
-        cols: 6, 
+        rows: 6, 
+        cols: 12, 
         description: "12×6 Both Layers (uniform squares)"
       },
       "LAYOUT-6x4-TOP": { 
