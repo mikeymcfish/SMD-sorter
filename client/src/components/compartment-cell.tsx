@@ -66,7 +66,7 @@ export default function CompartmentCell({
       {/* Background Electronic Icon */}
       {IconComponent && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <IconComponent className="w-8 h-8 text-gray-400 opacity-60" />
+          <IconComponent className="w-8 h-8 text-gray-400 opacity-20" />
         </div>
       )}
       

@@ -14,17 +14,18 @@ import otherIcon from "../assets/icons/other.svg";
 
 interface IconProps {
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const createSvgIcon = (iconSrc: string) => ({ className = "w-4 h-4" }: IconProps) => {
-  return (
+const createSvgIcon = (iconSrc: string) =>
+  ({ className = "w-4 h-4", style }: IconProps) => (
     <img
       src={iconSrc}
       alt="component icon"
       className={className}
+      style={{ transform: "translateY(12px)", ...style }}
     />
   );
-};
 
 export const ResistorIcon = createSvgIcon(resistorIcon);
 export const CapacitorIcon = createSvgIcon(capacitorIcon);
@@ -54,6 +55,6 @@ export const getIconForCategory = (category: string) => {
     sensor: SensorIcon,
     other: OtherIcon,
   };
-  
+
   return iconMap[category] || OtherIcon;
 };

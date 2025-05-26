@@ -10,7 +10,12 @@ interface SidebarProps {
   onAddCase: () => void;
 }
 
-export default function Sidebar({ cases, selectedCaseId, onCaseSelect, onAddCase }: SidebarProps) {
+export default function Sidebar({
+  cases,
+  selectedCaseId,
+  onCaseSelect,
+  onAddCase,
+}: SidebarProps) {
   const getStatusColor = (isActive: boolean) => {
     return isActive ? "bg-green-500" : "bg-gray-400";
   };
@@ -30,7 +35,9 @@ export default function Sidebar({ cases, selectedCaseId, onCaseSelect, onAddCase
       {/* Cases List */}
       <nav className="flex-1 p-4">
         <div className="mt-8">
-          <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-3">My Cases</h3>
+          <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-3">
+            My Cases
+          </h3>
           <div className="space-y-1">
             {cases.map((case_) => (
               <button
@@ -43,12 +50,16 @@ export default function Sidebar({ cases, selectedCaseId, onCaseSelect, onAddCase
                 }`}
               >
                 <div className="flex items-center space-x-2 min-w-0">
-                  <div className={`w-2 h-2 rounded-full ${getStatusColor(case_.isActive)}`} />
-                  <span className="text-sm font-medium truncate">{case_.name}</span>
+                  <div
+                    className={`w-2 h-2 rounded-full ${getStatusColor(case_.isActive)}`}
+                  />
+                  <span className="text-sm font-medium truncate">
+                    {case_.name}
+                  </span>
                 </div>
-                <span className="text-xs text-gray-500 whitespace-nowrap ml-2">
+                {/* <span className="text-xs text-gray-500 whitespace-nowrap ml-2">
                   {case_.model.replace("BOX-ALL-", "BOX-")}
-                </span>
+                </span> */}
               </button>
             ))}
           </div>
@@ -57,7 +68,7 @@ export default function Sidebar({ cases, selectedCaseId, onCaseSelect, onAddCase
 
       {/* Add Case Button */}
       <div className="p-4 border-t border-gray-200">
-        <Button 
+        <Button
           onClick={onAddCase}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center justify-center space-x-2"
         >
