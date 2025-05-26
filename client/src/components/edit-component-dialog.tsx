@@ -219,7 +219,7 @@ export default function EditComponentDialog({
                 <FormItem>
                   <FormLabel>Component Name/Value</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., 10kΩ Resistor" {...field} />
+                    <Input placeholder="e.g., 10kΩ Resistor" {...field} autoComplete="off" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
