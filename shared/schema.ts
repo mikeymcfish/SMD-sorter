@@ -8,10 +8,19 @@ export const users = pgTable("users", {
   password: text("password").notNull(),
 });
 
+export const categories = pgTable("categories", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull().unique(),
+  color: text("color").default("#6366f1"), // Hex color for UI
+  iconName: text("icon_name").default("other"), // Icon identifier
+});
+
 export const cases = pgTable("cases", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  model: text("model").notNull(), // BOX-ALL-144, BOX-ALL-96, etc.
+  rows: integer("rows").notNull(),
+  cols: integer("cols").notNull(),
+  hasBottom: boolean("has_bottom").default(false),
   description: text("description"),
   isActive: boolean("is_active").default(true),
 });
@@ -29,13 +38,16 @@ export const components = pgTable("components", {
   id: serial("id").primaryKey(),
   compartmentId: integer("compartment_id").notNull().references(() => compartments.id),
   name: text("name").notNull(),
-  category: text("category").notNull(),
-  packageSize: text("package_size"),
+  categoryId: integer("category_id").notNull().references(() => categories.id),
   quantity: integer("quantity").notNull().default(0),
   minQuantity: integer("min_quantity").default(5),
   datasheetUrl: text("datasheet_url"),
   photoUrl: text("photo_url"),
   notes: text("notes"),
+});
+
+export const insertCategorySchema = createInsertSchema(categories).omit({
+  id: true,
 });
 
 export const insertCaseSchema = createInsertSchema(cases).omit({
@@ -56,11 +68,13 @@ export const insertUserSchema = createInsertSchema(users).pick({
   password: true,
 });
 
+export type InsertCategory = z.infer<typeof insertCategorySchema>;
 export type InsertCase = z.infer<typeof insertCaseSchema>;
 export type InsertCompartment = z.infer<typeof insertCompartmentSchema>;
 export type InsertComponent = z.infer<typeof insertComponentSchema>;
 export type InsertUser = z.infer<typeof insertUserSchema>;
 
+export type Category = typeof categories.$inferSelect;
 export type Case = typeof cases.$inferSelect;
 export type Compartment = typeof compartments.$inferSelect;
 export type Component = typeof components.$inferSelect;
