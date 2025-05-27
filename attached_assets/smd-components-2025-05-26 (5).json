@@ -1,0 +1,2777 @@
+{
+  "cases": [
+    {
+      "name": "Case-1",
+      "model": "LAYOUT-12x6-BOTH",
+      "description": null,
+      "id": 2,
+      "isActive": true,
+      "compartments": [
+        {
+          "id": 73,
+          "caseId": 2,
+          "position": "A1",
+          "row": 1,
+          "col": 1,
+          "layer": "top",
+          "component": {
+            "compartmentId": 73,
+            "name": "Blue",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 1
+          }
+        },
+        {
+          "id": 74,
+          "caseId": 2,
+          "position": "A2",
+          "row": 1,
+          "col": 2,
+          "layer": "top",
+          "component": {
+            "compartmentId": 74,
+            "name": "Red",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 2
+          }
+        },
+        {
+          "id": 75,
+          "caseId": 2,
+          "position": "A3",
+          "row": 1,
+          "col": 3,
+          "layer": "top",
+          "component": {
+            "compartmentId": 75,
+            "name": "Green",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 3
+          }
+        },
+        {
+          "id": 76,
+          "caseId": 2,
+          "position": "A4",
+          "row": 1,
+          "col": 4,
+          "layer": "top",
+          "component": {
+            "compartmentId": 76,
+            "name": "White",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 4
+          }
+        },
+        {
+          "id": 77,
+          "caseId": 2,
+          "position": "A5",
+          "row": 1,
+          "col": 5,
+          "layer": "top",
+          "component": {
+            "compartmentId": 77,
+            "name": "UV",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 5
+          }
+        },
+        {
+          "id": 78,
+          "caseId": 2,
+          "position": "A6",
+          "row": 1,
+          "col": 6,
+          "layer": "top",
+          "component": {
+            "compartmentId": 78,
+            "name": "IR",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 6
+          }
+        },
+        {
+          "id": 79,
+          "caseId": 2,
+          "position": "A7",
+          "row": 1,
+          "col": 7,
+          "layer": "top",
+          "component": {
+            "compartmentId": 79,
+            "name": "RGB",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 7
+          }
+        },
+        {
+          "id": 80,
+          "caseId": 2,
+          "position": "A8",
+          "row": 1,
+          "col": 8,
+          "layer": "top",
+          "component": {
+            "compartmentId": 80,
+            "name": "Red/Blue",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 8
+          }
+        },
+        {
+          "id": 81,
+          "caseId": 2,
+          "position": "A9",
+          "row": 1,
+          "col": 9,
+          "layer": "top",
+          "component": {
+            "compartmentId": 81,
+            "name": "Red/Green",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 9
+          }
+        },
+        {
+          "id": 82,
+          "caseId": 2,
+          "position": "A10",
+          "row": 1,
+          "col": 10,
+          "layer": "top",
+          "component": {
+            "compartmentId": 82,
+            "name": "Orange",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 10
+          }
+        },
+        {
+          "id": 83,
+          "caseId": 2,
+          "position": "A11",
+          "row": 1,
+          "col": 11,
+          "layer": "top",
+          "component": {
+            "compartmentId": 83,
+            "name": "Green",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 11
+          }
+        },
+        {
+          "id": 84,
+          "caseId": 2,
+          "position": "A12",
+          "row": 1,
+          "col": 12,
+          "layer": "top",
+          "component": {
+            "compartmentId": 84,
+            "name": "Yellow",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": null,
+            "id": 12
+          }
+        },
+        {
+          "id": 85,
+          "caseId": 2,
+          "position": "B1",
+          "row": 2,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 86,
+          "caseId": 2,
+          "position": "B2",
+          "row": 2,
+          "col": 2,
+          "layer": "top",
+          "component": {
+            "compartmentId": 86,
+            "name": "Red",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": "(right angle)",
+            "id": 13
+          }
+        },
+        {
+          "id": 87,
+          "caseId": 2,
+          "position": "B3",
+          "row": 2,
+          "col": 3,
+          "layer": "top",
+          "component": {
+            "compartmentId": 87,
+            "name": "Green",
+            "category": "led",
+            "packageSize": "0805",
+            "quantity": 0,
+            "minQuantity": 5,
+            "datasheetUrl": null,
+            "photoUrl": null,
+            "notes": "(right angle)",
+            "id": 14
+          }
+        },
+        {
+          "id": 88,
+          "caseId": 2,
+          "position": "B4",
+          "row": 2,
+          "col": 4,
+          "layer": "top",
+          "component": {
+            "compartmentId": 88,
+            "name": "NeoPixel",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "20x20mm\nWS2812B",
+            "id": 15,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 89,
+          "caseId": 2,
+          "position": "B5",
+          "row": 2,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 90,
+          "caseId": 2,
+          "position": "B6",
+          "row": 2,
+          "col": 6,
+          "layer": "top",
+          "component": {
+            "compartmentId": 90,
+            "name": "IR",
+            "category": "led",
+            "packageSize": "0805",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "",
+            "id": 16,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 91,
+          "caseId": 2,
+          "position": "B7",
+          "row": 2,
+          "col": 7,
+          "layer": "top",
+          "component": {
+            "compartmentId": 91,
+            "name": "RGB",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "right angle",
+            "id": 17,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 92,
+          "caseId": 2,
+          "position": "B8",
+          "row": 2,
+          "col": 8,
+          "layer": "top",
+          "component": {
+            "compartmentId": 92,
+            "name": "MAX98357",
+            "category": "ic",
+            "packageSize": "QFN-16",
+            "quantity": 4,
+            "minQuantity": 5,
+            "notes": "Audio Amplifiers Digital Input Class D Amplifier",
+            "id": 18,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 93,
+          "caseId": 2,
+          "position": "B9",
+          "row": 2,
+          "col": 9,
+          "layer": "top",
+          "component": {
+            "compartmentId": 93,
+            "name": "74AHCV05",
+            "category": "ic",
+            "packageSize": "SOIC-14",
+            "quantity": 6,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 19,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 94,
+          "caseId": 2,
+          "position": "B10",
+          "row": 2,
+          "col": 10,
+          "layer": "top",
+          "component": {
+            "compartmentId": 94,
+            "name": "74LVC138A",
+            "category": "ic",
+            "packageSize": "QFN-16",
+            "quantity": 3,
+            "minQuantity": 5,
+            "notes": "Encoders, Decoders, Multiplexers & Demultiplexers 3-to-8 line decoder/demultiplexer; inverting",
+            "id": 20,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 95,
+          "caseId": 2,
+          "position": "B11",
+          "row": 2,
+          "col": 11,
+          "layer": "top",
+          "component": {
+            "compartmentId": 95,
+            "name": "7-SEGMENT",
+            "category": "led",
+            "packageSize": "",
+            "quantity": 2,
+            "minQuantity": 5,
+            "notes": "micro 10mm",
+            "id": 22,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 96,
+          "caseId": 2,
+          "position": "B12",
+          "row": 2,
+          "col": 12,
+          "layer": "top",
+          "component": {
+            "compartmentId": 96,
+            "name": "7-SEGMENT",
+            "category": "led",
+            "packageSize": "",
+            "quantity": 5,
+            "minQuantity": 5,
+            "notes": "micro 10mm",
+            "id": 21,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 97,
+          "caseId": 2,
+          "position": "C1",
+          "row": 3,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 98,
+          "caseId": 2,
+          "position": "C2",
+          "row": 3,
+          "col": 2,
+          "layer": "top",
+          "component": {
+            "compartmentId": 98,
+            "name": "RED",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "reverse mount",
+            "id": 23,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 99,
+          "caseId": 2,
+          "position": "C3",
+          "row": 3,
+          "col": 3,
+          "layer": "top",
+          "component": {
+            "compartmentId": 99,
+            "name": "GREEN",
+            "category": "led",
+            "packageSize": "SOT-23-3",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 24,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 100,
+          "caseId": 2,
+          "position": "C4",
+          "row": 3,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 101,
+          "caseId": 2,
+          "position": "C5",
+          "row": 3,
+          "col": 5,
+          "layer": "top",
+          "component": {
+            "compartmentId": 101,
+            "name": "NeoPixel",
+            "category": "led",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "40x40mm",
+            "id": 26,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 102,
+          "caseId": 2,
+          "position": "C6",
+          "row": 3,
+          "col": 6,
+          "layer": "top",
+          "component": {
+            "compartmentId": 102,
+            "name": "NeoPixel",
+            "category": "led",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "40x40mm",
+            "id": 29,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 103,
+          "caseId": 2,
+          "position": "C7",
+          "row": 3,
+          "col": 7,
+          "layer": "top",
+          "component": {
+            "compartmentId": 103,
+            "name": "RGB",
+            "category": "led",
+            "packageSize": "",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "RGB",
+            "id": 28,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 104,
+          "caseId": 2,
+          "position": "C8",
+          "row": 3,
+          "col": 8,
+          "layer": "top",
+          "component": {
+            "compartmentId": 104,
+            "name": "TLV320DAC",
+            "category": "ic",
+            "packageSize": "BGA",
+            "quantity": 4,
+            "minQuantity": 5,
+            "notes": "Ultra Low Pwr Stereo Audio Codec\nDSBGA-25",
+            "id": 30,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 105,
+          "caseId": 2,
+          "position": "C9",
+          "row": 3,
+          "col": 9,
+          "layer": "top",
+          "component": {
+            "compartmentId": 105,
+            "name": "ESD5Z2.5TG",
+            "category": "diode",
+            "packageSize": "0603",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "ESD Diode",
+            "id": 31,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 106,
+          "caseId": 2,
+          "position": "C10",
+          "row": 3,
+          "col": 10,
+          "layer": "top",
+          "component": {
+            "compartmentId": 106,
+            "name": "LED Tactile",
+            "category": "switch",
+            "packageSize": "",
+            "quantity": 2,
+            "minQuantity": 5,
+            "notes": "9.85 mm x 9.85 mm\n3006.2115\n",
+            "id": 33,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 107,
+          "caseId": 2,
+          "position": "C11",
+          "row": 3,
+          "col": 11,
+          "layer": "top",
+          "component": {
+            "compartmentId": 107,
+            "name": "LED tactile",
+            "category": "switch",
+            "packageSize": "",
+            "quantity": 10,
+            "minQuantity": 5,
+            "notes": "8 mm x 5.2 mm\n228HMVARBFR\nRed/Blue",
+            "id": 34,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 108,
+          "caseId": 2,
+          "position": "C12",
+          "row": 3,
+          "col": 12,
+          "layer": "top",
+          "component": {
+            "compartmentId": 108,
+            "name": "APS5130PD7C",
+            "category": "sensor",
+            "packageSize": "",
+            "quantity": 1,
+            "minQuantity": 5,
+            "notes": "Photodiodes 3.2x1.6mm RGB COLOR SENSOR\n620 nm, 550 nm, 470 nm",
+            "id": 32,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 109,
+          "caseId": 2,
+          "position": "D1",
+          "row": 4,
+          "col": 1,
+          "layer": "top",
+          "component": {
+            "compartmentId": 109,
+            "name": "ATMEGA 32U4MU",
+            "category": "ic",
+            "packageSize": "QFN-32",
+            "quantity": 1,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU AVR USB 32K FLASH INDUSTRIAL\nQFN-44\t",
+            "id": 35,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 110,
+          "caseId": 2,
+          "position": "D2",
+          "row": 4,
+          "col": 2,
+          "layer": "top",
+          "component": {
+            "compartmentId": 110,
+            "name": "ATSAMD G18A-U",
+            "category": "ic",
+            "packageSize": "QFN-32",
+            "quantity": 4,
+            "minQuantity": 5,
+            "notes": "QFN-44\nARM Microcontrollers - MCU CM4, QFN48, 256KFlash,Tray, USB,Extended Temp",
+            "id": 36,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 111,
+          "caseId": 2,
+          "position": "D3",
+          "row": 4,
+          "col": 3,
+          "layer": "top",
+          "component": {
+            "compartmentId": 111,
+            "name": "ATMEGA 16U2",
+            "category": "ic",
+            "packageSize": "TQFP-32",
+            "quantity": 4,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU AVR USB 8K FLASH AVR,USB16K FLASH",
+            "id": 37,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 112,
+          "caseId": 2,
+          "position": "D4",
+          "row": 4,
+          "col": 4,
+          "layer": "top",
+          "component": {
+            "compartmentId": 112,
+            "name": "ATMEGA 32U4",
+            "category": "ic",
+            "packageSize": "TQFP-44",
+            "quantity": 3,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU AVR USB 32K FLASH INDUSTRIAL",
+            "id": 38,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 113,
+          "caseId": 2,
+          "position": "D5",
+          "row": 4,
+          "col": 5,
+          "layer": "top",
+          "component": {
+            "compartmentId": 113,
+            "name": "ATMEGA 328PB",
+            "category": "ic",
+            "packageSize": "QFN-32",
+            "quantity": 10,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU ATMEGA328PB 20MHZ Extd. Temp",
+            "id": 39,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 114,
+          "caseId": 2,
+          "position": "D6",
+          "row": 4,
+          "col": 6,
+          "layer": "top",
+          "component": {
+            "compartmentId": 114,
+            "name": "74HC595PW",
+            "category": "ic",
+            "packageSize": "SSOP-16",
+            "quantity": 20,
+            "minQuantity": 5,
+            "notes": "Counter Shift Registers 8-bit shift register with input flip-flops",
+            "id": 40,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 115,
+          "caseId": 2,
+          "position": "D7",
+          "row": 4,
+          "col": 7,
+          "layer": "top",
+          "component": {
+            "compartmentId": 115,
+            "name": "RGB",
+            "category": "led",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 41,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 116,
+          "caseId": 2,
+          "position": "D8",
+          "row": 4,
+          "col": 8,
+          "layer": "top",
+          "component": {
+            "compartmentId": 116,
+            "name": "Micro Potentiometer",
+            "category": "resistor",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 42,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 117,
+          "caseId": 2,
+          "position": "D9",
+          "row": 4,
+          "col": 9,
+          "layer": "top",
+          "component": {
+            "compartmentId": 117,
+            "name": "32.768 Mhz",
+            "category": "crystal",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "0806 (2016 metric)\t",
+            "id": 43,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 118,
+          "caseId": 2,
+          "position": "D10",
+          "row": 4,
+          "col": 10,
+          "layer": "top",
+          "component": {
+            "compartmentId": 118,
+            "name": "LED Tactile",
+            "category": "switch",
+            "packageSize": null,
+            "quantity": 2,
+            "minQuantity": 5,
+            "notes": "9.85 mm x 9.85 mm\n3006.2115\n",
+            "id": 44,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 119,
+          "caseId": 2,
+          "position": "D11",
+          "row": 4,
+          "col": 11,
+          "layer": "top",
+          "component": {
+            "compartmentId": 119,
+            "name": "TVS0500DRVR",
+            "category": "diode",
+            "packageSize": null,
+            "quantity": 5,
+            "minQuantity": 5,
+            "notes": "ESD Protection Diodes / TVS Diodes 5V flat-clamp surge protection device 6-\n\nWSON-6",
+            "id": 45,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 120,
+          "caseId": 2,
+          "position": "D12",
+          "row": 4,
+          "col": 12,
+          "layer": "top",
+          "component": {
+            "compartmentId": 120,
+            "name": "Speakers",
+            "category": "other",
+            "packageSize": null,
+            "quantity": 5,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 46,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 121,
+          "caseId": 2,
+          "position": "E1",
+          "row": 5,
+          "col": 1,
+          "layer": "top",
+          "component": {
+            "compartmentId": 121,
+            "name": "ATMEGA48PA",
+            "category": "ic",
+            "packageSize": "TQFP-32",
+            "quantity": 5,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU AVR 4KB FLSH 256B EE 512B SRAM-20MHz IND",
+            "id": 47,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 122,
+          "caseId": 2,
+          "position": "E2",
+          "row": 5,
+          "col": 2,
+          "layer": "top",
+          "component": {
+            "compartmentId": 122,
+            "name": "ATMEGA1608-MF",
+            "category": "ic",
+            "packageSize": "QFN-32",
+            "quantity": 15,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU 20MHz, 16KB, SOIC",
+            "id": 48,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 123,
+          "caseId": 2,
+          "position": "E3",
+          "row": 5,
+          "col": 3,
+          "layer": "top",
+          "component": {
+            "compartmentId": 123,
+            "name": "ATMEGA1609-AF",
+            "category": "ic",
+            "packageSize": "QFN-32",
+            "quantity": 5,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU 20MHz, 16KB, TQFP-48",
+            "id": 49,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 124,
+          "caseId": 2,
+          "position": "E4",
+          "row": 5,
+          "col": 4,
+          "layer": "top",
+          "component": {
+            "compartmentId": 124,
+            "name": "ATTINY3224",
+            "category": "ic",
+            "packageSize": "SOIC-14",
+            "quantity": 5,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU 20MHz, 32KB, SOIC14, Ind 85C, Green",
+            "id": 50,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 125,
+          "caseId": 2,
+          "position": "E5",
+          "row": 5,
+          "col": 5,
+          "layer": "top",
+          "component": {
+            "compartmentId": 125,
+            "name": "ATTINY3217",
+            "category": "ic",
+            "packageSize": "QFN-24",
+            "quantity": 2,
+            "minQuantity": 5,
+            "notes": "8-bit Microcontrollers - MCU 20MHz, 32KB, QFN24, Ind 125C, Green, Tray",
+            "id": 51,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 126,
+          "caseId": 2,
+          "position": "E6",
+          "row": 5,
+          "col": 6,
+          "layer": "top",
+          "component": {
+            "compartmentId": 126,
+            "name": "ATSAMD21",
+            "category": "ic",
+            "packageSize": "TQFP-44",
+            "quantity": 2,
+            "minQuantity": 5,
+            "notes": "ARM Cortex M0+\nTQFP-48",
+            "id": 52,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 127,
+          "caseId": 2,
+          "position": "E7",
+          "row": 5,
+          "col": 7,
+          "layer": "top",
+          "component": {
+            "compartmentId": 127,
+            "name": "RGB",
+            "category": "led",
+            "packageSize": "1206",
+            "quantity": 2,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 53,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 128,
+          "caseId": 2,
+          "position": "E8",
+          "row": 5,
+          "col": 8,
+          "layer": "top",
+          "component": {
+            "compartmentId": 128,
+            "name": "MCP4018T-104E/LT",
+            "category": "ic",
+            "packageSize": "0201",
+            "quantity": 5,
+            "minQuantity": 5,
+            "notes": "Digital Potentiometer ICs 100K I2C singl 7-bit volatile memory\nSC-70-6",
+            "id": 54,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 129,
+          "caseId": 2,
+          "position": "E9",
+          "row": 5,
+          "col": 9,
+          "layer": "top",
+          "component": {
+            "compartmentId": 129,
+            "name": "MEMs Mic",
+            "category": "sensor",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "i2C microphone",
+            "id": 55,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 130,
+          "caseId": 2,
+          "position": "E10",
+          "row": 5,
+          "col": 10,
+          "layer": "top",
+          "component": {
+            "compartmentId": 130,
+            "name": "Accel and Gyro",
+            "category": "sensor",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 56,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 131,
+          "caseId": 2,
+          "position": "E11",
+          "row": 5,
+          "col": 11,
+          "layer": "top",
+          "component": {
+            "compartmentId": 131,
+            "name": "CAP1206-1-SL",
+            "category": "sensor",
+            "packageSize": "SOIC-14",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": "Capacitive Touch Sensors 6-Channel",
+            "id": 57,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 132,
+          "caseId": 2,
+          "position": "E12",
+          "row": 5,
+          "col": 12,
+          "layer": "top",
+          "component": {
+            "compartmentId": 132,
+            "name": "FPC 10/0.5",
+            "category": "connector",
+            "packageSize": "0201",
+            "quantity": 18,
+            "minQuantity": 5,
+            "notes": "",
+            "id": 58,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 133,
+          "caseId": 2,
+          "position": "F1",
+          "row": 6,
+          "col": 1,
+          "layer": "top",
+          "component": {
+            "compartmentId": 133,
+            "name": "VREG 1.8V",
+            "category": "ic",
+            "packageSize": "SOT-23-5",
+            "quantity": 9,
+            "minQuantity": 5,
+            "notes": "Voltage regulator 1.8V",
+            "id": 59,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 134,
+          "caseId": 2,
+          "position": "F2",
+          "row": 6,
+          "col": 2,
+          "layer": "top",
+          "component": {
+            "compartmentId": 134,
+            "name": "VREG 3.3V",
+            "category": "ic",
+            "packageSize": "SOT-23-5",
+            "quantity": 30,
+            "minQuantity": 5,
+            "notes": "Voltage regulator 3.3V",
+            "id": 60,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 135,
+          "caseId": 2,
+          "position": "F3",
+          "row": 6,
+          "col": 3,
+          "layer": "top",
+          "component": {
+            "compartmentId": 135,
+            "name": "FUSE",
+            "category": "other",
+            "packageSize": "1206",
+            "quantity": 30,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 61,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 136,
+          "caseId": 2,
+          "position": "F4",
+          "row": 6,
+          "col": 4,
+          "layer": "top",
+          "component": {
+            "compartmentId": 136,
+            "name": "12 MHz",
+            "category": "crystal",
+            "packageSize": "0201",
+            "quantity": 30,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 62,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 137,
+          "caseId": 2,
+          "position": "F5",
+          "row": 6,
+          "col": 5,
+          "layer": "top",
+          "component": {
+            "compartmentId": 137,
+            "name": "16 MHz",
+            "category": "crystal",
+            "packageSize": "0201",
+            "quantity": 30,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 63,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 138,
+          "caseId": 2,
+          "position": "F6",
+          "row": 6,
+          "col": 6,
+          "layer": "top",
+          "component": {
+            "compartmentId": 138,
+            "name": "Ferrite Beads",
+            "category": "other",
+            "packageSize": "1206",
+            "quantity": 30,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 64,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 139,
+          "caseId": 2,
+          "position": "F7",
+          "row": 6,
+          "col": 7,
+          "layer": "top",
+          "component": {
+            "compartmentId": 139,
+            "name": "Hall Effect",
+            "category": "sensor",
+            "packageSize": "0201",
+            "quantity": 30,
+            "minQuantity": 5,
+            "notes": "1612?",
+            "id": 65,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 140,
+          "caseId": 2,
+          "position": "F8",
+          "row": 6,
+          "col": 8,
+          "layer": "top",
+          "component": {
+            "compartmentId": 140,
+            "name": "Hall Effect",
+            "category": "sensor",
+            "packageSize": "SOT-23-3",
+            "quantity": 10,
+            "minQuantity": 5,
+            "notes": "",
+            "id": 66,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 141,
+          "caseId": 2,
+          "position": "F9",
+          "row": 6,
+          "col": 9,
+          "layer": "top",
+          "component": {
+            "compartmentId": 141,
+            "name": "Flip Flop",
+            "category": "ic",
+            "packageSize": "SOT-23-6",
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 67,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 142,
+          "caseId": 2,
+          "position": "F10",
+          "row": 6,
+          "col": 10,
+          "layer": "top",
+          "component": {
+            "compartmentId": 142,
+            "name": "MEMS Mic",
+            "category": "sensor",
+            "packageSize": null,
+            "quantity": 0,
+            "minQuantity": 5,
+            "notes": null,
+            "id": 68,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 143,
+          "caseId": 2,
+          "position": "F11",
+          "row": 6,
+          "col": 11,
+          "layer": "top"
+        },
+        {
+          "id": 144,
+          "caseId": 2,
+          "position": "F12",
+          "row": 6,
+          "col": 12,
+          "layer": "top",
+          "component": {
+            "compartmentId": 144,
+            "name": "MCP6006T-E/LT",
+            "category": "ic",
+            "packageSize": null,
+            "quantity": 10,
+            "minQuantity": 5,
+            "notes": "Operational Amplifiers - Op Amps Single, 1MHz Op Amp, E Temp\nSC-70-5",
+            "id": 69,
+            "datasheetUrl": null,
+            "photoUrl": null
+          }
+        },
+        {
+          "id": 145,
+          "caseId": 2,
+          "position": "A1",
+          "row": 1,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 146,
+          "caseId": 2,
+          "position": "A2",
+          "row": 1,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 147,
+          "caseId": 2,
+          "position": "A3",
+          "row": 1,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 148,
+          "caseId": 2,
+          "position": "A4",
+          "row": 1,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 149,
+          "caseId": 2,
+          "position": "A5",
+          "row": 1,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 150,
+          "caseId": 2,
+          "position": "A6",
+          "row": 1,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 151,
+          "caseId": 2,
+          "position": "A7",
+          "row": 1,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 152,
+          "caseId": 2,
+          "position": "A8",
+          "row": 1,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 153,
+          "caseId": 2,
+          "position": "A9",
+          "row": 1,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 154,
+          "caseId": 2,
+          "position": "A10",
+          "row": 1,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 155,
+          "caseId": 2,
+          "position": "A11",
+          "row": 1,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 156,
+          "caseId": 2,
+          "position": "A12",
+          "row": 1,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 157,
+          "caseId": 2,
+          "position": "B1",
+          "row": 2,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 158,
+          "caseId": 2,
+          "position": "B2",
+          "row": 2,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 159,
+          "caseId": 2,
+          "position": "B3",
+          "row": 2,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 160,
+          "caseId": 2,
+          "position": "B4",
+          "row": 2,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 161,
+          "caseId": 2,
+          "position": "B5",
+          "row": 2,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 162,
+          "caseId": 2,
+          "position": "B6",
+          "row": 2,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 163,
+          "caseId": 2,
+          "position": "B7",
+          "row": 2,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 164,
+          "caseId": 2,
+          "position": "B8",
+          "row": 2,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 165,
+          "caseId": 2,
+          "position": "B9",
+          "row": 2,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 166,
+          "caseId": 2,
+          "position": "B10",
+          "row": 2,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 167,
+          "caseId": 2,
+          "position": "B11",
+          "row": 2,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 168,
+          "caseId": 2,
+          "position": "B12",
+          "row": 2,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 169,
+          "caseId": 2,
+          "position": "C1",
+          "row": 3,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 170,
+          "caseId": 2,
+          "position": "C2",
+          "row": 3,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 171,
+          "caseId": 2,
+          "position": "C3",
+          "row": 3,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 172,
+          "caseId": 2,
+          "position": "C4",
+          "row": 3,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 173,
+          "caseId": 2,
+          "position": "C5",
+          "row": 3,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 174,
+          "caseId": 2,
+          "position": "C6",
+          "row": 3,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 175,
+          "caseId": 2,
+          "position": "C7",
+          "row": 3,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 176,
+          "caseId": 2,
+          "position": "C8",
+          "row": 3,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 177,
+          "caseId": 2,
+          "position": "C9",
+          "row": 3,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 178,
+          "caseId": 2,
+          "position": "C10",
+          "row": 3,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 179,
+          "caseId": 2,
+          "position": "C11",
+          "row": 3,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 180,
+          "caseId": 2,
+          "position": "C12",
+          "row": 3,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 181,
+          "caseId": 2,
+          "position": "D1",
+          "row": 4,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 182,
+          "caseId": 2,
+          "position": "D2",
+          "row": 4,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 183,
+          "caseId": 2,
+          "position": "D3",
+          "row": 4,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 184,
+          "caseId": 2,
+          "position": "D4",
+          "row": 4,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 185,
+          "caseId": 2,
+          "position": "D5",
+          "row": 4,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 186,
+          "caseId": 2,
+          "position": "D6",
+          "row": 4,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 187,
+          "caseId": 2,
+          "position": "D7",
+          "row": 4,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 188,
+          "caseId": 2,
+          "position": "D8",
+          "row": 4,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 189,
+          "caseId": 2,
+          "position": "D9",
+          "row": 4,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 190,
+          "caseId": 2,
+          "position": "D10",
+          "row": 4,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 191,
+          "caseId": 2,
+          "position": "D11",
+          "row": 4,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 192,
+          "caseId": 2,
+          "position": "D12",
+          "row": 4,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 193,
+          "caseId": 2,
+          "position": "E1",
+          "row": 5,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 194,
+          "caseId": 2,
+          "position": "E2",
+          "row": 5,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 195,
+          "caseId": 2,
+          "position": "E3",
+          "row": 5,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 196,
+          "caseId": 2,
+          "position": "E4",
+          "row": 5,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 197,
+          "caseId": 2,
+          "position": "E5",
+          "row": 5,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 198,
+          "caseId": 2,
+          "position": "E6",
+          "row": 5,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 199,
+          "caseId": 2,
+          "position": "E7",
+          "row": 5,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 200,
+          "caseId": 2,
+          "position": "E8",
+          "row": 5,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 201,
+          "caseId": 2,
+          "position": "E9",
+          "row": 5,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 202,
+          "caseId": 2,
+          "position": "E10",
+          "row": 5,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 203,
+          "caseId": 2,
+          "position": "E11",
+          "row": 5,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 204,
+          "caseId": 2,
+          "position": "E12",
+          "row": 5,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 205,
+          "caseId": 2,
+          "position": "F1",
+          "row": 6,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 206,
+          "caseId": 2,
+          "position": "F2",
+          "row": 6,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 207,
+          "caseId": 2,
+          "position": "F3",
+          "row": 6,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 208,
+          "caseId": 2,
+          "position": "F4",
+          "row": 6,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 209,
+          "caseId": 2,
+          "position": "F5",
+          "row": 6,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 210,
+          "caseId": 2,
+          "position": "F6",
+          "row": 6,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 211,
+          "caseId": 2,
+          "position": "F7",
+          "row": 6,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 212,
+          "caseId": 2,
+          "position": "F8",
+          "row": 6,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 213,
+          "caseId": 2,
+          "position": "F9",
+          "row": 6,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 214,
+          "caseId": 2,
+          "position": "F10",
+          "row": 6,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 215,
+          "caseId": 2,
+          "position": "F11",
+          "row": 6,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 216,
+          "caseId": 2,
+          "position": "F12",
+          "row": 6,
+          "col": 12,
+          "layer": "bottom"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "compartmentId": 73,
+      "name": "Blue",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 1
+    },
+    {
+      "compartmentId": 74,
+      "name": "Red",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 2
+    },
+    {
+      "compartmentId": 75,
+      "name": "Green",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 3
+    },
+    {
+      "compartmentId": 76,
+      "name": "White",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 4
+    },
+    {
+      "compartmentId": 77,
+      "name": "UV",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 5
+    },
+    {
+      "compartmentId": 78,
+      "name": "IR",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 6
+    },
+    {
+      "compartmentId": 79,
+      "name": "RGB",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 7
+    },
+    {
+      "compartmentId": 80,
+      "name": "Red/Blue",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 8
+    },
+    {
+      "compartmentId": 81,
+      "name": "Red/Green",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 9
+    },
+    {
+      "compartmentId": 82,
+      "name": "Orange",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 10
+    },
+    {
+      "compartmentId": 83,
+      "name": "Green",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 11
+    },
+    {
+      "compartmentId": 84,
+      "name": "Yellow",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 12
+    },
+    {
+      "compartmentId": 86,
+      "name": "Red",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "(right angle)",
+      "id": 13
+    },
+    {
+      "compartmentId": 87,
+      "name": "Green",
+      "category": "led",
+      "packageSize": "0805",
+      "quantity": 0,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "(right angle)",
+      "id": 14
+    },
+    {
+      "compartmentId": 88,
+      "name": "NeoPixel",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "20x20mm\nWS2812B",
+      "id": 15,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 90,
+      "name": "IR",
+      "category": "led",
+      "packageSize": "0805",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "",
+      "id": 16,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 91,
+      "name": "RGB",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "right angle",
+      "id": 17,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 92,
+      "name": "MAX98357",
+      "category": "ic",
+      "packageSize": "QFN-16",
+      "quantity": 4,
+      "minQuantity": 5,
+      "notes": "Audio Amplifiers Digital Input Class D Amplifier",
+      "id": 18,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 93,
+      "name": "74AHCV05",
+      "category": "ic",
+      "packageSize": "SOIC-14",
+      "quantity": 6,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 19,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 94,
+      "name": "74LVC138A",
+      "category": "ic",
+      "packageSize": "QFN-16",
+      "quantity": 3,
+      "minQuantity": 5,
+      "notes": "Encoders, Decoders, Multiplexers & Demultiplexers 3-to-8 line decoder/demultiplexer; inverting",
+      "id": 20,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 96,
+      "name": "7-SEGMENT",
+      "category": "led",
+      "packageSize": "",
+      "quantity": 5,
+      "minQuantity": 5,
+      "notes": "micro 10mm",
+      "id": 21,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 95,
+      "name": "7-SEGMENT",
+      "category": "led",
+      "packageSize": "",
+      "quantity": 2,
+      "minQuantity": 5,
+      "notes": "micro 10mm",
+      "id": 22,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 98,
+      "name": "RED",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "reverse mount",
+      "id": 23,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 99,
+      "name": "GREEN",
+      "category": "led",
+      "packageSize": "SOT-23-3",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 24,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 101,
+      "name": "NeoPixel",
+      "category": "led",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "40x40mm",
+      "id": 26,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 103,
+      "name": "RGB",
+      "category": "led",
+      "packageSize": "",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "RGB",
+      "id": 28,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 102,
+      "name": "NeoPixel",
+      "category": "led",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "40x40mm",
+      "id": 29,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 104,
+      "name": "TLV320DAC",
+      "category": "ic",
+      "packageSize": "BGA",
+      "quantity": 4,
+      "minQuantity": 5,
+      "notes": "Ultra Low Pwr Stereo Audio Codec\nDSBGA-25",
+      "id": 30,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 105,
+      "name": "ESD5Z2.5TG",
+      "category": "diode",
+      "packageSize": "0603",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "ESD Diode",
+      "id": 31,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 108,
+      "name": "APS5130PD7C",
+      "category": "sensor",
+      "packageSize": "",
+      "quantity": 1,
+      "minQuantity": 5,
+      "notes": "Photodiodes 3.2x1.6mm RGB COLOR SENSOR\n620 nm, 550 nm, 470 nm",
+      "id": 32,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 106,
+      "name": "LED Tactile",
+      "category": "switch",
+      "packageSize": "",
+      "quantity": 2,
+      "minQuantity": 5,
+      "notes": "9.85 mm x 9.85 mm\n3006.2115\n",
+      "id": 33,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 107,
+      "name": "LED tactile",
+      "category": "switch",
+      "packageSize": "",
+      "quantity": 10,
+      "minQuantity": 5,
+      "notes": "8 mm x 5.2 mm\n228HMVARBFR\nRed/Blue",
+      "id": 34,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 109,
+      "name": "ATMEGA 32U4MU",
+      "category": "ic",
+      "packageSize": "QFN-32",
+      "quantity": 1,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU AVR USB 32K FLASH INDUSTRIAL\nQFN-44\t",
+      "id": 35,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 110,
+      "name": "ATSAMD G18A-U",
+      "category": "ic",
+      "packageSize": "QFN-32",
+      "quantity": 4,
+      "minQuantity": 5,
+      "notes": "QFN-44\nARM Microcontrollers - MCU CM4, QFN48, 256KFlash,Tray, USB,Extended Temp",
+      "id": 36,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 111,
+      "name": "ATMEGA 16U2",
+      "category": "ic",
+      "packageSize": "TQFP-32",
+      "quantity": 4,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU AVR USB 8K FLASH AVR,USB16K FLASH",
+      "id": 37,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 112,
+      "name": "ATMEGA 32U4",
+      "category": "ic",
+      "packageSize": "TQFP-44",
+      "quantity": 3,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU AVR USB 32K FLASH INDUSTRIAL",
+      "id": 38,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 113,
+      "name": "ATMEGA 328PB",
+      "category": "ic",
+      "packageSize": "QFN-32",
+      "quantity": 10,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU ATMEGA328PB 20MHZ Extd. Temp",
+      "id": 39,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 114,
+      "name": "74HC595PW",
+      "category": "ic",
+      "packageSize": "SSOP-16",
+      "quantity": 20,
+      "minQuantity": 5,
+      "notes": "Counter Shift Registers 8-bit shift register with input flip-flops",
+      "id": 40,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 115,
+      "name": "RGB",
+      "category": "led",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 41,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 116,
+      "name": "Micro Potentiometer",
+      "category": "resistor",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 42,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 117,
+      "name": "32.768 Mhz",
+      "category": "crystal",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "0806 (2016 metric)\t",
+      "id": 43,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 118,
+      "name": "LED Tactile",
+      "category": "switch",
+      "packageSize": null,
+      "quantity": 2,
+      "minQuantity": 5,
+      "notes": "9.85 mm x 9.85 mm\n3006.2115\n",
+      "id": 44,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 119,
+      "name": "TVS0500DRVR",
+      "category": "diode",
+      "packageSize": null,
+      "quantity": 5,
+      "minQuantity": 5,
+      "notes": "ESD Protection Diodes / TVS Diodes 5V flat-clamp surge protection device 6-\n\nWSON-6",
+      "id": 45,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 120,
+      "name": "Speakers",
+      "category": "other",
+      "packageSize": null,
+      "quantity": 5,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 46,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 121,
+      "name": "ATMEGA48PA",
+      "category": "ic",
+      "packageSize": "TQFP-32",
+      "quantity": 5,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU AVR 4KB FLSH 256B EE 512B SRAM-20MHz IND",
+      "id": 47,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 122,
+      "name": "ATMEGA1608-MF",
+      "category": "ic",
+      "packageSize": "QFN-32",
+      "quantity": 15,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 16KB, SOIC",
+      "id": 48,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 123,
+      "name": "ATMEGA1609-AF",
+      "category": "ic",
+      "packageSize": "QFN-32",
+      "quantity": 5,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 16KB, TQFP-48",
+      "id": 49,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 124,
+      "name": "ATTINY3224",
+      "category": "ic",
+      "packageSize": "SOIC-14",
+      "quantity": 5,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 32KB, SOIC14, Ind 85C, Green",
+      "id": 50,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 125,
+      "name": "ATTINY3217",
+      "category": "ic",
+      "packageSize": "QFN-24",
+      "quantity": 2,
+      "minQuantity": 5,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 32KB, QFN24, Ind 125C, Green, Tray",
+      "id": 51,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 126,
+      "name": "ATSAMD21",
+      "category": "ic",
+      "packageSize": "TQFP-44",
+      "quantity": 2,
+      "minQuantity": 5,
+      "notes": "ARM Cortex M0+\nTQFP-48",
+      "id": 52,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 127,
+      "name": "RGB",
+      "category": "led",
+      "packageSize": "1206",
+      "quantity": 2,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 53,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 128,
+      "name": "MCP4018T-104E/LT",
+      "category": "ic",
+      "packageSize": "0201",
+      "quantity": 5,
+      "minQuantity": 5,
+      "notes": "Digital Potentiometer ICs 100K I2C singl 7-bit volatile memory\nSC-70-6",
+      "id": 54,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 129,
+      "name": "MEMs Mic",
+      "category": "sensor",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "i2C microphone",
+      "id": 55,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 130,
+      "name": "Accel and Gyro",
+      "category": "sensor",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 56,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 131,
+      "name": "CAP1206-1-SL",
+      "category": "sensor",
+      "packageSize": "SOIC-14",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": "Capacitive Touch Sensors 6-Channel",
+      "id": 57,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 132,
+      "name": "FPC 10/0.5",
+      "category": "connector",
+      "packageSize": "0201",
+      "quantity": 18,
+      "minQuantity": 5,
+      "notes": "",
+      "id": 58,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 133,
+      "name": "VREG 1.8V",
+      "category": "ic",
+      "packageSize": "SOT-23-5",
+      "quantity": 9,
+      "minQuantity": 5,
+      "notes": "Voltage regulator 1.8V",
+      "id": 59,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 134,
+      "name": "VREG 3.3V",
+      "category": "ic",
+      "packageSize": "SOT-23-5",
+      "quantity": 30,
+      "minQuantity": 5,
+      "notes": "Voltage regulator 3.3V",
+      "id": 60,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 135,
+      "name": "FUSE",
+      "category": "other",
+      "packageSize": "1206",
+      "quantity": 30,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 61,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 136,
+      "name": "12 MHz",
+      "category": "crystal",
+      "packageSize": "0201",
+      "quantity": 30,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 62,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 137,
+      "name": "16 MHz",
+      "category": "crystal",
+      "packageSize": "0201",
+      "quantity": 30,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 63,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 138,
+      "name": "Ferrite Beads",
+      "category": "other",
+      "packageSize": "1206",
+      "quantity": 30,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 64,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 139,
+      "name": "Hall Effect",
+      "category": "sensor",
+      "packageSize": "0201",
+      "quantity": 30,
+      "minQuantity": 5,
+      "notes": "1612?",
+      "id": 65,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 140,
+      "name": "Hall Effect",
+      "category": "sensor",
+      "packageSize": "SOT-23-3",
+      "quantity": 10,
+      "minQuantity": 5,
+      "notes": "",
+      "id": 66,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 141,
+      "name": "Flip Flop",
+      "category": "ic",
+      "packageSize": "SOT-23-6",
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 67,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 142,
+      "name": "MEMS Mic",
+      "category": "sensor",
+      "packageSize": null,
+      "quantity": 0,
+      "minQuantity": 5,
+      "notes": null,
+      "id": 68,
+      "datasheetUrl": null,
+      "photoUrl": null
+    },
+    {
+      "compartmentId": 144,
+      "name": "MCP6006T-E/LT",
+      "category": "ic",
+      "packageSize": null,
+      "quantity": 10,
+      "minQuantity": 5,
+      "notes": "Operational Amplifiers - Op Amps Single, 1MHz Op Amp, E Temp\nSC-70-5",
+      "id": 69,
+      "datasheetUrl": null,
+      "photoUrl": null
+    }
+  ],
+  "exportDate": "2025-05-26T18:55:41.551Z",
+  "version": "1.0"
+}

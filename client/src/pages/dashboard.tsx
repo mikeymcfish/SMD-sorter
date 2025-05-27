@@ -244,26 +244,60 @@ export default function Dashboard() {
           }
         }
         
-        // Import components using the new compartment IDs
-        console.log('Starting component import. Total components:', data.components?.length || 0);
-        console.log('Compartment ID mapping size:', compartmentIdMapping.size);
+        // Import components using position-based mapping instead of ID mapping
+        console.log('Starting component import...');
         
-        for (const componentData of data.components || []) {
-          const newCompartmentId = compartmentIdMapping.get(componentData.compartmentId);
-          console.log(`Component ${componentData.name}: old compartmentId ${componentData.compartmentId} -> new compartmentId ${newCompartmentId}`);
+        // For each case, find components in compartments and import them
+        for (const caseData of data.cases) {
+          console.log(`Processing components for case: ${caseData.name}`);
           
-          if (newCompartmentId) {
-            const response = await fetch('/api/components', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                ...componentData,
-                compartmentId: newCompartmentId
-              })
-            });
-            console.log(`Component ${componentData.name} import result:`, response.ok);
-          } else {
-            console.log(`No mapping found for compartment ID ${componentData.compartmentId}`);
+          // Get the newly created case
+          const casesResponse = await fetch('/api/cases');
+          const newCases = await casesResponse.json();
+          const newCase = newCases.find((c: any) => c.name === caseData.name && c.model === caseData.model);
+          
+          if (!newCase) {
+            console.log(`Could not find newly created case: ${caseData.name}`);
+            continue;
+          }
+          
+          // Get compartments for this case
+          const caseResponse = await fetch(`/api/cases/${newCase.id}`);
+          const caseWithCompartments = await caseResponse.json();
+          
+          // Import components from the original case compartments
+          for (const oldCompartment of caseData.compartments || []) {
+            if (oldCompartment.component) {
+              // Find the matching new compartment by position and layer
+              const newCompartment = caseWithCompartments.compartments.find((comp: any) => 
+                comp.position === oldCompartment.position && comp.layer === oldCompartment.layer
+              );
+              
+              if (newCompartment) {
+                const component = oldCompartment.component;
+                const response = await fetch('/api/components', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    compartmentId: newCompartment.id,
+                    name: component.name,
+                    category: component.category,
+                    packageSize: component.packageSize || "",
+                    quantity: component.quantity || 0,
+                    minQuantity: component.minQuantity || 5,
+                    notes: component.notes || ""
+                  })
+                });
+                
+                if (response.ok) {
+                  console.log(`✓ Imported component: ${component.name} at ${oldCompartment.position}/${oldCompartment.layer}`);
+                } else {
+                  console.log(`✗ Failed to import component: ${component.name}`);
+                }
+              } else {
+                console.log(`Could not find compartment ${oldCompartment.position}/${oldCompartment.layer} in new case`);
+              }
+            }
           }
         }
         
