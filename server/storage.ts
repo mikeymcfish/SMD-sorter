@@ -1,11 +1,21 @@
-import { 
-  users, cases, compartments, components,
-  type User, type InsertUser,
-  type Case, type InsertCase,
-  type Compartment, type InsertCompartment,
-  type Component, type InsertComponent,
-  type CaseWithCompartments
+import {
+  users,
+  cases,
+  compartments,
+  components,
+  type User,
+  type InsertUser,
+  type Case,
+  type InsertCase,
+  type Compartment,
+  type InsertCompartment,
+  type Component,
+  type InsertComponent,
+  type CaseWithCompartments,
 } from "@shared/schema";
+import { db } from "./db";
+import { eq, like, or, inArray } from "drizzle-orm";
+import { CASE_LAYOUTS } from "../client/src/lib/constants";
 
 export interface IStorage {
   // User methods
@@ -36,246 +46,174 @@ export interface IStorage {
   searchComponents(query: string): Promise<Component[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User> = new Map();
-  private cases: Map<number, Case> = new Map();
-  private compartments: Map<number, Compartment> = new Map();
-  private components: Map<number, Component> = new Map();
-  
-  private userIdCounter = 1;
-  private caseIdCounter = 1;
-  private compartmentIdCounter = 1;
-  private componentIdCounter = 1;
-
-  constructor() {
-    this.initializeDefaultData();
-  }
-
-  private initializeDefaultData() {
-    // Create a default case with BOX-ALL-144 layout
-    const defaultCase: Case = {
-      id: this.caseIdCounter++,
-      name: "Main Resistors",
-      model: "BOX-ALL-144",
-      description: "Primary resistor storage case",
-      isActive: true,
-    };
-    this.cases.set(defaultCase.id, defaultCase);
-
-    // Create compartments for BOX-ALL-144 (6 rows × 12 columns)
-    for (let row = 1; row <= 6; row++) {
-      for (let col = 1; col <= 12; col++) {
-        const position = String.fromCharCode(64 + row) + col; // A1, A2, B1, etc.
-        const compartment: Compartment = {
-          id: this.compartmentIdCounter++,
-          caseId: defaultCase.id,
-          position,
-          row,
-          col,
-          layer: "top",
-        };
-        this.compartments.set(compartment.id, compartment);
-      }
-    }
-  }
-
-  // User methods
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(user => user.username === username);
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const user: User = { ...insertUser, id: this.userIdCounter++ };
-    this.users.set(user.id, user);
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
     return user;
   }
 
-  // Case methods
   async getCases(): Promise<Case[]> {
-    return Array.from(this.cases.values()).filter(case_ => case_.isActive);
+    return await db.select().from(cases);
   }
 
   async getCase(id: number): Promise<Case | undefined> {
-    return this.cases.get(id);
+    const [case_] = await db.select().from(cases).where(eq(cases.id, id));
+    return case_ || undefined;
   }
 
   async getCaseWithCompartments(id: number): Promise<CaseWithCompartments | undefined> {
-    const case_ = this.cases.get(id);
+    const [case_] = await db.select().from(cases).where(eq(cases.id, id));
     if (!case_) return undefined;
 
-    const caseCompartments = Array.from(this.compartments.values())
-      .filter(comp => comp.caseId === id)
-      .map(comp => {
-        const component = Array.from(this.components.values())
-          .find(c => c.compartmentId === comp.id);
-        return { ...comp, component };
-      });
+    const caseCompartments = await db.select().from(compartments).where(eq(compartments.caseId, id));
+    const caseComponents = await db.select().from(components);
 
-    return { ...case_, compartments: caseCompartments };
+    const compartmentsWithComponents = caseCompartments.map(compartment => {
+      const component = caseComponents.find(c => c.compartmentId === compartment.id);
+      return { ...compartment, component };
+    });
+
+    return { ...case_, compartments: compartmentsWithComponents };
   }
 
   async createCase(insertCase: InsertCase): Promise<Case> {
-    const case_: Case = { 
-      ...insertCase, 
-      id: this.caseIdCounter++,
-      isActive: true,
-      description: insertCase.description || null
-    };
-    this.cases.set(case_.id, case_);
-
-    // Create compartments based on model
-    this.createCompartmentsForCase(case_);
-
+    const [case_] = await db
+      .insert(cases)
+      .values(insertCase)
+      .returning();
+    
+    // Create compartments for the case
+    await this.createCompartmentsForCase(case_);
+    
     return case_;
   }
 
-  private createCompartmentsForCase(case_: Case) {
-    console.log(`Starting compartment creation for case: ${case_.name} with model: ${case_.model}`);
-    
-    const layouts: Record<string, { rows: number; cols: number }> = {
-      "BOX-ALL-144": { rows: 6, cols: 12 },
-      "BOX-ALL-96": { rows: 6, cols: 12 },
-      "BOX-ALL-48": { rows: 4, cols: 6 },
-      "BOX-ALL-24": { rows: 2, cols: 6 },
-      "LAYOUT-12x6-BOTH": { rows: 6, cols: 12 },
-      "LAYOUT-6x4-TOP": { rows: 4, cols: 6 },
-      "LAYOUT-6x4-BOTH": { rows: 4, cols: 6 },
-      "LAYOUT-MIXED": { rows: 4, cols: 6 },
-    };
+  private async createCompartmentsForCase(case_: Case) {
+    const layout = CASE_LAYOUTS[case_.model as keyof typeof CASE_LAYOUTS];
+    if (!layout) return;
 
-    const layout = layouts[case_.model];
-    if (!layout) {
-      console.log(`No layout found for model: ${case_.model}`);
-      return;
-    }
+    const compartmentsToCreate = [];
     
-    console.log(`Creating compartments for case ${case_.name} with model ${case_.model}: ${layout.rows}x${layout.cols}`);
-
-    // Create compartments for both top and bottom layers
-    for (const layer of ["top", "bottom"]) {
-      let gridRows = layout.rows;
-      let gridCols = layout.cols;
-      
-      // For mixed layout, bottom layer is 12x6
-      if (case_.model === "LAYOUT-6x4-TOP" && layer === "bottom") {
-        gridRows = 6;
-        gridCols = 12;
-      }
-      
-      for (let row = 1; row <= gridRows; row++) {
-        for (let col = 1; col <= gridCols; col++) {
-          const position = String.fromCharCode(64 + row) + col;
-          const compartment: Compartment = {
-            id: this.compartmentIdCounter++,
-            caseId: case_.id,
-            position,
-            row,
-            col,
-            layer,
-          };
-          this.compartments.set(compartment.id, compartment);
-        }
+    for (const layer of layout.layers) {
+      const totalCompartments = layout.rows * layout.cols;
+      for (let i = 0; i < totalCompartments; i++) {
+        const row = Math.floor(i / layout.cols) + 1;
+        const col = (i % layout.cols) + 1;
+        const position = `${String.fromCharCode(64 + row)}${col}`;
+        
+        compartmentsToCreate.push({
+          caseId: case_.id,
+          position,
+          row,
+          col,
+          layer: layer.name,
+        });
       }
     }
-    
-    console.log(`Created ${Array.from(this.compartments.values()).filter(c => c.caseId === case_.id).length} compartments for case ${case_.name}`);
+
+    if (compartmentsToCreate.length > 0) {
+      await db.insert(compartments).values(compartmentsToCreate);
+    }
   }
 
   async updateCase(id: number, updates: Partial<InsertCase>): Promise<Case | undefined> {
-    const case_ = this.cases.get(id);
-    if (!case_) return undefined;
-
-    const updatedCase = { ...case_, ...updates };
-    this.cases.set(id, updatedCase);
-    return updatedCase;
+    const [case_] = await db
+      .update(cases)
+      .set(updates)
+      .where(eq(cases.id, id))
+      .returning();
+    return case_ || undefined;
   }
 
   async deleteCase(id: number): Promise<boolean> {
-    const case_ = this.cases.get(id);
-    if (!case_) return false;
-
-    // Soft delete
-    const updatedCase = { ...case_, isActive: false };
-    this.cases.set(id, updatedCase);
-    return true;
+    // Delete related data first
+    const compartmentIds = await db.select({ id: compartments.id }).from(compartments).where(eq(compartments.caseId, id));
+    if (compartmentIds.length > 0) {
+      await db.delete(components).where(inArray(components.compartmentId, compartmentIds.map(c => c.id)));
+    }
+    await db.delete(compartments).where(eq(compartments.caseId, id));
+    
+    const result = await db.delete(cases).where(eq(cases.id, id));
+    return (result.rowCount || 0) > 0;
   }
 
-  // Compartment methods
   async getCompartmentsByCase(caseId: number): Promise<Compartment[]> {
-    return Array.from(this.compartments.values())
-      .filter(comp => comp.caseId === caseId);
+    return await db.select().from(compartments).where(eq(compartments.caseId, caseId));
   }
 
   async getCompartment(id: number): Promise<Compartment | undefined> {
-    return this.compartments.get(id);
+    const [compartment] = await db.select().from(compartments).where(eq(compartments.id, id));
+    return compartment || undefined;
   }
 
   async createCompartment(insertCompartment: InsertCompartment): Promise<Compartment> {
-    const compartment: Compartment = { 
-      ...insertCompartment, 
-      id: this.compartmentIdCounter++,
-      layer: insertCompartment.layer || "top"
-    };
-    this.compartments.set(compartment.id, compartment);
+    const [compartment] = await db
+      .insert(compartments)
+      .values(insertCompartment)
+      .returning();
     return compartment;
   }
 
-  // Component methods
   async getComponents(): Promise<Component[]> {
-    return Array.from(this.components.values());
+    return await db.select().from(components);
   }
 
   async getComponent(id: number): Promise<Component | undefined> {
-    return this.components.get(id);
+    const [component] = await db.select().from(components).where(eq(components.id, id));
+    return component || undefined;
   }
 
   async getComponentByCompartment(compartmentId: number): Promise<Component | undefined> {
-    return Array.from(this.components.values())
-      .find(comp => comp.compartmentId === compartmentId);
+    const [component] = await db.select().from(components).where(eq(components.compartmentId, compartmentId));
+    return component || undefined;
   }
 
   async createComponent(insertComponent: InsertComponent): Promise<Component> {
-    const component: Component = { 
-      ...insertComponent, 
-      id: this.componentIdCounter++,
-      packageSize: insertComponent.packageSize || null,
-      quantity: insertComponent.quantity || 0,
-      minQuantity: insertComponent.minQuantity || null,
-      datasheetUrl: insertComponent.datasheetUrl || null,
-      photoUrl: insertComponent.photoUrl || null,
-      notes: insertComponent.notes || null
-    };
-    this.components.set(component.id, component);
+    const [component] = await db
+      .insert(components)
+      .values(insertComponent)
+      .returning();
     return component;
   }
 
   async updateComponent(id: number, updates: Partial<InsertComponent>): Promise<Component | undefined> {
-    const component = this.components.get(id);
-    if (!component) return undefined;
-
-    const updatedComponent = { ...component, ...updates };
-    this.components.set(id, updatedComponent);
-    return updatedComponent;
+    const [component] = await db
+      .update(components)
+      .set(updates)
+      .where(eq(components.id, id))
+      .returning();
+    return component || undefined;
   }
 
   async deleteComponent(id: number): Promise<boolean> {
-    return this.components.delete(id);
+    const result = await db.delete(components).where(eq(components.id, id));
+    return (result.rowCount || 0) > 0;
   }
 
   async searchComponents(query: string): Promise<Component[]> {
-    const lowerQuery = query.toLowerCase();
-    return Array.from(this.components.values())
-      .filter(comp => 
-        comp.name.toLowerCase().includes(lowerQuery) ||
-        comp.category.toLowerCase().includes(lowerQuery) ||
-        (comp.packageSize && comp.packageSize.toLowerCase().includes(lowerQuery)) ||
-        (comp.notes && comp.notes.toLowerCase().includes(lowerQuery))
-      );
+    const searchTerm = `%${query}%`;
+    return await db.select().from(components).where(
+      or(
+        like(components.name, searchTerm),
+        like(components.category, searchTerm),
+        like(components.packageSize, searchTerm),
+        like(components.notes, searchTerm)
+      )
+    );
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
