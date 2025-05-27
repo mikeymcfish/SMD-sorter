@@ -107,7 +107,10 @@ export class DatabaseStorage implements IStorage {
 
     const compartmentsToCreate = [];
     
-    for (const layer of layout.layers) {
+    // Determine layers based on model name
+    const layers = case_.model.includes('BOTH') ? ['top', 'bottom'] : ['top'];
+    
+    for (const layer of layers) {
       const totalCompartments = layout.rows * layout.cols;
       for (let i = 0; i < totalCompartments; i++) {
         const row = Math.floor(i / layout.cols) + 1;
@@ -119,7 +122,7 @@ export class DatabaseStorage implements IStorage {
           position,
           row,
           col,
-          layer: layer.name,
+          layer,
         });
       }
     }
