@@ -50,7 +50,17 @@ export default function CompartmentCell({
     : "#D1D5DB";
 
   // Get the electronic icon for the component category
-  const IconComponent = component ? getIconForCategory(component.category) : null;
+  const getCategoryFromId = (categoryId: number) => {
+    const categoryMap = {
+      1: 'resistor', 2: 'capacitor', 3: 'ic', 4: 'diode', 5: 'transistor',
+      6: 'inductor', 7: 'crystal', 8: 'connector', 9: 'led', 10: 'switch',
+      11: 'sensor', 12: 'other'
+    };
+    return categoryMap[categoryId as keyof typeof categoryMap] || 'other';
+  };
+  
+  const componentCategory = component ? getCategoryFromId(component.categoryId) : null;
+  const IconComponent = componentCategory ? getIconForCategory(componentCategory) : null;
 
   return (
     <div
@@ -61,7 +71,7 @@ export default function CompartmentCell({
         borderStyle: component ? "solid" : "dashed"
       }}
       onClick={onClick}
-      title={component ? `${component.category} | ${component.packageSize || 'No package'} | ${component.notes || 'No notes'}` : 'Empty compartment'}
+      title={component ? `${componentCategory} | ${component.notes?.match(/Package: ([^|]+)/)?.[1]?.trim() || 'No package'} | ${component.notes?.replace(/Package: [^|]+\s*\|\s*/, '').replace(/^\s*\|\s*/, '') || 'No notes'}` : 'Empty compartment'}
     >
       {/* Background Electronic Icon */}
       {IconComponent && (
@@ -77,8 +87,8 @@ export default function CompartmentCell({
             <div className="font-medium text-[10px] text-gray-700 whitespace-normal break-words">
               {component.name}
             </div>
-            {component.packageSize && (
-              <div className="text-[8px] text-gray-500">{component.packageSize}</div>
+            {component.notes?.match(/Package: ([^|]+)/)?.[1]?.trim() && (
+              <div className="text-[8px] text-gray-500">{component.notes?.match(/Package: ([^|]+)/)?.[1]?.trim()}</div>
             )}
             {/* Quantity shown only on hover */}
             <div 
