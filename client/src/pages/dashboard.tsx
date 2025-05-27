@@ -88,7 +88,16 @@ export default function Dashboard() {
         // Convert model string to rows/cols structure for import compatibility
         rows: case_.model?.includes('12x6') ? 6 : 4,
         cols: case_.model?.includes('12x6') ? 12 : 6,
-        hasBottom: case_.model?.includes('BOTH') || false
+        hasBottom: case_.model?.includes('BOTH') || false,
+        // Remove components from compartments to avoid duplication - they're in the separate components array
+        compartments: case_.compartments?.map(comp => ({
+          id: comp.id,
+          caseId: comp.caseId,
+          position: comp.position,
+          row: comp.row,
+          col: comp.col,
+          layer: comp.layer
+        })) || []
       }));
 
       const exportData = {
