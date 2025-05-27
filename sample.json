@@ -1,0 +1,2178 @@
+{
+  "cases": [
+    {
+      "name": "Case-1",
+      "rows": 4,
+      "cols": 6,
+      "hasBottom": false,
+      "description": null,
+      "id": 2,
+      "isActive": true,
+      "compartments": [
+        {
+          "id": 73,
+          "caseId": 2,
+          "position": "A1",
+          "row": 1,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 74,
+          "caseId": 2,
+          "position": "A2",
+          "row": 1,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 75,
+          "caseId": 2,
+          "position": "A3",
+          "row": 1,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 76,
+          "caseId": 2,
+          "position": "A4",
+          "row": 1,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 77,
+          "caseId": 2,
+          "position": "A5",
+          "row": 1,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 78,
+          "caseId": 2,
+          "position": "A6",
+          "row": 1,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 79,
+          "caseId": 2,
+          "position": "A7",
+          "row": 1,
+          "col": 7,
+          "layer": "top"
+        },
+        {
+          "id": 80,
+          "caseId": 2,
+          "position": "A8",
+          "row": 1,
+          "col": 8,
+          "layer": "top"
+        },
+        {
+          "id": 81,
+          "caseId": 2,
+          "position": "A9",
+          "row": 1,
+          "col": 9,
+          "layer": "top"
+        },
+        {
+          "id": 82,
+          "caseId": 2,
+          "position": "A10",
+          "row": 1,
+          "col": 10,
+          "layer": "top"
+        },
+        {
+          "id": 83,
+          "caseId": 2,
+          "position": "A11",
+          "row": 1,
+          "col": 11,
+          "layer": "top"
+        },
+        {
+          "id": 84,
+          "caseId": 2,
+          "position": "A12",
+          "row": 1,
+          "col": 12,
+          "layer": "top"
+        },
+        {
+          "id": 85,
+          "caseId": 2,
+          "position": "B1",
+          "row": 2,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 86,
+          "caseId": 2,
+          "position": "B2",
+          "row": 2,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 87,
+          "caseId": 2,
+          "position": "B3",
+          "row": 2,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 88,
+          "caseId": 2,
+          "position": "B4",
+          "row": 2,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 89,
+          "caseId": 2,
+          "position": "B5",
+          "row": 2,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 90,
+          "caseId": 2,
+          "position": "B6",
+          "row": 2,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 91,
+          "caseId": 2,
+          "position": "B7",
+          "row": 2,
+          "col": 7,
+          "layer": "top"
+        },
+        {
+          "id": 92,
+          "caseId": 2,
+          "position": "B8",
+          "row": 2,
+          "col": 8,
+          "layer": "top"
+        },
+        {
+          "id": 93,
+          "caseId": 2,
+          "position": "B9",
+          "row": 2,
+          "col": 9,
+          "layer": "top"
+        },
+        {
+          "id": 94,
+          "caseId": 2,
+          "position": "B10",
+          "row": 2,
+          "col": 10,
+          "layer": "top"
+        },
+        {
+          "id": 95,
+          "caseId": 2,
+          "position": "B11",
+          "row": 2,
+          "col": 11,
+          "layer": "top"
+        },
+        {
+          "id": 96,
+          "caseId": 2,
+          "position": "B12",
+          "row": 2,
+          "col": 12,
+          "layer": "top"
+        },
+        {
+          "id": 97,
+          "caseId": 2,
+          "position": "C1",
+          "row": 3,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 98,
+          "caseId": 2,
+          "position": "C2",
+          "row": 3,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 99,
+          "caseId": 2,
+          "position": "C3",
+          "row": 3,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 100,
+          "caseId": 2,
+          "position": "C4",
+          "row": 3,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 101,
+          "caseId": 2,
+          "position": "C5",
+          "row": 3,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 102,
+          "caseId": 2,
+          "position": "C6",
+          "row": 3,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 103,
+          "caseId": 2,
+          "position": "C7",
+          "row": 3,
+          "col": 7,
+          "layer": "top"
+        },
+        {
+          "id": 104,
+          "caseId": 2,
+          "position": "C8",
+          "row": 3,
+          "col": 8,
+          "layer": "top"
+        },
+        {
+          "id": 105,
+          "caseId": 2,
+          "position": "C9",
+          "row": 3,
+          "col": 9,
+          "layer": "top"
+        },
+        {
+          "id": 106,
+          "caseId": 2,
+          "position": "C10",
+          "row": 3,
+          "col": 10,
+          "layer": "top"
+        },
+        {
+          "id": 107,
+          "caseId": 2,
+          "position": "C11",
+          "row": 3,
+          "col": 11,
+          "layer": "top"
+        },
+        {
+          "id": 108,
+          "caseId": 2,
+          "position": "C12",
+          "row": 3,
+          "col": 12,
+          "layer": "top"
+        },
+        {
+          "id": 109,
+          "caseId": 2,
+          "position": "D1",
+          "row": 4,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 110,
+          "caseId": 2,
+          "position": "D2",
+          "row": 4,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 111,
+          "caseId": 2,
+          "position": "D3",
+          "row": 4,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 112,
+          "caseId": 2,
+          "position": "D4",
+          "row": 4,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 113,
+          "caseId": 2,
+          "position": "D5",
+          "row": 4,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 114,
+          "caseId": 2,
+          "position": "D6",
+          "row": 4,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 115,
+          "caseId": 2,
+          "position": "D7",
+          "row": 4,
+          "col": 7,
+          "layer": "top"
+        },
+        {
+          "id": 116,
+          "caseId": 2,
+          "position": "D8",
+          "row": 4,
+          "col": 8,
+          "layer": "top"
+        },
+        {
+          "id": 117,
+          "caseId": 2,
+          "position": "D9",
+          "row": 4,
+          "col": 9,
+          "layer": "top"
+        },
+        {
+          "id": 118,
+          "caseId": 2,
+          "position": "D10",
+          "row": 4,
+          "col": 10,
+          "layer": "top"
+        },
+        {
+          "id": 119,
+          "caseId": 2,
+          "position": "D11",
+          "row": 4,
+          "col": 11,
+          "layer": "top"
+        },
+        {
+          "id": 120,
+          "caseId": 2,
+          "position": "D12",
+          "row": 4,
+          "col": 12,
+          "layer": "top"
+        },
+        {
+          "id": 121,
+          "caseId": 2,
+          "position": "E1",
+          "row": 5,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 122,
+          "caseId": 2,
+          "position": "E2",
+          "row": 5,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 123,
+          "caseId": 2,
+          "position": "E3",
+          "row": 5,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 124,
+          "caseId": 2,
+          "position": "E4",
+          "row": 5,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 125,
+          "caseId": 2,
+          "position": "E5",
+          "row": 5,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 126,
+          "caseId": 2,
+          "position": "E6",
+          "row": 5,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 127,
+          "caseId": 2,
+          "position": "E7",
+          "row": 5,
+          "col": 7,
+          "layer": "top"
+        },
+        {
+          "id": 128,
+          "caseId": 2,
+          "position": "E8",
+          "row": 5,
+          "col": 8,
+          "layer": "top"
+        },
+        {
+          "id": 129,
+          "caseId": 2,
+          "position": "E9",
+          "row": 5,
+          "col": 9,
+          "layer": "top"
+        },
+        {
+          "id": 130,
+          "caseId": 2,
+          "position": "E10",
+          "row": 5,
+          "col": 10,
+          "layer": "top"
+        },
+        {
+          "id": 131,
+          "caseId": 2,
+          "position": "E11",
+          "row": 5,
+          "col": 11,
+          "layer": "top"
+        },
+        {
+          "id": 132,
+          "caseId": 2,
+          "position": "E12",
+          "row": 5,
+          "col": 12,
+          "layer": "top"
+        },
+        {
+          "id": 133,
+          "caseId": 2,
+          "position": "F1",
+          "row": 6,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 134,
+          "caseId": 2,
+          "position": "F2",
+          "row": 6,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 135,
+          "caseId": 2,
+          "position": "F3",
+          "row": 6,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 136,
+          "caseId": 2,
+          "position": "F4",
+          "row": 6,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 137,
+          "caseId": 2,
+          "position": "F5",
+          "row": 6,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 138,
+          "caseId": 2,
+          "position": "F6",
+          "row": 6,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 139,
+          "caseId": 2,
+          "position": "F7",
+          "row": 6,
+          "col": 7,
+          "layer": "top"
+        },
+        {
+          "id": 140,
+          "caseId": 2,
+          "position": "F8",
+          "row": 6,
+          "col": 8,
+          "layer": "top"
+        },
+        {
+          "id": 141,
+          "caseId": 2,
+          "position": "F9",
+          "row": 6,
+          "col": 9,
+          "layer": "top"
+        },
+        {
+          "id": 142,
+          "caseId": 2,
+          "position": "F10",
+          "row": 6,
+          "col": 10,
+          "layer": "top"
+        },
+        {
+          "id": 143,
+          "caseId": 2,
+          "position": "F11",
+          "row": 6,
+          "col": 11,
+          "layer": "top"
+        },
+        {
+          "id": 144,
+          "caseId": 2,
+          "position": "F12",
+          "row": 6,
+          "col": 12,
+          "layer": "top"
+        },
+        {
+          "id": 145,
+          "caseId": 2,
+          "position": "A1",
+          "row": 1,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 146,
+          "caseId": 2,
+          "position": "A2",
+          "row": 1,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 147,
+          "caseId": 2,
+          "position": "A3",
+          "row": 1,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 148,
+          "caseId": 2,
+          "position": "A4",
+          "row": 1,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 149,
+          "caseId": 2,
+          "position": "A5",
+          "row": 1,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 150,
+          "caseId": 2,
+          "position": "A6",
+          "row": 1,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 151,
+          "caseId": 2,
+          "position": "A7",
+          "row": 1,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 152,
+          "caseId": 2,
+          "position": "A8",
+          "row": 1,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 153,
+          "caseId": 2,
+          "position": "A9",
+          "row": 1,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 154,
+          "caseId": 2,
+          "position": "A10",
+          "row": 1,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 155,
+          "caseId": 2,
+          "position": "A11",
+          "row": 1,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 156,
+          "caseId": 2,
+          "position": "A12",
+          "row": 1,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 157,
+          "caseId": 2,
+          "position": "B1",
+          "row": 2,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 158,
+          "caseId": 2,
+          "position": "B2",
+          "row": 2,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 159,
+          "caseId": 2,
+          "position": "B3",
+          "row": 2,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 160,
+          "caseId": 2,
+          "position": "B4",
+          "row": 2,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 161,
+          "caseId": 2,
+          "position": "B5",
+          "row": 2,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 162,
+          "caseId": 2,
+          "position": "B6",
+          "row": 2,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 163,
+          "caseId": 2,
+          "position": "B7",
+          "row": 2,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 164,
+          "caseId": 2,
+          "position": "B8",
+          "row": 2,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 165,
+          "caseId": 2,
+          "position": "B9",
+          "row": 2,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 166,
+          "caseId": 2,
+          "position": "B10",
+          "row": 2,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 167,
+          "caseId": 2,
+          "position": "B11",
+          "row": 2,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 168,
+          "caseId": 2,
+          "position": "B12",
+          "row": 2,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 169,
+          "caseId": 2,
+          "position": "C1",
+          "row": 3,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 170,
+          "caseId": 2,
+          "position": "C2",
+          "row": 3,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 171,
+          "caseId": 2,
+          "position": "C3",
+          "row": 3,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 172,
+          "caseId": 2,
+          "position": "C4",
+          "row": 3,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 173,
+          "caseId": 2,
+          "position": "C5",
+          "row": 3,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 174,
+          "caseId": 2,
+          "position": "C6",
+          "row": 3,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 175,
+          "caseId": 2,
+          "position": "C7",
+          "row": 3,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 176,
+          "caseId": 2,
+          "position": "C8",
+          "row": 3,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 177,
+          "caseId": 2,
+          "position": "C9",
+          "row": 3,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 178,
+          "caseId": 2,
+          "position": "C10",
+          "row": 3,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 179,
+          "caseId": 2,
+          "position": "C11",
+          "row": 3,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 180,
+          "caseId": 2,
+          "position": "C12",
+          "row": 3,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 181,
+          "caseId": 2,
+          "position": "D1",
+          "row": 4,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 182,
+          "caseId": 2,
+          "position": "D2",
+          "row": 4,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 183,
+          "caseId": 2,
+          "position": "D3",
+          "row": 4,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 184,
+          "caseId": 2,
+          "position": "D4",
+          "row": 4,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 185,
+          "caseId": 2,
+          "position": "D5",
+          "row": 4,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 186,
+          "caseId": 2,
+          "position": "D6",
+          "row": 4,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 187,
+          "caseId": 2,
+          "position": "D7",
+          "row": 4,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 188,
+          "caseId": 2,
+          "position": "D8",
+          "row": 4,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 189,
+          "caseId": 2,
+          "position": "D9",
+          "row": 4,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 190,
+          "caseId": 2,
+          "position": "D10",
+          "row": 4,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 191,
+          "caseId": 2,
+          "position": "D11",
+          "row": 4,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 192,
+          "caseId": 2,
+          "position": "D12",
+          "row": 4,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 193,
+          "caseId": 2,
+          "position": "E1",
+          "row": 5,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 194,
+          "caseId": 2,
+          "position": "E2",
+          "row": 5,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 195,
+          "caseId": 2,
+          "position": "E3",
+          "row": 5,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 196,
+          "caseId": 2,
+          "position": "E4",
+          "row": 5,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 197,
+          "caseId": 2,
+          "position": "E5",
+          "row": 5,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 198,
+          "caseId": 2,
+          "position": "E6",
+          "row": 5,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 199,
+          "caseId": 2,
+          "position": "E7",
+          "row": 5,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 200,
+          "caseId": 2,
+          "position": "E8",
+          "row": 5,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 201,
+          "caseId": 2,
+          "position": "E9",
+          "row": 5,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 202,
+          "caseId": 2,
+          "position": "E10",
+          "row": 5,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 203,
+          "caseId": 2,
+          "position": "E11",
+          "row": 5,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 204,
+          "caseId": 2,
+          "position": "E12",
+          "row": 5,
+          "col": 12,
+          "layer": "bottom"
+        },
+        {
+          "id": 205,
+          "caseId": 2,
+          "position": "F1",
+          "row": 6,
+          "col": 1,
+          "layer": "bottom"
+        },
+        {
+          "id": 206,
+          "caseId": 2,
+          "position": "F2",
+          "row": 6,
+          "col": 2,
+          "layer": "bottom"
+        },
+        {
+          "id": 207,
+          "caseId": 2,
+          "position": "F3",
+          "row": 6,
+          "col": 3,
+          "layer": "bottom"
+        },
+        {
+          "id": 208,
+          "caseId": 2,
+          "position": "F4",
+          "row": 6,
+          "col": 4,
+          "layer": "bottom"
+        },
+        {
+          "id": 209,
+          "caseId": 2,
+          "position": "F5",
+          "row": 6,
+          "col": 5,
+          "layer": "bottom"
+        },
+        {
+          "id": 210,
+          "caseId": 2,
+          "position": "F6",
+          "row": 6,
+          "col": 6,
+          "layer": "bottom"
+        },
+        {
+          "id": 211,
+          "caseId": 2,
+          "position": "F7",
+          "row": 6,
+          "col": 7,
+          "layer": "bottom"
+        },
+        {
+          "id": 212,
+          "caseId": 2,
+          "position": "F8",
+          "row": 6,
+          "col": 8,
+          "layer": "bottom"
+        },
+        {
+          "id": 213,
+          "caseId": 2,
+          "position": "F9",
+          "row": 6,
+          "col": 9,
+          "layer": "bottom"
+        },
+        {
+          "id": 214,
+          "caseId": 2,
+          "position": "F10",
+          "row": 6,
+          "col": 10,
+          "layer": "bottom"
+        },
+        {
+          "id": 215,
+          "caseId": 2,
+          "position": "F11",
+          "row": 6,
+          "col": 11,
+          "layer": "bottom"
+        },
+        {
+          "id": 216,
+          "caseId": 2,
+          "position": "F12",
+          "row": 6,
+          "col": 12,
+          "layer": "bottom"
+        }
+      ]
+    },
+    {
+      "name": "Case-2",
+      "rows": 4,
+      "cols": 6,
+      "hasBottom": false,
+      "description": null,
+      "id": 3,
+      "isActive": true,
+      "compartments": [
+        {
+          "id": 217,
+          "caseId": 3,
+          "position": "A1",
+          "row": 1,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 218,
+          "caseId": 3,
+          "position": "A2",
+          "row": 1,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 219,
+          "caseId": 3,
+          "position": "A3",
+          "row": 1,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 220,
+          "caseId": 3,
+          "position": "A4",
+          "row": 1,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 221,
+          "caseId": 3,
+          "position": "A5",
+          "row": 1,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 222,
+          "caseId": 3,
+          "position": "A6",
+          "row": 1,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 223,
+          "caseId": 3,
+          "position": "B1",
+          "row": 2,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 224,
+          "caseId": 3,
+          "position": "B2",
+          "row": 2,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 225,
+          "caseId": 3,
+          "position": "B3",
+          "row": 2,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 226,
+          "caseId": 3,
+          "position": "B4",
+          "row": 2,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 227,
+          "caseId": 3,
+          "position": "B5",
+          "row": 2,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 228,
+          "caseId": 3,
+          "position": "B6",
+          "row": 2,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 229,
+          "caseId": 3,
+          "position": "C1",
+          "row": 3,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 230,
+          "caseId": 3,
+          "position": "C2",
+          "row": 3,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 231,
+          "caseId": 3,
+          "position": "C3",
+          "row": 3,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 232,
+          "caseId": 3,
+          "position": "C4",
+          "row": 3,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 233,
+          "caseId": 3,
+          "position": "C5",
+          "row": 3,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 234,
+          "caseId": 3,
+          "position": "C6",
+          "row": 3,
+          "col": 6,
+          "layer": "top"
+        },
+        {
+          "id": 235,
+          "caseId": 3,
+          "position": "D1",
+          "row": 4,
+          "col": 1,
+          "layer": "top"
+        },
+        {
+          "id": 236,
+          "caseId": 3,
+          "position": "D2",
+          "row": 4,
+          "col": 2,
+          "layer": "top"
+        },
+        {
+          "id": 237,
+          "caseId": 3,
+          "position": "D3",
+          "row": 4,
+          "col": 3,
+          "layer": "top"
+        },
+        {
+          "id": 238,
+          "caseId": 3,
+          "position": "D4",
+          "row": 4,
+          "col": 4,
+          "layer": "top"
+        },
+        {
+          "id": 239,
+          "caseId": 3,
+          "position": "D5",
+          "row": 4,
+          "col": 5,
+          "layer": "top"
+        },
+        {
+          "id": 240,
+          "caseId": 3,
+          "position": "D6",
+          "row": 4,
+          "col": 6,
+          "layer": "top"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "compartmentId": 73,
+      "name": "Blue",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 1,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 74,
+      "name": "Red",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 2,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 75,
+      "name": "Green",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 3,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 76,
+      "name": "White",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 4,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 77,
+      "name": "UV",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 5,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 78,
+      "name": "IR",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 6,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 79,
+      "name": "RGB",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 7,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 80,
+      "name": "Red/Blue",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 8,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 81,
+      "name": "Red/Green",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 9,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 82,
+      "name": "Orange",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 10,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 83,
+      "name": "Green",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 11,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 84,
+      "name": "Yellow",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 12,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 86,
+      "name": "Red",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "(right angle) | Package: 1206",
+      "id": 13,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 87,
+      "name": "Green",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "(right angle) | Package: 0805",
+      "id": 14,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 88,
+      "name": "NeoPixel",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "20x20mm\nWS2812B | Package: 1206",
+      "id": 15,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 90,
+      "name": "IR",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 0805",
+      "id": 16,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 91,
+      "name": "RGB",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "right angle | Package: 1206",
+      "id": 17,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 92,
+      "name": "MAX98357",
+      "categoryId": 3,
+      "quantity": 4,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Audio Amplifiers Digital Input Class D Amplifier | Package: QFN-16",
+      "id": 18,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 93,
+      "name": "74AHCV05",
+      "categoryId": 3,
+      "quantity": 6,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: SOIC-14",
+      "id": 19,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 94,
+      "name": "74LVC138A",
+      "categoryId": 3,
+      "quantity": 3,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Encoders, Decoders, Multiplexers & Demultiplexers 3-to-8 line decoder/demultiplexer; inverting | Package: QFN-16",
+      "id": 20,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 96,
+      "name": "7-SEGMENT",
+      "categoryId": 9,
+      "quantity": 5,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "micro 10mm",
+      "id": 21,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 95,
+      "name": "7-SEGMENT",
+      "categoryId": 9,
+      "quantity": 2,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "micro 10mm",
+      "id": 22,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 98,
+      "name": "RED",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "reverse mount | Package: 1206",
+      "id": 23,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 99,
+      "name": "GREEN",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: SOT-23-3",
+      "id": 24,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 101,
+      "name": "NeoPixel",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "40x40mm",
+      "id": 25,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 103,
+      "name": "RGB",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "RGB",
+      "id": 26,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 102,
+      "name": "NeoPixel",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "40x40mm",
+      "id": 27,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 104,
+      "name": "TLV320DAC",
+      "categoryId": 3,
+      "quantity": 4,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Ultra Low Pwr Stereo Audio Codec\nDSBGA-25 | Package: BGA",
+      "id": 28,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 105,
+      "name": "ESD5Z2.5TG",
+      "categoryId": 4,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "ESD Diode | Package: 0603",
+      "id": 29,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 108,
+      "name": "APS5130PD7C",
+      "categoryId": 11,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Photodiodes 3.2x1.6mm RGB COLOR SENSOR\n620 nm, 550 nm, 470 nm",
+      "id": 30,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 106,
+      "name": "LED Tactile",
+      "categoryId": 10,
+      "quantity": 2,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "9.85 mm x 9.85 mm\n3006.2115\n",
+      "id": 31,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 107,
+      "name": "LED tactile",
+      "categoryId": 10,
+      "quantity": 10,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8 mm x 5.2 mm\n228HMVARBFR\nRed/Blue",
+      "id": 32,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 109,
+      "name": "ATMEGA 32U4MU",
+      "categoryId": 3,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU AVR USB 32K FLASH INDUSTRIAL\nQFN-44\t | Package: QFN-32",
+      "id": 33,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 110,
+      "name": "ATSAMD G18A-U",
+      "categoryId": 3,
+      "quantity": 4,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "QFN-44\nARM Microcontrollers - MCU CM4, QFN48, 256KFlash,Tray, USB,Extended Temp | Package: QFN-32",
+      "id": 34,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 111,
+      "name": "ATMEGA 16U2",
+      "categoryId": 3,
+      "quantity": 4,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU AVR USB 8K FLASH AVR,USB16K FLASH | Package: TQFP-32",
+      "id": 35,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 112,
+      "name": "ATMEGA 32U4",
+      "categoryId": 3,
+      "quantity": 3,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU AVR USB 32K FLASH INDUSTRIAL | Package: TQFP-44",
+      "id": 36,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 113,
+      "name": "ATMEGA 328PB",
+      "categoryId": 3,
+      "quantity": 10,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU ATMEGA328PB 20MHZ Extd. Temp | Package: QFN-32",
+      "id": 37,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 114,
+      "name": "74HC595PW",
+      "categoryId": 3,
+      "quantity": 20,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Counter Shift Registers 8-bit shift register with input flip-flops | Package: SSOP-16",
+      "id": 38,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 115,
+      "name": "RGB",
+      "categoryId": 9,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 39,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 116,
+      "name": "Micro Potentiometer",
+      "categoryId": 1,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 40,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 117,
+      "name": "32.768 Mhz",
+      "categoryId": 7,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "0806 (2016 metric)\t",
+      "id": 41,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 118,
+      "name": "LED Tactile",
+      "categoryId": 10,
+      "quantity": 2,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "9.85 mm x 9.85 mm\n3006.2115\n",
+      "id": 42,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 119,
+      "name": "TVS0500DRVR",
+      "categoryId": 4,
+      "quantity": 5,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "ESD Protection Diodes / TVS Diodes 5V flat-clamp surge protection device 6-\n\nWSON-6",
+      "id": 43,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 120,
+      "name": "Speakers",
+      "categoryId": 12,
+      "quantity": 5,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 44,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 121,
+      "name": "ATMEGA48PA",
+      "categoryId": 3,
+      "quantity": 5,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU AVR 4KB FLSH 256B EE 512B SRAM-20MHz IND | Package: TQFP-32",
+      "id": 45,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 122,
+      "name": "ATMEGA1608-MF",
+      "categoryId": 3,
+      "quantity": 15,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 16KB, SOIC | Package: QFN-32",
+      "id": 46,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 123,
+      "name": "ATMEGA1609-AF",
+      "categoryId": 3,
+      "quantity": 5,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 16KB, TQFP-48 | Package: QFN-32",
+      "id": 47,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 124,
+      "name": "ATTINY3224",
+      "categoryId": 3,
+      "quantity": 5,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 32KB, SOIC14, Ind 85C, Green | Package: SOIC-14",
+      "id": 48,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 125,
+      "name": "ATTINY3217",
+      "categoryId": 3,
+      "quantity": 2,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "8-bit Microcontrollers - MCU 20MHz, 32KB, QFN24, Ind 125C, Green, Tray | Package: QFN-24",
+      "id": 49,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 126,
+      "name": "ATSAMD21",
+      "categoryId": 3,
+      "quantity": 2,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "ARM Cortex M0+\nTQFP-48 | Package: TQFP-44",
+      "id": 50,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 127,
+      "name": "RGB",
+      "categoryId": 9,
+      "quantity": 2,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 51,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 128,
+      "name": "MCP4018T-104E/LT",
+      "categoryId": 3,
+      "quantity": 5,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Digital Potentiometer ICs 100K I2C singl 7-bit volatile memory\nSC-70-6 | Package: 0201",
+      "id": 52,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 129,
+      "name": "MEMs Mic",
+      "categoryId": 11,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "i2C microphone",
+      "id": 53,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 130,
+      "name": "Accel and Gyro",
+      "categoryId": 11,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 54,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 131,
+      "name": "CAP1206-1-SL",
+      "categoryId": 11,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Capacitive Touch Sensors 6-Channel | Package: SOIC-14",
+      "id": 55,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 132,
+      "name": "FPC 10/0.5",
+      "categoryId": 8,
+      "quantity": 18,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 0201",
+      "id": 56,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 133,
+      "name": "VREG 1.8V",
+      "categoryId": 3,
+      "quantity": 9,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Voltage regulator 1.8V | Package: SOT-23-5",
+      "id": 57,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 134,
+      "name": "VREG 3.3V",
+      "categoryId": 3,
+      "quantity": 30,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Voltage regulator 3.3V | Package: SOT-23-5",
+      "id": 58,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 135,
+      "name": "FUSE",
+      "categoryId": 12,
+      "quantity": 30,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 59,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 136,
+      "name": "12 MHz",
+      "categoryId": 7,
+      "quantity": 30,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 0201",
+      "id": 60,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 137,
+      "name": "16 MHz",
+      "categoryId": 7,
+      "quantity": 30,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 0201",
+      "id": 61,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 138,
+      "name": "Ferrite Beads",
+      "categoryId": 12,
+      "quantity": 30,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: 1206",
+      "id": 62,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 139,
+      "name": "Hall Effect",
+      "categoryId": 11,
+      "quantity": 30,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "1612? | Package: 0201",
+      "id": 63,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 140,
+      "name": "Hall Effect",
+      "categoryId": 11,
+      "quantity": 10,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: SOT-23-3",
+      "id": 64,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 141,
+      "name": "Flip Flop",
+      "categoryId": 3,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Package: SOT-23-6",
+      "id": 65,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 142,
+      "name": "MEMS Mic",
+      "categoryId": 11,
+      "quantity": 1,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": null,
+      "id": 66,
+      "packageSize": null
+    },
+    {
+      "compartmentId": 144,
+      "name": "MCP6006T-E/LT",
+      "categoryId": 3,
+      "quantity": 10,
+      "minQuantity": 5,
+      "datasheetUrl": null,
+      "photoUrl": null,
+      "notes": "Operational Amplifiers - Op Amps Single, 1MHz Op Amp, E Temp\nSC-70-5",
+      "id": 67,
+      "packageSize": null
+    }
+  ],
+  "exportDate": "2025-05-27T15:40:47.539Z",
+  "version": "1.0"
+}
