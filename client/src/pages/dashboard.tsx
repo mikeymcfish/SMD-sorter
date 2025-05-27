@@ -82,8 +82,17 @@ export default function Dashboard() {
         casesWithCompartments.push(caseWithCompartments);
       }
       
+      // Transform cases to match import format expectations
+      const transformedCases = casesWithCompartments.map(case_ => ({
+        ...case_,
+        // Convert model string to rows/cols structure for import compatibility
+        rows: case_.model?.includes('12x6') ? 6 : 4,
+        cols: case_.model?.includes('12x6') ? 12 : 6,
+        hasBottom: case_.model?.includes('BOTH') || false
+      }));
+
       const exportData = {
-        cases: casesWithCompartments,
+        cases: transformedCases,
         components: allComponents,
         exportDate: new Date().toISOString(),
         version: "1.0"
