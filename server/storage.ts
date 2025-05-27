@@ -408,5 +408,4 @@ export class MemStorage implements IStorage {
   }
 }
 
-// Temporarily use MemStorage to capture current data, then switch to PostgreSQL
-export const storage = new MemStorage();
+export const storage = new PostgreSQLStorage();
