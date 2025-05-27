@@ -9,6 +9,7 @@ import CaseGrid from "@/components/case-grid";
 import EditComponentDialog from "@/components/edit-component-dialog";
 import AddCaseDialog from "@/components/add-case-dialog";
 import ImportGuideDialog from "@/components/import-guide-dialog";
+import ImportDataDialog from "@/components/import-data-dialog";
 import FilterDropdown from "@/components/filter-dropdown";
 import type { CaseWithCompartments, Component, Compartment, Case } from "@shared/schema";
 
@@ -21,6 +22,7 @@ export default function Dashboard() {
   } | null>(null);
   const [showAddCase, setShowAddCase] = useState(false);
   const [showImportGuide, setShowImportGuide] = useState(false);
+  const [showImportData, setShowImportData] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [, setLocation] = useLocation();
 
