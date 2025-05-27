@@ -40,6 +40,7 @@ const componentSchema = z.object({
   quantity: z.number().min(0, "Quantity must be positive"),
   minQuantity: z.number().min(1, "Minimum quantity must be at least 1").default(5),
   notes: z.string().optional(),
+  datasheetUrl: z.string().optional(),
 });
 
 type ComponentFormData = z.infer<typeof componentSchema>;
@@ -74,6 +75,7 @@ export default function EditComponentDialog({
       quantity: 0,
       minQuantity: 5,
       notes: "",
+      datasheetUrl: "",
     },
   });
 
@@ -86,6 +88,7 @@ export default function EditComponentDialog({
         quantity: component.quantity,
         minQuantity: component.minQuantity || 5,
         notes: component.notes || "",
+        datasheetUrl: component.datasheetUrl || "",
       });
     } else {
       form.reset({
@@ -95,6 +98,7 @@ export default function EditComponentDialog({
         quantity: 0,
         minQuantity: 5,
         notes: "",
+        datasheetUrl: "",
       });
     }
   }, [component, form]);
@@ -115,7 +119,7 @@ export default function EditComponentDialog({
   });
 
   const updateComponentMutation = useMutation({
-    mutationFn: async (data: Partial<ComponentFormData> & { datasheetUrl?: string; photoUrl?: string }) => {
+    mutationFn: async (data: Partial<ComponentFormData> & { photoUrl?: string | null }) => {
       const response = await apiRequest("PATCH", `/api/components/${component!.id}`, data);
       return response.json();
     },
@@ -158,29 +162,23 @@ export default function EditComponentDialog({
 
     setUploading(true);
     try {
-      let datasheetUrl = component?.datasheetUrl;
       let photoUrl = component?.photoUrl;
-
-      if (datasheetFile) {
-        datasheetUrl = await uploadFile(datasheetFile, "datasheet");
-      }
 
       if (photoFile) {
         photoUrl = await uploadFile(photoFile, "photo");
       }
 
       if (component) {
-        updateComponentMutation.mutate({ ...data, datasheetUrl, photoUrl });
+        updateComponentMutation.mutate({ ...data, photoUrl: photoUrl || undefined });
       } else {
         createComponentMutation.mutate({
           ...data,
           compartmentId: compartment.id,
-          datasheetUrl,
-          photoUrl,
+          photoUrl: photoUrl || undefined,
         });
       }
     } catch (error) {
-      toast({ title: "Failed to upload files", variant: "destructive" });
+      toast({ title: "Failed to upload photo", variant: "destructive" });
     } finally {
       setUploading(false);
     }
@@ -339,27 +337,27 @@ export default function EditComponentDialog({
               )}
             />
 
-            {/* File Uploads */}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Datasheet</label>
-                <div className="border-2 border-dashed border-gray-300 rounded-md p-3 text-center hover:border-blue-400 cursor-pointer transition-colors duration-200">
-                  <input
-                    type="file"
-                    accept=".pdf"
-                    onChange={(e) => handleFileChange(e.target.files?.[0] || null, "datasheet")}
-                    className="hidden"
-                    id="datasheet-upload"
-                  />
-                  <label htmlFor="datasheet-upload" className="cursor-pointer">
-                    <Upload className="mx-auto h-4 w-4 text-gray-400 mb-1" />
-                    <p className="text-xs text-gray-500">
-                      {datasheetFile ? datasheetFile.name : "Drop PDF or click"}
-                    </p>
-                  </label>
-                </div>
-              </div>
+            {/* Datasheet URL */}
+            <FormField
+              control={form.control}
+              name="datasheetUrl"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Datasheet URL</FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="https://example.com/datasheet.pdf"
+                      {...field}
+                      value={field.value || ""}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
+            {/* Photo Upload */}
+            <div className="grid grid-cols-1 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Photo</label>
                 <div className="border-2 border-dashed border-gray-300 rounded-md p-3 text-center hover:border-blue-400 cursor-pointer transition-colors duration-200">
