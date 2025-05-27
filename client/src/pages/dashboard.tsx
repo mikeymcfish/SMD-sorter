@@ -202,9 +202,9 @@ export default function Dashboard() {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 name: caseData.name,
-                rows: parseInt(caseData.model.split('-')[1]) || 6,
-                cols: parseInt(caseData.model.split('-')[2]) || 4,
-                hasBottom: caseData.model.includes('BOTH'),
+                rows: caseData.rows || 6,
+                cols: caseData.cols || 4,
+                hasBottom: caseData.hasBottom || false,
                 description: caseData.description || '',
                 isActive: true
               })
