@@ -107,6 +107,9 @@ export default function Dashboard() {
         version: "1.0"
       };
       
+      console.log('Export data:', exportData);
+      console.log('Components being exported:', allComponents.length);
+      
       const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
