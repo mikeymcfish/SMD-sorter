@@ -85,10 +85,9 @@ export default function Dashboard() {
       // Transform cases to match import format expectations
       const transformedCases = casesWithCompartments.map(case_ => ({
         ...case_,
-        // Convert model string to rows/cols structure for import compatibility
-        rows: case_.model?.includes('12x6') ? 6 : 4,
-        cols: case_.model?.includes('12x6') ? 12 : 6,
-        hasBottom: case_.model?.includes('BOTH') || false,
+        rows: case_.rows,
+        cols: case_.cols,
+        hasBottom: case_.hasBottom || false,
         // Remove components from compartments to avoid duplication - they're in the separate components array
         compartments: case_.compartments?.map(comp => ({
           id: comp.id,
@@ -253,7 +252,9 @@ export default function Dashboard() {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 name: `${caseData.name} (imported)`,
-                model: caseData.model,
+                rows: caseData.rows || 6,
+                cols: caseData.cols || 4,
+                hasBottom: caseData.hasBottom || false,
                 description: caseData.description
               })
             });
