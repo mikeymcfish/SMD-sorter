@@ -15,7 +15,6 @@ import {
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, like, or, inArray } from "drizzle-orm";
-import { CASE_LAYOUTS } from "../client/src/lib/constants";
 
 export interface IStorage {
   // User methods
@@ -102,7 +101,16 @@ export class DatabaseStorage implements IStorage {
   }
 
   private async createCompartmentsForCase(case_: Case) {
-    const layout = CASE_LAYOUTS[case_.model as keyof typeof CASE_LAYOUTS];
+    const layouts: any = {
+      "BOX-ALL-144": { rows: 12, cols: 12, layers: [{ name: "top" }] },
+      "LAYOUT-6x4-BOTH": { rows: 4, cols: 6, layers: [{ name: "top" }, { name: "bottom" }] },
+      "LAYOUT-6x4-TOP": { rows: 4, cols: 6, layers: [{ name: "top" }] },
+      "LAYOUT-12x6-BOTH": { rows: 6, cols: 12, layers: [{ name: "top" }, { name: "bottom" }] },
+      "LAYOUT-12x6-TOP": { rows: 6, cols: 12, layers: [{ name: "top" }] },
+      "LAYOUT-18x10-BOTH": { rows: 10, cols: 18, layers: [{ name: "top" }, { name: "bottom" }] },
+    };
+    
+    const layout = layouts[case_.model];
     if (!layout) return;
 
     const compartmentsToCreate = [];
