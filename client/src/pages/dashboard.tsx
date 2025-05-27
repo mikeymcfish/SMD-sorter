@@ -282,12 +282,16 @@ export default function Dashboard() {
               body: JSON.stringify({
                 name: componentData.name,
                 compartmentId: newCompartmentId,
-                categoryId: 1, // Default category for imported components
+                categoryId: 1, // Default to resistor category - will need proper category mapping
                 quantity: componentData.quantity || 1,
                 minQuantity: componentData.minQuantity || 5,
                 datasheetUrl: componentData.datasheetUrl || null,
                 photoUrl: componentData.photoUrl || null,
-                notes: componentData.notes || null
+                notes: [
+                  componentData.notes,
+                  componentData.category ? `Category: ${componentData.category}` : null,
+                  componentData.packageSize ? `Package: ${componentData.packageSize}` : null
+                ].filter(Boolean).join(' | ') || null
               })
             });
             console.log(`Component ${componentData.name} import result:`, response.ok);
