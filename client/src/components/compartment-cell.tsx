@@ -39,16 +39,6 @@ export default function CompartmentCell({
     return categoryInfo?.color || "#6B7280";
   };
 
-  const stockStatus = component ? getStockStatus(component.quantity, component.minQuantity) : "empty";
-  const opacity = isHighlighted ? "opacity-100" : "opacity-30";
-  
-  // Use category color as background if component exists
-  const backgroundColor = component ? getCategoryColor(component.category) : undefined;
-  const borderColor = component 
-    ? stockStatus === "critical" ? "#DC2626" : 
-      stockStatus === "low" ? "#D97706" : "#059669"
-    : "#D1D5DB";
-
   // Get the electronic icon for the component category
   const getCategoryFromId = (categoryId: number) => {
     const categoryMap = {
@@ -60,6 +50,16 @@ export default function CompartmentCell({
   };
   
   const componentCategory = component ? getCategoryFromId(component.categoryId) : null;
+  const stockStatus = component ? getStockStatus(component.quantity, component.minQuantity) : "empty";
+  const opacity = isHighlighted ? "opacity-100" : "opacity-30";
+  
+  // Use category color as background if component exists
+  const backgroundColor = component && componentCategory ? getCategoryColor(componentCategory) : undefined;
+  const borderColor = component 
+    ? stockStatus === "critical" ? "#DC2626" : 
+      stockStatus === "low" ? "#D97706" : "#059669"
+    : "#D1D5DB";
+    
   const IconComponent = componentCategory ? getIconForCategory(componentCategory) : null;
 
   return (
