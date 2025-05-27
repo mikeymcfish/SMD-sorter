@@ -5,10 +5,10 @@ import { CASE_LAYOUTS } from "./client/src/lib/constants";
 
 async function seedDatabase() {
   console.log("Seeding database with your latest data...");
-  
+
   const sql = neon(process.env.DATABASE_URL!);
   const db = drizzle(sql);
-  
+
   try {
     // Create the "Case-1" case that had all your components
     console.log("Creating Case-1...");
@@ -16,16 +16,16 @@ async function seedDatabase() {
       name: "Case-1",
       model: "LAYOUT-12x6-BOTH",
       description: "Main component storage case",
-      isActive: true
+      isActive: true,
     }).returning();
-    
+
     console.log(`Created case with ID: ${newCase.id}`);
-    
+
     // Create compartments for the case (12x6 layout = 144 compartments)
     console.log("Creating compartments...");
     const layout = CASE_LAYOUTS["LAYOUT-12x6-BOTH"];
-    const compartmentInserts = [];
-    
+    const compartmentInserts = [] as any[];
+
     // Top layer
     for (let row = 1; row <= layout.rows; row++) {
       for (let col = 1; col <= layout.cols; col++) {
@@ -35,12 +35,12 @@ async function seedDatabase() {
           position: `${rowLetter}${col}`,
           row,
           col,
-          layer: "top" as const
+          layer: "top" as const,
         });
       }
     }
-    
-    // Bottom layer  
+
+    // Bottom layer
     for (let row = 1; row <= layout.rows; row++) {
       for (let col = 1; col <= layout.cols; col++) {
         const rowLetter = String.fromCharCode(64 + row); // A, B, C, etc.
@@ -49,16 +49,16 @@ async function seedDatabase() {
           position: `${rowLetter}${col}`,
           row,
           col,
-          layer: "bottom" as const
+          layer: "bottom" as const,
         });
       }
     }
-    
+
     const newCompartments = await db.insert(compartments).values(compartmentInserts).returning();
     console.log(`Created ${newCompartments.length} compartments`);
-    
+
     console.log("Database seeded successfully! You can now add your components again and they will persist.");
-    
+
   } catch (error) {
     console.error("Database seeding failed:", error);
     process.exit(1);
