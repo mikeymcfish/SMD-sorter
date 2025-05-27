@@ -28,15 +28,17 @@ export default function ImportDataDialog({ isOpen, onClose, onSuccess }: ImportD
       }
 
       for (const importCase of importCases) {
-        // Create the case
+        // Create the case using the working add case dialog approach
+        const caseData = {
+          name: importCase.name,
+          model: importCase.model,
+          description: importCase.description || ""
+        };
+        
         const caseResponse = await fetch('/api/cases', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: importCase.name,
-            model: importCase.model,
-            description: importCase.description || null
-          })
+          body: JSON.stringify(caseData)
         });
         
         if (!caseResponse.ok) {
