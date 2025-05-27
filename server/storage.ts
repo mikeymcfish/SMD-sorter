@@ -461,4 +461,5 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new PostgreSQLStorage();
+// Use memory storage for now to ensure consistent behavior between dev and deployment
+export const storage = new MemStorage();
