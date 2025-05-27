@@ -180,6 +180,16 @@ export default function Dashboard() {
         // Create compartment ID mapping that will be used in both branches
         const compartmentIdMapping = new Map();
         
+        // Category mapping function
+        const getCategoryId = (categoryName: string) => {
+          const categoryMap: Record<string, number> = {
+            'resistor': 1, 'capacitor': 2, 'ic': 3, 'diode': 4, 'transistor': 5,
+            'inductor': 6, 'crystal': 7, 'connector': 8, 'led': 9, 'switch': 10,
+            'sensor': 11, 'other': 12
+          };
+          return categoryMap[categoryName?.toLowerCase()] || 12; // Default to 'other'
+        };
+        
         if (shouldOverwrite) {
           // Clear existing data first
           const componentsResponse = await fetch('/api/components');
@@ -282,14 +292,13 @@ export default function Dashboard() {
               body: JSON.stringify({
                 name: componentData.name,
                 compartmentId: newCompartmentId,
-                categoryId: 1, // Default to resistor category - will need proper category mapping
+                categoryId: getCategoryId(componentData.category),
                 quantity: componentData.quantity || 1,
                 minQuantity: componentData.minQuantity || 5,
                 datasheetUrl: componentData.datasheetUrl || null,
                 photoUrl: componentData.photoUrl || null,
                 notes: [
                   componentData.notes,
-                  componentData.category ? `Category: ${componentData.category}` : null,
                   componentData.packageSize ? `Package: ${componentData.packageSize}` : null
                 ].filter(Boolean).join(' | ') || null
               })
