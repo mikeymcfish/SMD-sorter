@@ -182,7 +182,8 @@ export default function Dashboard() {
               body: JSON.stringify({
                 name: caseData.name,
                 model: caseData.model,
-                description: caseData.description
+                description: caseData.description || "",
+                isActive: caseData.isActive !== false
               })
             });
             

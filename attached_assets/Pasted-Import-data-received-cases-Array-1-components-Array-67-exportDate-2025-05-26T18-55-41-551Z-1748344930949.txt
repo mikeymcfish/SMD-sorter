@@ -1,0 +1,112 @@
+Import data received: {cases: Array(1), components: Array(67), exportDate: '2025-05-26T18:55:41.551Z', version: '1.0'}
+dashboard.tsx:143 Cases in data: 1
+dashboard.tsx:144 Components in data: 67
+dashboard.tsx:179 
+            
+            
+           POST https://e8e823f4-28c9-4132-ac89-e64bf5e02c7d-00-32q9epl38djcu.worf.replit.dev/api/cases 400 (Bad Request)
+input.onchange @ dashboard.tsx:179Understand this error
+dashboard.tsx:247 Starting component import. Total components: 67
+dashboard.tsx:248 Compartment ID mapping size: 0
+dashboard.tsx:252 Component Blue: old compartmentId 73 -> new compartmentId undefined
+ No mapping found for compartment ID 73
+ Component Red: old compartmentId 74 -> new compartmentId undefined
+ No mapping found for compartment ID 74
+ Component Green: old compartmentId 75 -> new compartmentId undefined
+ No mapping found for compartment ID 75
+ Component White: old compartmentId 76 -> new compartmentId undefined
+ No mapping found for compartment ID 76
+ Component UV: old compartmentId 77 -> new compartmentId undefined
+ No mapping found for compartment ID 77
+ Component IR: old compartmentId 78 -> new compartmentId undefined
+ No mapping found for compartment ID 78
+ Component RGB: old compartmentId 79 -> new compartmentId undefined
+ No mapping found for compartment ID 79
+ Component Red/Blue: old compartmentId 80 -> new compartmentId undefined
+ No mapping found for compartment ID 80
+ Component Red/Green: old compartmentId 81 -> new compartmentId undefined
+ No mapping found for compartment ID 81
+ Component Orange: old compartmentId 82 -> new compartmentId undefined
+ No mapping found for compartment ID 82
+ Component Green: old compartmentId 83 -> new compartmentId undefined
+ No mapping found for compartment ID 83
+ Component Yellow: old compartmentId 84 -> new compartmentId undefined
+ No mapping found for compartment ID 84
+ Component Red: old compartmentId 86 -> new compartmentId undefined
+ No mapping found for compartment ID 86
+ Component Green: old compartmentId 87 -> new compartmentId undefined
+ No mapping found for compartment ID 87
+ Component NeoPixel: old compartmentId 88 -> new compartmentId undefined
+ No mapping found for compartment ID 88
+ Component IR: old compartmentId 90 -> new compartmentId undefined
+ No mapping found for compartment ID 90
+ Component RGB: old compartmentId 91 -> new compartmentId undefined
+ No mapping found for compartment ID 91
+ Component MAX98357: old compartmentId 92 -> new compartmentId undefined
+ No mapping found for compartment ID 92
+ Component 74AHCV05: old compartmentId 93 -> new compartmentId undefined
+ No mapping found for compartment ID 93
+ Component 74LVC138A: old compartmentId 94 -> new compartmentId undefined
+ No mapping found for compartment ID 94
+ Component 7-SEGMENT: old compartmentId 96 -> new compartmentId undefined
+ No mapping found for compartment ID 96
+ Component 7-SEGMENT: old compartmentId 95 -> new compartmentId undefined
+ No mapping found for compartment ID 95
+ Component RED: old compartmentId 98 -> new compartmentId undefined
+ No mapping found for compartment ID 98
+ Component GREEN: old compartmentId 99 -> new compartmentId undefined
+ No mapping found for compartment ID 99
+ Component NeoPixel: old compartmentId 101 -> new compartmentId undefined
+ No mapping found for compartment ID 101
+ Component RGB: old compartmentId 103 -> new compartmentId undefined
+ No mapping found for compartment ID 103
+ Component NeoPixel: old compartmentId 102 -> new compartmentId undefined
+ No mapping found for compartment ID 102
+ Component TLV320DAC: old compartmentId 104 -> new compartmentId undefined
+ No mapping found for compartment ID 104
+ Component ESD5Z2.5TG: old compartmentId 105 -> new compartmentId undefined
+ No mapping found for compartment ID 105
+ Component APS5130PD7C: old compartmentId 108 -> new compartmentId undefined
+ No mapping found for compartment ID 108
+ Component LED Tactile: old compartmentId 106 -> new compartmentId undefined
+ No mapping found for compartment ID 106
+ Component LED tactile: old compartmentId 107 -> new compartmentId undefined
+ No mapping found for compartment ID 107
+ Component ATMEGA 32U4MU: old compartmentId 109 -> new compartmentId undefined
+ No mapping found for compartment ID 109
+ Component ATSAMD G18A-U: old compartmentId 110 -> new compartmentId undefined
+ No mapping found for compartment ID 110
+ Component ATMEGA 16U2: old compartmentId 111 -> new compartmentId undefined
+ No mapping found for compartment ID 111
+ Component ATMEGA 32U4: old compartmentId 112 -> new compartmentId undefined
+ No mapping found for compartment ID 112
+ Component ATMEGA 328PB: old compartmentId 113 -> new compartmentId undefined
+ No mapping found for compartment ID 113
+ Component 74HC595PW: old compartmentId 114 -> new compartmentId undefined
+ No mapping found for compartment ID 114
+ Component RGB: old compartmentId 115 -> new compartmentId undefined
+ No mapping found for compartment ID 115
+ Component Micro Potentiometer: old compartmentId 116 -> new compartmentId undefined
+ No mapping found for compartment ID 116
+ Component 32.768 Mhz: old compartmentId 117 -> new compartmentId undefined
+ No mapping found for compartment ID 117
+ Component LED Tactile: old compartmentId 118 -> new compartmentId undefined
+ No mapping found for compartment ID 118
+ Component TVS0500DRVR: old compartmentId 119 -> new compartmentId undefined
+ No mapping found for compartment ID 119
+ Component Speakers: old compartmentId 120 -> new compartmentId undefined
+ No mapping found for compartment ID 120
+ Component ATMEGA48PA: old compartmentId 121 -> new compartmentId undefined
+ No mapping found for compartment ID 121
+ Component ATMEGA1608-MF: old compartmentId 122 -> new compartmentId undefined
+ No mapping found for compartment ID 122
+ Component ATMEGA1609-AF: old compartmentId 123 -> new compartmentId undefined
+ No mapping found for compartment ID 123
+ Component ATTINY3224: old compartmentId 124 -> new compartmentId undefined
+ No mapping found for compartment ID 124
+ Component ATTINY3217: old compartmentId 125 -> new compartmentId undefined
+ No mapping found for compartment ID 125
+ Component ATSAMD21: old compartmentId 126 -> new compartmentId undefined
+ No mapping found for compartment ID 126
+ Component RGB: old compartmentId 127 -> new compartmentId undefined
+ No mapping found for compartment ID 127
