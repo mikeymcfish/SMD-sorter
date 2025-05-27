@@ -79,13 +79,25 @@ export default function EditComponentDialog({
 
   useEffect(() => {
     if (component) {
+      // Extract package size from notes if it exists
+      const packageMatch = component.notes?.match(/Package: ([^|]+)/);
+      const packageSize = packageMatch ? packageMatch[1].trim() : "";
+      
+      // Convert categoryId back to category string
+      const categoryMap = {
+        1: 'resistor', 2: 'capacitor', 3: 'ic', 4: 'diode', 5: 'transistor',
+        6: 'inductor', 7: 'crystal', 8: 'connector', 9: 'led', 10: 'switch',
+        11: 'sensor', 12: 'other'
+      };
+      const category = categoryMap[component.categoryId as keyof typeof categoryMap] || 'other';
+      
       form.reset({
         name: component.name,
-        category: component.category,
-        packageSize: component.packageSize || "",
+        category: category,
+        packageSize: packageSize,
         quantity: component.quantity,
         minQuantity: component.minQuantity || 5,
-        notes: component.notes || "",
+        notes: component.notes?.replace(/Package: [^|]+\s*\|\s*/, '').replace(/^\s*\|\s*/, '') || "",
       });
     } else {
       form.reset({
