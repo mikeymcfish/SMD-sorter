@@ -35,7 +35,7 @@ export default function ImportDataDialog({ isOpen, onClose, onSuccess }: ImportD
           body: JSON.stringify({
             name: importCase.name,
             model: importCase.model,
-            description: importCase.description || ""
+            description: importCase.description || null
           })
         });
         
