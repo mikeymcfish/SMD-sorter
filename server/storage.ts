@@ -95,7 +95,45 @@ export class PostgreSQLStorage implements IStorage {
 
   async createCase(case_: InsertCase): Promise<Case> {
     const result = await this.db.insert(cases).values(case_).returning();
-    return result[0];
+    const newCase = result[0];
+    
+    // Create compartments for the new case
+    await this.createCompartmentsForCase(newCase);
+    
+    return newCase;
+  }
+
+  private async createCompartmentsForCase(case_: Case) {
+    const { CASE_LAYOUTS } = await import("../client/src/lib/constants");
+    const layout = CASE_LAYOUTS[case_.model as keyof typeof CASE_LAYOUTS];
+    
+    if (!layout) {
+      console.warn(`Unknown case model: ${case_.model}`);
+      return;
+    }
+
+    const compartmentInserts = [];
+
+    // Create compartments for each layer
+    const layers = case_.model.includes("BOTH") ? ["top", "bottom"] : ["top"];
+    
+    for (const layer of layers) {
+      for (let row = 1; row <= layout.rows; row++) {
+        for (let col = 1; col <= layout.cols; col++) {
+          const rowLetter = String.fromCharCode(64 + row); // A, B, C, etc.
+          compartmentInserts.push({
+            caseId: case_.id,
+            position: `${rowLetter}${col}`,
+            row,
+            col,
+            layer: layer as "top" | "bottom"
+          });
+        }
+      }
+    }
+
+    await this.db.insert(compartments).values(compartmentInserts);
+    console.log(`Created ${compartmentInserts.length} compartments for case ${case_.name}`);
   }
 
   async updateCase(id: number, updates: Partial<InsertCase>): Promise<Case | undefined> {
@@ -104,8 +142,23 @@ export class PostgreSQLStorage implements IStorage {
   }
 
   async deleteCase(id: number): Promise<boolean> {
-    const result = await this.db.delete(cases).where(eq(cases.id, id));
-    return result.rowCount > 0;
+    try {
+      // First delete all components in this case
+      const caseCompartments = await this.db.select().from(compartments).where(eq(compartments.caseId, id));
+      for (const compartment of caseCompartments) {
+        await this.db.delete(components).where(eq(components.compartmentId, compartment.id));
+      }
+      
+      // Then delete all compartments
+      await this.db.delete(compartments).where(eq(compartments.caseId, id));
+      
+      // Finally delete the case
+      const result = await this.db.delete(cases).where(eq(cases.id, id));
+      return result.rowCount > 0;
+    } catch (error) {
+      console.error("Error deleting case:", error);
+      return false;
+    }
   }
 
   // Compartment methods
