@@ -6,6 +6,9 @@ import {
   type Component, type InsertComponent,
   type CaseWithCompartments
 } from "@shared/schema";
+import { drizzle } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
+import { eq, and, like, or } from "drizzle-orm";
 
 export interface IStorage {
   // User methods
@@ -34,6 +37,133 @@ export interface IStorage {
   updateComponent(id: number, updates: Partial<InsertComponent>): Promise<Component | undefined>;
   deleteComponent(id: number): Promise<boolean>;
   searchComponents(query: string): Promise<Component[]>;
+}
+
+// PostgreSQL Storage Implementation
+export class PostgreSQLStorage implements IStorage {
+  private db: ReturnType<typeof drizzle>;
+
+  constructor() {
+    const sql = neon(process.env.DATABASE_URL!);
+    this.db = drizzle(sql);
+  }
+
+  // User methods
+  async getUser(id: number): Promise<User | undefined> {
+    const result = await this.db.select().from(users).where(eq(users.id, id));
+    return result[0];
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const result = await this.db.select().from(users).where(eq(users.username, username));
+    return result[0];
+  }
+
+  async createUser(user: InsertUser): Promise<User> {
+    const result = await this.db.insert(users).values(user).returning();
+    return result[0];
+  }
+
+  // Case methods
+  async getCases(): Promise<Case[]> {
+    return await this.db.select().from(cases);
+  }
+
+  async getCase(id: number): Promise<Case | undefined> {
+    const result = await this.db.select().from(cases).where(eq(cases.id, id));
+    return result[0];
+  }
+
+  async getCaseWithCompartments(id: number): Promise<CaseWithCompartments | undefined> {
+    const case_ = await this.getCase(id);
+    if (!case_) return undefined;
+
+    const caseCompartments = await this.db.select().from(compartments).where(eq(compartments.caseId, id));
+    
+    const compartmentsWithComponents = await Promise.all(
+      caseCompartments.map(async (compartment) => {
+        const component = await this.getComponentByCompartment(compartment.id);
+        return { ...compartment, component };
+      })
+    );
+
+    return {
+      ...case_,
+      compartments: compartmentsWithComponents
+    };
+  }
+
+  async createCase(case_: InsertCase): Promise<Case> {
+    const result = await this.db.insert(cases).values(case_).returning();
+    return result[0];
+  }
+
+  async updateCase(id: number, updates: Partial<InsertCase>): Promise<Case | undefined> {
+    const result = await this.db.update(cases).set(updates).where(eq(cases.id, id)).returning();
+    return result[0];
+  }
+
+  async deleteCase(id: number): Promise<boolean> {
+    const result = await this.db.delete(cases).where(eq(cases.id, id));
+    return result.rowCount > 0;
+  }
+
+  // Compartment methods
+  async getCompartmentsByCase(caseId: number): Promise<Compartment[]> {
+    return await this.db.select().from(compartments).where(eq(compartments.caseId, caseId));
+  }
+
+  async getCompartment(id: number): Promise<Compartment | undefined> {
+    const result = await this.db.select().from(compartments).where(eq(compartments.id, id));
+    return result[0];
+  }
+
+  async createCompartment(compartment: InsertCompartment): Promise<Compartment> {
+    const result = await this.db.insert(compartments).values(compartment).returning();
+    return result[0];
+  }
+
+  // Component methods
+  async getComponents(): Promise<Component[]> {
+    return await this.db.select().from(components);
+  }
+
+  async getComponent(id: number): Promise<Component | undefined> {
+    const result = await this.db.select().from(components).where(eq(components.id, id));
+    return result[0];
+  }
+
+  async getComponentByCompartment(compartmentId: number): Promise<Component | undefined> {
+    const result = await this.db.select().from(components).where(eq(components.compartmentId, compartmentId));
+    return result[0];
+  }
+
+  async createComponent(component: InsertComponent): Promise<Component> {
+    const result = await this.db.insert(components).values(component).returning();
+    return result[0];
+  }
+
+  async updateComponent(id: number, updates: Partial<InsertComponent>): Promise<Component | undefined> {
+    const result = await this.db.update(components).set(updates).where(eq(components.id, id)).returning();
+    return result[0];
+  }
+
+  async deleteComponent(id: number): Promise<boolean> {
+    const result = await this.db.delete(components).where(eq(components.id, id));
+    return result.rowCount > 0;
+  }
+
+  async searchComponents(query: string): Promise<Component[]> {
+    const searchTerm = `%${query}%`;
+    return await this.db.select().from(components).where(
+      or(
+        like(components.name, searchTerm),
+        like(components.category, searchTerm),
+        like(components.packageSize, searchTerm),
+        like(components.notes, searchTerm)
+      )
+    );
+  }
 }
 
 export class MemStorage implements IStorage {
@@ -278,4 +408,5 @@ export class MemStorage implements IStorage {
   }
 }
 
+// Temporarily use MemStorage to capture current data, then switch to PostgreSQL
 export const storage = new MemStorage();
