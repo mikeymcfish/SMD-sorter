@@ -181,8 +181,11 @@ export default function Dashboard() {
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 name: caseData.name,
-                model: caseData.model,
-                description: caseData.description
+                rows: parseInt(caseData.model.split('-')[1]) || 6,
+                cols: parseInt(caseData.model.split('-')[2]) || 4,
+                hasBottom: caseData.model.includes('BOTH'),
+                description: caseData.description || '',
+                isActive: true
               })
             });
             
@@ -256,8 +259,14 @@ export default function Dashboard() {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                ...componentData,
-                compartmentId: newCompartmentId
+                name: componentData.name,
+                compartmentId: newCompartmentId,
+                categoryId: 1, // Default category for imported components
+                quantity: componentData.quantity || 1,
+                minQuantity: componentData.minQuantity || 5,
+                datasheetUrl: componentData.datasheetUrl || null,
+                photoUrl: componentData.photoUrl || null,
+                notes: componentData.notes || null
               })
             });
             console.log(`Component ${componentData.name} import result:`, response.ok);
