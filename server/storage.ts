@@ -243,8 +243,10 @@ export class MemStorage implements IStorage {
   private compartmentIdCounter = 1;
   private componentIdCounter = 1;
 
-  constructor() {
-    this.initializeDefaultData();
+  constructor(options?: { initDefaultData?: boolean }) {
+    if (options?.initDefaultData) {
+      this.initializeDefaultData();
+    }
   }
 
   private initializeDefaultData() {
