@@ -50,19 +50,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Create new case
   app.post("/api/cases", async (req, res) => {
     try {
-      console.log("Received case data:", req.body);
-      // Temporarily bypass validation for import
-      const caseData = {
-        name: req.body.name,
-        model: req.body.model,
-        description: req.body.description || null
-      };
-      console.log("Using case data:", caseData);
-      const case_ = await storage.createCase(caseData);
+      const validatedData = insertCaseSchema.parse(req.body);
+      const case_ = await storage.createCase(validatedData);
       res.status(201).json(case_);
     } catch (error) {
-      console.log("Case creation error:", error);
-      res.status(400).json({ message: "Invalid case data", error: error.message });
+      res.status(400).json({ message: "Invalid case data" });
     }
   });
 
@@ -193,85 +185,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({ url: fileUrl });
     } catch (error) {
       res.status(500).json({ message: "Failed to upload file" });
-    }
-  });
-
-  // Import legacy data
-  app.post("/api/import", async (req, res) => {
-    try {
-      const { cases: importCases } = req.body;
-      
-      if (!importCases || !Array.isArray(importCases)) {
-        return res.status(400).json({ message: "Invalid import data format" });
-      }
-
-      const results = [];
-
-      for (const importCase of importCases) {
-        try {
-          // Create the case
-          const newCase = await storage.createCase({
-            name: importCase.name,
-            model: importCase.model,
-            description: importCase.description || "",
-            isActive: importCase.isActive !== false
-          });
-
-          // Get the newly created compartments
-          const compartments = await storage.getCompartmentsByCase(newCase.id);
-          
-          // Create a mapping from position+layer to compartment ID
-          const compartmentMap = new Map();
-          compartments.forEach(comp => {
-            const key = `${comp.position}-${comp.layer}`;
-            compartmentMap.set(key, comp.id);
-          });
-
-          // Import components for compartments that have them
-          const componentsCreated = [];
-          for (const importCompartment of importCase.compartments || []) {
-            if (importCompartment.component) {
-              const key = `${importCompartment.position}-${importCompartment.layer}`;
-              const newCompartmentId = compartmentMap.get(key);
-              
-              if (newCompartmentId) {
-                const component = await storage.createComponent({
-                  compartmentId: newCompartmentId,
-                  name: importCompartment.component.name,
-                  category: importCompartment.component.category,
-                  packageSize: importCompartment.component.packageSize || null,
-                  quantity: importCompartment.component.quantity || 0,
-                  minQuantity: importCompartment.component.minQuantity || 5,
-                  notes: importCompartment.component.notes || null,
-                  datasheetUrl: importCompartment.component.datasheetUrl || null,
-                  photoUrl: importCompartment.component.photoUrl || null
-                });
-                componentsCreated.push(component);
-              }
-            }
-          }
-
-          results.push({
-            case: newCase,
-            componentsCreated: componentsCreated.length
-          });
-        } catch (error) {
-          console.error(`Failed to import case ${importCase.name}:`, error);
-          results.push({
-            error: `Failed to import case ${importCase.name}: ${error.message}`
-          });
-        }
-      }
-
-      res.json({ 
-        message: "Import completed", 
-        results,
-        successCount: results.filter(r => !r.error).length,
-        errorCount: results.filter(r => r.error).length
-      });
-    } catch (error) {
-      console.error("Import error:", error);
-      res.status(500).json({ message: "Import failed", error: error.message });
     }
   });
 
