@@ -19,18 +19,24 @@ export default function ImportDataDialog({ isOpen, onClose, onSuccess }: ImportD
 
   const importMutation = useMutation({
     mutationFn: async (data: any) => {
-      return await apiRequest("/api/import", {
+      const response = await fetch("/api/import", {
         method: "POST",
-        body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify(data),
       });
+      
+      if (!response.ok) {
+        throw new Error(`Import failed: ${response.statusText}`);
+      }
+      
+      return await response.json();
     },
-    onSuccess: (result) => {
+    onSuccess: (result: any) => {
       toast({
         title: "Import Successful",
-        description: `Imported ${result.successCount} cases with components`,
+        description: `Imported ${result.successCount || 0} cases with components`,
       });
       queryClient.invalidateQueries({ queryKey: ["/api/cases"] });
       queryClient.invalidateQueries({ queryKey: ["/api/components"] });

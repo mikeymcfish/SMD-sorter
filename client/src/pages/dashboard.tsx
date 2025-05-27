@@ -369,7 +369,7 @@ export default function Dashboard() {
                 selectedCategories={selectedCategories}
                 onCategoriesChange={setSelectedCategories}
               />
-              <Button variant="ghost" size="sm" onClick={importData} title="Import Data">
+              <Button variant="ghost" size="sm" onClick={() => setShowImportData(true)} title="Import Data">
                 <Plus className="h-4 w-4" />
               </Button>
               <Button variant="ghost" size="sm" onClick={() => setShowImportGuide(true)} title="Import Guide">
@@ -477,6 +477,12 @@ export default function Dashboard() {
       <ImportGuideDialog
         isOpen={showImportGuide}
         onClose={() => setShowImportGuide(false)}
+      />
+
+      <ImportDataDialog
+        isOpen={showImportData}
+        onClose={() => setShowImportData(false)}
+        onSuccess={() => setShowImportData(false)}
       />
     </div>
   );
