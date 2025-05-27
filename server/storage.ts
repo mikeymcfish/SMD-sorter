@@ -105,28 +105,41 @@ export class PostgreSQLStorage implements IStorage {
 
   private async createCompartmentsForCase(case_: Case) {
     const { CASE_LAYOUTS } = await import("../client/src/lib/constants");
-    const layout = CASE_LAYOUTS[case_.model as keyof typeof CASE_LAYOUTS];
-    
-    if (!layout) {
-      console.warn(`Unknown case model: ${case_.model}`);
+
+    // Attempt to determine layout from a model string if provided
+    const layout = (case_ as any).model
+      ? CASE_LAYOUTS[(case_ as any).model as keyof typeof CASE_LAYOUTS]
+      : undefined;
+
+    const rows = layout?.rows ?? case_.rows;
+    const cols = layout?.cols ?? case_.cols;
+
+    if (!rows || !cols) {
+      console.warn(`Cannot determine layout for case ${case_.name}`);
       return;
     }
 
-    const compartmentInserts = [];
+    // Determine which layers should be created
+    const modelStr = (case_ as any).model as string | undefined;
+    const layers = modelStr
+      ? modelStr.includes("BOTH")
+        ? ["top", "bottom"]
+        : ["top"]
+      : case_.hasBottom
+        ? ["top", "bottom"]
+        : ["top"];
 
-    // Create compartments for each layer
-    const layers = case_.model.includes("BOTH") ? ["top", "bottom"] : ["top"];
-    
+    const compartmentInserts = [];
     for (const layer of layers) {
-      for (let row = 1; row <= layout.rows; row++) {
-        for (let col = 1; col <= layout.cols; col++) {
+      for (let row = 1; row <= rows; row++) {
+        for (let col = 1; col <= cols; col++) {
           const rowLetter = String.fromCharCode(64 + row); // A, B, C, etc.
           compartmentInserts.push({
             caseId: case_.id,
             position: `${rowLetter}${col}`,
             row,
             col,
-            layer: layer as "top" | "bottom"
+            layer: layer as "top" | "bottom",
           });
         }
       }
@@ -235,17 +248,19 @@ export class MemStorage implements IStorage {
   }
 
   private initializeDefaultData() {
-    // Create a default case with BOX-ALL-144 layout
+    // Create a default case with a 12x6 top layer
     const defaultCase: Case = {
       id: this.caseIdCounter++,
       name: "Main Resistors",
-      model: "BOX-ALL-144",
+      rows: 6,
+      cols: 12,
+      hasBottom: false,
       description: "Primary resistor storage case",
       isActive: true,
     };
     this.cases.set(defaultCase.id, defaultCase);
 
-    // Create compartments for BOX-ALL-144 (6 rows × 12 columns)
+    // Create compartments for a 6×12 layout (top layer only)
     for (let row = 1; row <= 6; row++) {
       for (let col = 1; col <= 12; col++) {
         const position = String.fromCharCode(64 + row) + col; // A1, A2, B1, etc.
@@ -310,7 +325,7 @@ export class MemStorage implements IStorage {
     };
     this.cases.set(case_.id, case_);
 
-    // Create compartments based on model
+    // Create compartments based on layout data
     this.createCompartmentsForCase(case_);
 
     return case_;
